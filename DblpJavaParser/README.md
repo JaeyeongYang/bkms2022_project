@@ -29,6 +29,7 @@ Java parser codes for the DBLP dataset, Based on Java codes of [`DblpExamplePars
   data and run codes.
 - `bin`: Directory where compiled Java class files will be stored. It won't
   be tracked by git.
+- `data`: Directory to save the DBLP dataset. It should be downloaded manually.
 - `src`: Java sources for parser codes. It includes largely two groups of codes:
   - `edu.snu.bkms`: our parser codes to run.
   - `org.dblp`: official library for data structures of the DBLP dataset
