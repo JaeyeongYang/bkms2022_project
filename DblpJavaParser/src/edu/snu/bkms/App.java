@@ -1,4 +1,6 @@
+package edu.snu.bkms;
 //
+
 // Copyright (c)2015, dblp Team (University of Trier and
 // Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH)
 // All rights reserved.
@@ -45,16 +47,14 @@ import org.dblp.mmdb.TableOfContents;
 import org.xml.sax.SAXException;
 
 @SuppressWarnings("javadoc")
-class DblpJavaParser {
-
+class App {
     public static void main(String[] args) {
-
         // we need to raise entityExpansionLimit because the dblp.xml has millions of
         // entities
         System.setProperty("entityExpansionLimit", "10000000");
 
         if (args.length != 2) {
-            System.err.format("Usage: java %s <dblp-xml-file> <dblp-dtd-file>\n", DblpJavaParser.class.getName());
+            System.err.format("Usage: java %s <dblp-xml-file> <dblp-dtd-file>\n", App.class.getName());
             System.exit(0);
         }
         String dblpXmlFilename = args[0];
@@ -62,6 +62,7 @@ class DblpJavaParser {
 
         System.out.println("building the dblp main memory DB ...");
         RecordDbInterface dblp;
+        long startTime = System.currentTimeMillis();
         try {
             dblp = new RecordDb(dblpXmlFilename, dblpDtdFilename, false);
         } catch (final IOException ex) {
@@ -71,18 +72,9 @@ class DblpJavaParser {
             System.err.println("cannot parse XML: " + ex.getMessage());
             return;
         }
-        System.out.format("MMDB ready: %d publs, %d pers\n\n", dblp.numberOfPublications(), dblp.numberOfPersons());
-
-        // System.out.println("finding longest person name in dblp ...");
-        // String longestName = null;
-        // int longestNameLength = 0;
-        // for (PersonName name : dblp.getPersonNames()) {
-        // if (name.name().length() > longestNameLength) {
-        // longestName = name.name();
-        // longestNameLength = longestName.length();
-        // }
-        // }
-        // system.out.format("%s (%d chars)\n\n", longestname, longestnamelength);
+        long endTime = System.currentTimeMillis();
+        System.out.format("MMDB ready: %d publs, %d pers\n", dblp.numberOfPublications(), dblp.numberOfPersons());
+        System.out.format("Time elapsed: %.2f (sec)\n\n", (endTime - startTime) / 1000.0);
 
         // system.out.println("finding most prolific author in dblp ...");
         // string prolificauthorname = null;
@@ -148,14 +140,14 @@ class DblpJavaParser {
         // }
         // }
 
-        int i = 0;
-        for (Publication publ : dblp.getPublications()) {
-            if (++i > 100) {
-                break;
-            }
+        // int i = 0;
+        // for (Publication publ : dblp.getPublications()) {
+        // if (++i > 100) {
+        // break;
+        // }
 
-            System.out.format("%s\n", publ.toString());
-        }
+        // System.out.format("%s\n", publ.toString());
+        // }
 
         System.out.println("done.");
     }
