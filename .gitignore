@@ -138,3 +138,4 @@ data/
 build
 
 .vscode
+*.class
