@@ -1,6 +1,6 @@
 # `DblpJavaParser`
 
-Java parser codes for the DBLP dataset, Based on Java codes of [`DblpExampleParser`][dblp-example-parser].
+Java parser codes for the DBLP dataset, based on Java codes of [`DblpExampleParser`][dblp-example-parser].
 
 [dblp-example-parser]: https://dblp.org/faq/1474681.html
 
