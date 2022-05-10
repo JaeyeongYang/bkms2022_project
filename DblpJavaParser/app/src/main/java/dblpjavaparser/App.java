@@ -1,5 +1,4 @@
-package edu.snu.bkms;
-//
+package dblpjavaparser;
 
 // Copyright (c)2015, dblp Team (University of Trier and
 // Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH)
@@ -37,6 +36,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.dblp.mmdb.Record;
 import org.dblp.mmdb.Field;
 import org.dblp.mmdb.Person;
 import org.dblp.mmdb.PersonName;
@@ -140,14 +140,14 @@ class App {
         // }
         // }
 
-        // int i = 0;
-        // for (Publication publ : dblp.getPublications()) {
-        // if (++i > 100) {
-        // break;
-        // }
+        int i = 0;
+        for (Publication publ : dblp.getPublications()) {
+            if (++i > 10) {
+                break;
+            }
 
-        // System.out.format("%s\n", publ.toString());
-        // }
+            System.out.format("%s\n\n", publ.getXml());
+        }
 
         System.out.println("done.");
     }

@@ -9,7 +9,6 @@ import org.dblp.mmdb.Publication;
 import org.dblp.mmdb.TableOfContents;
 import org.xml.sax.SAXException;
 
-
 @SuppressWarnings("javadoc")
 public class Tocs {
 
@@ -27,7 +26,8 @@ public class Tocs {
 
         List<TableOfContents> emptyTocs = new ArrayList<>();
         for (TableOfContents toc : db.getTocs()) {
-            if (toc.size() == 0) emptyTocs.add(toc);
+            if (toc.size() == 0)
+                emptyTocs.add(toc);
         }
         System.out.format("empty tocs: %d\n", emptyTocs.size());
         for (TableOfContents toc : emptyTocs) {
@@ -37,7 +37,8 @@ public class Tocs {
 
         String maxTocKey = db.tocs().max((TableOfContents toc1,
                 TableOfContents toc2) -> toc1.size()
-                - toc2.size()).get().getKey();
+                        - toc2.size())
+                .get().getKey();
         System.out.println("max toc key: " + maxTocKey);
         int maxTocSize = db.tocs().mapToInt(TableOfContents::size).max().getAsInt();
         System.out.println("max toc size: " + maxTocSize);
