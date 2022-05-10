@@ -2,6 +2,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Tocs",
+      "request": "launch",
+      "mainClass": "org.dblp.mmdb.examples.Tocs",
+      "projectName": "app"
+    },
+    {
+      "type": "java",
       "name": "Launch with Arguments Prompt",
       "request": "launch",
       "mainClass": "dblpjavaparser.App",

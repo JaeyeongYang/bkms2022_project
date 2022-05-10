@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 public class Tocs {
 
     public static void main(String[] args) throws IOException, SAXException {
-        System.setProperty("entityExpansionLimit", "2000000");
+        System.setProperty("entityExpansionLimit", "10000000");
 
         if (args.length < 1) {
             System.out.format("Usage: java %s <dblp-xml>\n", Cites.class.getName());
@@ -48,10 +48,10 @@ public class Tocs {
         System.out.format("toc of %s: %s\n", recKey, db.getPublication(recKey).getToc().getKey());
         System.out.println();
 
-        String tocKey = "db/conf/focs/focs2000";
-        System.out.format("content of %s: %d\n", tocKey, db.getToc(tocKey).size());
-        for (Publication publ : db.getToc(tocKey).getPublications()) {
-            System.out.println("* " + publ.getKey());
-        }
+        // String tocKey = "db/conf/focs/focs2000";
+        // System.out.format("content of %s: %d\n", tocKey, db.getToc(tocKey).size());
+        // for (Publication publ : db.getToc(tocKey).getPublications()) {
+        // System.out.println("* " + publ.getKey());
+        // }
     }
 }
