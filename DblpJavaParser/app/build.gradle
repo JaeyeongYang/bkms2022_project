@@ -23,12 +23,29 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
     implementation 'org.neo4j.driver:neo4j-java-driver:4.4.4'
+    implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
 
-    implementation files('libs/mmdb-2019-04-29.jar')
+    // implementation files('libs/mmdb-2019-04-29.jar')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 }
 
 application {
     // Define the main class for the application.
     mainClass = 'dblpjavaparser.App'
+    applicationName = 'DblpJavaParser'
     applicationDefaultJvmArgs = ['-Xmx8G']
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'dblpjavaparser.App'
+    } from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+// task fatJar(type: Jar) {
+//     classifier = 'all'
+//     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//     with jar
+// }
