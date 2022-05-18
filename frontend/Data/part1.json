@@ -1,0 +1,3193 @@
+[{
+  "_id": "53e99784b7602d9701f3e15d",
+  "title": "Timing yield estimation using statistical static timing analysis",
+  "authors": [
+    {
+      "_id": "53f43b03dabfaedce555bf2a",
+      "name": "Min Pan"
+    },
+    {
+      "_id": "53f45ee9dabfaee43ecda842",
+      "name": "Chris C. N. Chu"
+    },
+    {
+      "_id": "53f42e8cdabfaee1c0a4274e",
+      "name": "Hai Zhou"
+    }
+  ],
+  "venue": {
+    "_id": "53a72e2020f7420be8c80142",
+    "name_d": "International Symposium on Circuits and Systems",
+    "type": 0,
+    "raw": "ISCAS (3)"
+  },
+  "year": 2005,
+  "keywords": [
+    "sequential circuits",
+    "statistical distributions",
+    "set-up time constraints",
+    "register-to-register paths",
+    "statistical static timing analysis",
+    "integrated circuit modelling",
+    "parameter estimation",
+    "statistical analysis",
+    "circuit model",
+    "path delays",
+    "deep sub-micron technology",
+    "timing",
+    "delay distributions",
+    "delays",
+    "circuit timing",
+    "shortest path variations",
+    "hold time constraints",
+    "integrated circuit yield",
+    "process variations",
+    "integrated circuit layout",
+    "high-performance circuit designs",
+    "clock skew",
+    "timing yield estimation",
+    "deterministic static timing analysis",
+    "monte carlo simulation",
+    "design method",
+    "static timing analysis",
+    "design methodology",
+    "process variation",
+    "shortest path",
+    "registers",
+    "circuit design",
+    "circuit analysis"
+  ],
+  "fos": [
+    "Delay calculation",
+    "Timing failure",
+    "Monte Carlo method",
+    "Sequential logic",
+    "Statistical static timing analysis",
+    "Shortest path problem",
+    "Computer science",
+    "Algorithm",
+    "Clock skew",
+    "Static timing analysis",
+    "Statistics"
+  ],
+  "n_citation": 28,
+  "page_start": "2461",
+  "page_end": "2464Vol.3",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "0-7803-8834-8",
+  "doi": "10.1109/ISCAS.2005.1465124",
+  "pdf": "//static.aminer.org/pdf/PDF/000/423/329/timing_yield_estimation_using_statistical_static_timing_analysis.pdf",
+  "url": [
+    "http://dx.doi.org/10.1109/ISCAS.2005.1465124",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=1465124"
+  ],
+  "abstract": "As process variations become a significant problem in deep sub-micron technology, a shift from deterministic static timing analysis to statistical static timing analysis for high-performance circuit designs could reduce the excessive conservatism that is built into current timing design methods. We address the timing yield problem for sequential circuits and propose a statistical approach to handle it. We consider the spatial and path reconvergence correlations between path delays, set-up time and hold time constraints, and clock skew due to process variations. We propose a method to get the timing yield based on the delay distributions of register-to-register paths in the circuit On average, the timing yield results obtained by our approach have average errors of less than 1.0% in comparison with Monte Carlo simulation. Experimental results show that shortest path variations and clock skew due to process variations have considerable impact on circuit timing, which could bias the timing yield results. In addition, the correlation between longest and shortest path delays is not significant.",
+  "references": [
+    "53e9a8a9b7602d97031f6bb9",
+    "599c7b6b601a182cd27360da",
+    "53e9b443b7602d9703f3e52b",
+    "53e9a6a6b7602d9702fdc57e",
+    "599c7b6a601a182cd2735703",
+    "53e9aad9b7602d970345afea",
+    "5582821f0cf2bf7bae57ac18",
+    "5e8911859fced0a24bb9a2ba",
+    "53e9b002b7602d9703a5c932"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3e165",
+  "title": "34957+70764=105621",
+  "authors": [
+    {
+      "_id": "54484654dabfae87b7dfc077",
+      "name": "Jon G. Hall",
+      "sid": "433474"
+    }
+  ],
+  "venue": {
+    "_id": "53a001b1831432abcb737ee4",
+    "type": 0,
+    "raw": "Expert Systems"
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "305",
+  "page_end": "306",
+  "lang": "en",
+  "volume": "26",
+  "issue": "4",
+  "doi": "10.1111/j.1468-0394.2009.00532.x",
+  "url": [
+    "http://dx.doi.org/10.1111/j.1468-0394.2009.00532.x"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3e3f5",
+  "title": "3GIO.",
+  "venue": {
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en"
+},{
+  "_id": "53e99784b7602d9701f3eaf4",
+  "title": "1may",
+  "authors": [
+    {
+      "name": "Daniel Zdunczyk",
+      "org": "Wroclaw, Poland",
+      "gid": "5b86cf86e1cd8e14a3ff9ffc",
+      "_id": "53f4312edabfaee02ac9110a"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2004,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "197",
+  "page_end": "197",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "1-58113-896-2",
+  "doi": "10.1145/1186015.1186050",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1186015.1186050",
+    "http://doi.acm.org/10.1145/1186015.1186050"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3e162",
+  "title": "300",
+  "authors": [
+    {
+      "gid": "5b869031e1cd8e14a34a782f",
+      "_id": "53f43d95dabfaedf435b63fa",
+      "name": "Maureen Squillace",
+      "org": "Fox Studios Australia, Moore Park, New South Wales, Australia",
+      "orgid": "5f71b2e41c455f439fe3efd1"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2007,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "14",
+  "page_end": "14",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1145/1281740.1281746",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1281740.1281746",
+    "http://doi.acm.org/10.1145/1281740.1281746"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3e922",
+  "title": "International Conference on Nano/Micro Engineered and Molecular Systems",
+  "authors": [
+    {
+      "_id": "53f39e3edabfae4b34aa8c4a",
+      "name": "Jungil Park",
+      "sid": "237372"
+    },
+    {
+      "name": "Sunyoung Ahn",
+      "sid": "24447851",
+      "_id": "53f431bcdabfaee2a1cb41b5"
+    },
+    {
+      "_id": "53f46ac3dabfaeee22a63eab",
+      "name": "Youngmi Kim Pak",
+      "sid": "4241287"
+    },
+    {
+      "_id": "53f44f6adabfaedf435efcb8",
+      "name": "James Jungho Pak",
+      "sid": "22875855"
+    }
+  ],
+  "venue": {
+    "_id": "53a72dfb20f7420be8c7a2f3",
+    "raw": "NEMS"
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 1,
+  "page_start": "1054",
+  "page_end": "1057",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "doi": "10.1109/NEMS.2009.5068754",
+  "pdf": "//static.aminer.org/pdf/PDF/002/845/190/.pdf",
+  "url": [
+    "http://doi.ieeecomputersociety.org/10.1109/NEMS.2009.5068754"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3e151",
+  "title": "A solution to the problem of touching and broken characters.",
+  "authors": [
+    {
+      "_id": "53f46797dabfaeb22f542630",
+      "name": "Jairo Rocha"
+    },
+    {
+      "_id": "54328883dabfaeb4c6a8a699",
+      "name": "Theo Pavlidis"
+    }
+  ],
+  "venue": {
+    "_id": "53a72a4920f7420be8bfa51b",
+    "name_d": "International Conference on Document Analysis and Recognition",
+    "type": 0,
+    "raw": "ICDAR-1"
+  },
+  "year": 1993,
+  "keywords": [
+    "handwriting recognition",
+    "prototypes",
+    "image segmentation",
+    "computer science",
+    "expert systems",
+    "knowledge base",
+    "pattern recognition",
+    "usability",
+    "optical character recognition",
+    "shape",
+    "feature extraction"
+  ],
+  "fos": [
+    "Intelligent character recognition",
+    "Pattern recognition",
+    "Computer science",
+    "Feature (computer vision)",
+    "Document processing",
+    "Handwriting recognition",
+    "Optical character recognition",
+    "Feature extraction",
+    "Feature (machine learning)",
+    "Artificial intelligence",
+    "Intelligent word recognition"
+  ],
+  "n_citation": 17,
+  "page_start": "602",
+  "page_end": "605",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1109/ICDAR.1993.395663",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1109/ICDAR.1993.395663"
+  ],
+  "abstract": "",
+  "references": [
+    "53e99cf5b7602d97025ace63",
+    "557e8a7a6fee0fe990caa63d",
+    "53e9a96cb7602d97032c459a",
+    "53e9b929b7602d9704515791",
+    "557e59ebf6678c77ea222447"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f326",
+  "title": "458nm",
+  "authors": [
+    {
+      "_id": "53f44a4adabfaedd74dfe5c0",
+      "name": " Institute of Animation, Visual Effects and Digital Postproduction",
+      "org": "Filmakademie Baden-Württemberg, Ludwigsburg, Germany",
+      "gid": "5b86ab01e1cd8e14a3fb2c33",
+      "orgid": "5f71b3e41c455f439fe46157"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2006,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "1-59593-364-6",
+  "doi": "10.1145/1179196.1179199",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1179196.1179199",
+    "http://doi.acm.org/10.1145/1179196.1179199"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f177",
+  "title": "6th",
+  "authors": [
+    {
+      "_id": "53f42d84dabfaee1c0a355c4",
+      "name": "Damien Perritaz",
+      "sid": "3844816"
+    },
+    {
+      "_id": "53f46fa1dabfaec09f263a80",
+      "name": "Christophe Salzmann",
+      "sid": "2269097"
+    },
+    {
+      "sid": "17895751",
+      "_id": "541023addabfae450f4d5127",
+      "name": "Denis Gillet"
+    },
+    {
+      "name": "Olivier Naef",
+      "sid": "22873952",
+      "_id": "53f42b9fdabfaedf434faea8"
+    },
+    {
+      "sid": "5217547",
+      "_id": "53f454cddabfaec09f2009b7",
+      "name": "Jacques Bapst"
+    },
+    {
+      "name": "Frédéric Barras",
+      "sid": "23688121",
+      "_id": "53f47a8ddabfaee43ed42c17"
+    },
+    {
+      "_id": "54096818dabfae8faa68bc76",
+      "name": "Elena Mugellini",
+      "sid": "3501899"
+    },
+    {
+      "_id": "54865672dabfae8a11fb31aa",
+      "name": "Omar Abou Khaled",
+      "sid": "101612"
+    }
+  ],
+  "venue": {
+    "_id": "53a723b120f74fc8a8f32fea",
+    "raw": "Human Machine Interaction",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "280",
+  "page_end": "310",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "doi": "10.1007/978-3-642-00437-7_11",
+  "pdf": "",
+  "url": [
+    "http://dx.doi.org/10.1007/978-3-642-00437-7_11"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3e161",
+  "title": "360°",
+  "authors": [
+    {
+      "_id": "53f46946dabfaec09f24b4ed",
+      "name": "Miguel Palma",
+      "org": "Miguel Palma Studio",
+      "gid": "5b86cf1ae1cd8e14a3fc787b",
+      "oid": "544bd9c245ce266baf189c4f"
+    }
+  ],
+  "venue": {
+    "_id": "5390a74a20f70186a0e8b40b",
+    "raw": "ACM SIGGRAPH ASIA 2009 Art Gallery & Emerging Technologies: Adaptation"
+  },
+  "year": 2009,
+  "keywords": [
+    "global high technology",
+    "daily short-distance flight",
+    "enormous waste",
+    "daily life"
+  ],
+  "page_start": "39",
+  "page_end": "39",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1145/1665137.1665166",
+  "abstract": "360° represents the concerns that are addressed in most of my work and my approach to it: the effect of global high technology on daily life and the environment (for example, daily short-distance flights to avoid enormous wastes of time)."
+},{
+  "_id": "53e99784b7602d9701f3f327",
+  "title": "49",
+  "authors": [
+    {
+      "_id": "53f42fd0dabfaedd74d553b0",
+      "name": "Ichiro Iwano",
+      "org": "Iwano Design, Nagakute Aichi, Japan",
+      "gid": "5b86be9ce1cd8e14a3856487",
+      "orgid": "5f71b2b31c455f439fe3da0a"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2007,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "16",
+  "page_end": "16",
+  "lang": "en",
+  "volume": "31",
+  "issue": "5",
+  "issn": "Regional Anesthesia and Pain Medicine",
+  "isbn": "",
+  "doi": "10.1145/1281740.1281748",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1281740.1281748",
+    "http://doi.acm.org/10.1145/1281740.1281748"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f4d2",
+  "title": "8848",
+  "authors": [
+    {
+      "_id": "53f463b3dabfaee4dc8430d5",
+      "name": "Annabel Sebag",
+      "org": "Supinfocom Valenciennes, Paris, France",
+      "gid": "5b86a747e1cd8e14a3e2d100",
+      "orgid": "5f71b4391c455f439fe4876d"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2007,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "17",
+  "page_end": "17",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1145/1281740.1281749",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1281740.1281749",
+    "http://doi.acm.org/10.1145/1281740.1281749"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3eaf2",
+  "title": "11MonkeysII",
+  "authors": [
+    {
+      "_id": "53f438d0dabfaeee229c1f1c",
+      "name": "Naotaka Tanaka"
+    },
+    {
+      "_id": "53f47083dabfaeee22a79321",
+      "name": "Mio Yamamoto"
+    }
+  ],
+  "venue": {
+    "_id": "5390b44b20f70186a0efa5ba",
+    "raw": "RoboCup 2009",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2001,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "513",
+  "page_end": "514",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "3-540-42185-8",
+  "doi": "10.1007/3-540-45324-5_74",
+  "url": [
+    "http://dx.doi.org/10.1007/3-540-45324-5_74"
+  ],
+  "abstract": "Constructing a system that can cope with a dynamically changing environment is one of the greatest interests in the field of software engineering.And, biologically inspired systems, such as brain-nervous system, genetic system are already modeled as neural networks and genetic algorithms(GAs in short), and its usefulness is reported in various fields.Ho wever, despite of its advanced information processing system, immune system and endocrine system still has a long way to go before it is modeled like other ones.This may due to their complexity and randomness of the system.Nev ertheless, the nature of the biological immune system, it is dedicated to self-preservation under hostile environment and enables the creature to maintain its life.Imm une system is also capable of learning, memory, and pattern recognition. "
+},{
+  "_id": "53e99784b7602d9701f3f4d1",
+  "title": "893",
+  "authors": [
+    {
+      "gid": "5b86c6c2e1cd8e14a3bfca09",
+      "_id": "53f459b8dabfaeecd69f7b93",
+      "name": "Anne Brotot",
+      "org": "2 rue Yvan Audouard, Arles, France",
+      "orgid": "5f71b4961c455f439fe4b0fe"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "11",
+  "page_end": "11",
+  "lang": "en",
+  "volume": "8",
+  "issue": "4",
+  "issn": "Journal of Pain",
+  "isbn": "",
+  "doi": "10.1145/1400468.1400471",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1400468.1400471",
+    "http://doi.acm.org/10.1145/1400468.1400471"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3e4f4",
+  "title": "2BTextures",
+  "authors": [
+    {
+      "_id": "53f45ad4dabfaee1c0b3e206",
+      "name": "Bonnie Mitchell"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976060",
+    "type": 10,
+    "raw": "SIGGRAPH Computer Animation Fesitval"
+  },
+  "year": 2009,
+  "keywords": [
+    "visual source material",
+    "minute sound",
+    "integrated journey temporally",
+    "abstract environment",
+    "intricate detail",
+    "particulated image",
+    "artists delve",
+    "visual experience",
+    "multi-faceted granular complexity",
+    "stylized natural element"
+  ],
+  "n_citation": 0,
+  "page_start": "8",
+  "page_end": "8",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1145/1596685.1596687",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1596685.1596687",
+    "http://doi.acm.org/10.1145/1596685.1596687",
+    "db/conf/siggraph/siggraph2009festival.html#Mitchell09",
+    "https://doi.org/10.1145/1596685.1596687"
+  ],
+  "abstract": "\"2BTextures\", a two-movement audio/visual experience, leads viewers through abstract environments influenced by nature and life. This integrated journey temporally explores the multi-faceted granular complexity inherent in its sonic and visual source material. By fragmenting and simulating stylized natural elements, the artists delve into the intricate detail found in minute sounds and particulated images. As each movement unfolds, viewers traverse a macro-landscape or shift their focus to micro-elements."
+},{
+  "_id": "53e99784b7602d9701f3eaf6",
+  "title": "1",
+  "authors": [
+    {
+      "_id": "560175b545cedb3395e59d80",
+      "name": "C. Evans"
+    },
+    {
+      "name": "S. Abu Rmeileh",
+      "_id": "53f42d5edabfaedce54c5021"
+    }
+  ],
+  "venue": {
+    "_id": "5550378c7cea80f95418e530",
+    "raw": "AINA Workshops",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2013,
+  "keywords": [
+    "existing platform",
+    "software agent",
+    "BDI model",
+    "new BDI",
+    "agent platform design",
+    "CloudNetBDI platform prototype",
+    "effective agent system",
+    "CloudNetBDI platform",
+    "autonomous BDI",
+    "agent platform"
+  ],
+  "n_citation": 39,
+  "page_start": "1186",
+  "page_end": "1191",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1109/WAINA.2013.48",
+  "url": [
+    "http://doi.ieeecomputersociety.org/10.1109/WAINA.2013.48"
+  ],
+  "abstract": "There is a growing interest in the potential of software agent technologies for building the next generation of advanced software systems that will help solving problems that require advanced user interactions and intensive collaborations. Despite this interest, software agents are not yet widespread due to many reasons, one of which is the heavy programming work that has to be done in order to create efficient and effective agent systems, particularly from the point of view of agents' characteristics, such as autonomy and deliberation on one hand, and integration with other technologies and applications on the other. While several agent platforms implement the belief-desire-intention (BDI) architecture have been proposed, most of these platforms are implemented based on existing general purpose programming languages, e.g. Java. As a consequence, this prevents the use of advanced features of the underlying programming language and the integration with new technologies and paradigms that are essential for the development of enterprise applications. Due to these limitations of the existing platforms, a new BDI distributed agent platform design and implementation is proposed in this paper. The CloudNetBDI platform prototype is compliant with the specifications of the Foundation for Intelligent Physical Agents (FIPA) and has been implemented in the .NET framework. The CloudNetBDI platform employs the BDI model as an internal reasoning engine for its agents. Furthermore, the CloudNetBDI platform provides an interface for developers to design and develop enriched, robust and autonomous BDI based distributed multi-agent systems."
+},{
+  "_id": "53e99784b7602d9701f3f352",
+  "title": "4IM.",
+  "authors": [],
+  "venue": {
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": ""
+},{
+  "_id": "53e99784b7602d9701f3f0b9",
+  "title": "7373170279850",
+  "authors": [
+    {
+      "name": "Jean-marc Deshouillers",
+      "sid": "134541",
+      "_id": "53f42c7cdabfaedf43509437"
+    },
+    {
+      "_id": "53f4d04ddabfaeeee2f8199d",
+      "name": "François Hennecart",
+      "sid": "2189974"
+    },
+    {
+      "_id": "53f431fedabfaee43ec009a6",
+      "name": "Bernard Landreau",
+      "sid": "1170774"
+    },
+    {
+      "sid": "34129661",
+      "_id": "53f46fe4dabfaeee22a770f3",
+      "name": "I. Gusti Putu Purnaba"
+    }
+  ],
+  "venue": {
+    "_id": "555036dd7cea80f954161b91",
+    "raw": "Math. Comput.",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2000,
+  "keywords": [],
+  "n_citation": 12,
+  "page_start": "421",
+  "page_end": "439",
+  "lang": "en",
+  "volume": "69",
+  "issue": "229",
+  "doi": "10.1090/S0025-5718-99-01116-3",
+  "pdf": "//static.aminer.org/pdf/PDF/001/011/809/.pdf",
+  "url": [
+    "http://dx.doi.org/10.1090/S0025-5718-99-01116-3"
+  ],
+  "abstract": "We conjecture that 7,373,170,279,850 is the largest integer which cannot be expressed as the sum of four nonnegative integral cubes."
+},{
+  "_id": "53e99784b7602d9701f3e133",
+  "title": "The relationship between canopy parameters and spectrum of winter wheat under different irrigations in Hebei Province.",
+  "authors": [
+    {
+      "_id": "53f45728dabfaec09f209538",
+      "name": "Peijuan Wang"
+    },
+    {
+      "_id": "5601754345cedb3395e59457",
+      "name": "Jiahua Zhang"
+    },
+    {
+      "_id": "53f38438dabfae4b34a08928",
+      "name": "Donghui Xie"
+    },
+    {
+      "_id": "5601754345cedb3395e5945a",
+      "name": "Yanyan Xu"
+    },
+    {
+      "_id": "53f43d25dabfaeecd6995149",
+      "name": "Yun Xu"
+    }
+  ],
+  "venue": {
+    "_id": "53a7297d20f7420be8bd4ae7",
+    "name_d": "International Geoscience and Remote Sensing Symposium",
+    "type": 0,
+    "raw": "IGARSS"
+  },
+  "year": 2011,
+  "keywords": [
+    "canopy parameters",
+    "canopy spectrum",
+    "different soil water content control",
+    "winter wheat",
+    "irrigation",
+    "hydrology",
+    "radiometry",
+    "moisture",
+    "indexes",
+    "vegetation",
+    "indexation",
+    "dry weight",
+    "soil moisture",
+    "water content",
+    "indexing terms",
+    "spectrum",
+    "natural disaster"
+  ],
+  "fos": [
+    "Agronomy",
+    "Moisture",
+    "Hydrology",
+    "Environmental science",
+    "Dry weight",
+    "Water content",
+    "Stomatal conductance",
+    "Transpiration",
+    "Irrigation",
+    "Soil water",
+    "Canopy"
+  ],
+  "n_citation": 0,
+  "page_start": "1930",
+  "page_end": "1933",
+  "lang": "en",
+  "volume": "null",
+  "issue": "null",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1109/IGARSS.2011.6049503",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1109/IGARSS.2011.6049503"
+  ],
+  "abstract": "Drought is the first place in all the natural disasters in the world. It is especially serious in North China Plain. In this paper, different soil water content control levels at winter wheat growth stages are performed on Gucheng Ecological-Meteorological Integrated Observation Experiment Station of CAMS, China. Some canopy parameters, including growth conditions, dry weight, physiological parameters and hyperspectral reflectance, are measured from erecting stage to milk stage for winter wheat in 2009. The relationship between canopy parameters and soil relative moisture, canopy water content and water indices of winter wheat are established. The results show that some parameters, such as SPAD and dry weight of leaves, decrease with the increasing of soil relative moisture, while other parameters, including dry weight of caudexes, above ground dry weight, height, photosynthesis rate, intercellular CO 2 concentration, stomatal conductance and transpiration rate, increase corresponding to the soil relative moisture. Obvious linear relationship between stomatal conductance and transpiration rate is established with 45 samples, which R2 reaches to 0.6152. Finally, the fitting equations between canopy water content and water indices are regressed with b5, b6 and b7 of MODIS bands. The equations are best with b7 and worst with b5. So the fitting equations with b7 can be used to inverse the canopy water content of winter wheat using MODIS or other remote sensing images with similar bands range to MODIS in Hebei Province. © 2011 IEEE."
+},{
+  "_id": "53e99784b7602d9701f3f8c3",
+  "title": "Forward",
+  "authors": [
+    {
+      "_id": "53f4d429dabfaeedd3781ccf",
+      "name": "J.R. Gat",
+      "org": "Isotope Department, Weizmann Institute of Science, Rehovot, Israel",
+      "gid": "5b86b6cfe1cd8e14a34d092b",
+      "orgid": "5f71b2a41c455f439fe3d43e"
+    },
+    {
+      "_id": "53f459b8dabfaee0d9c00acb",
+      "name": "J. Kushnir",
+      "org": "Isotope Department, Weizmann Institute of Science, Rehovot, Israel",
+      "gid": "5b86b6cfe1cd8e14a34d092b",
+      "orgid": "5f71b2a41c455f439fe3d43e"
+    },
+    {
+      "_id": "54093fbcdabfae450f46f78e",
+      "name": "A. Nissenbaum",
+      "org": "Isotope Department, Weizmann Institute of Science, Rehovot, Israel",
+      "gid": "5b86b6cfe1cd8e14a34d092b",
+      "orgid": "5f71b2a41c455f439fe3d43e"
+    }
+  ],
+  "venue": {
+    "_id": "53a726b520f7420be8b7ec70",
+    "raw": "HotNets",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 10
+  },
+  "year": 1980,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "v",
+  "page_end": "v",
+  "lang": "en",
+  "volume": "28",
+  "issue": "1",
+  "issn": "Developments in Sedimentology",
+  "isbn": "",
+  "doi": "10.1016/S0070-4571(08)70224-3",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1016/S0070-4571(08)70224-3",
+    "http://www.read.cs.ucla.edu/hotnets5/forward.pdf",
+    "http://dx.doi.org/https://doi.org/10.1080/08870440802328417",
+    "http://www.tandfonline.com/doi/full/10.1080/08870440802328417",
+    "http://dx.doi.org/https://doi.org/10.1007/s00477-003-0149-1",
+    "https://link.springer.com/article/10.1007/s00477-003-0149-1"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f8c2",
+  "title": "Foreword.",
+  "authors": [
+    {
+      "_id": "53f46210dabfaedf43634cba",
+      "name": "El Mohajir, Mohammed",
+      "org": "FSDM, USMBA, Fez, Morocco|c|",
+      "gid": "5b86c21ae1cd8e14a39e6b14",
+      "orgid": "5f71b2811c455f439fe3c5b7"
+    },
+    {
+      "name": "Begdouri, Ahlame"
+    },
+    {
+      "_id": "560175f745cedb3395e5a536",
+      "name": "El Mohajir, Badreddine"
+    },
+    {
+      "name": "Zarghili, Arsalane",
+      "_id": "560175f745cedb3395e5a539"
+    }
+  ],
+  "venue": {
+    "_id": "53a7314420f7420be8d31c79",
+    "raw": "IEICE Transactions",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 11
+  },
+  "year": 2012,
+  "keywords": [
+    "Political Economy",
+    "Social Choice",
+    "Historical Perspective",
+    "Welfare Economic",
+    "50th Anniversary"
+  ],
+  "n_citation": 6,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "1",
+  "issue": "Supplement 1",
+  "issn": "2212-3431",
+  "isbn": "978-1-4673-2724-4",
+  "doi": "10.1109/CIST.2012.6388046",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1109/CIST.2012.6388046",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=6388046",
+    "http://www.ncbi.nlm.nih.gov/pubmed/22998934?report=xml&format=text",
+    "http://dx.doi.org/10.2165/1159571-S0-000000000-00000",
+    "http://link.springer.com/article/10.2165/1159571-S0-000000000-00000",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27008821?report=xml&format=text",
+    "http://search.ieice.org/bin/summary.php?id=e100-a_1_1",
+    "http://dx.doi.org/10.1109/WINCOM.2016.7777230",
+    "https://doi.org/10.23919/ConTEL.2017.8000005",
+    "https://doi.org/10.1587/transfun.E101.A.1323",
+    "http://search.ieice.org/bin/summary.php?id=e101-a_9_1323",
+    "https://doi.org/10.1007/s11786-018-0371-3",
+    "http://dx.doi.org/10.1007/s00125-002-1007-2",
+    "https://link.springer.com/10.1007/s00125-002-1007-2",
+    "http://dx.doi.org/10.1134/S1024856009040010",
+    "https://link.springer.com/10.1134/S1024856009040010",
+    "http://dx.doi.org/10.1007/s13280-017-0967-x",
+    "https://link.springer.com/10.1007/s13280-017-0967-x",
+    "http://dx.doi.org/10.1007/s00355-005-0001-2",
+    "https://link.springer.com/10.1007/s00355-005-0001-2",
+    "http://dx.doi.org/10.1007/s10584-005-4244-9",
+    "https://link.springer.com/10.1007/s10584-005-4244-9",
+    "http://dx.doi.org/10.1007/BF00148585",
+    "https://link.springer.com/10.1007/BF00148585"
+  ],
+  "abstract": "Pattern finding in biomolecular data is at the core of Computational Molecular Biology research. Indeed, it makes a very important contribution in the analysis of these data. It can reveal information about shared biological functions of biological macromolecules, coming from several different organisms, by the identification of patterns that are shared by structures related to these macromolecules. These patterns, which have been conserved during evolution, often play an important structural and/or functional role, and consequently, shed light on the mechanisms and the biological processes in which these macromolecules participate. Pattern finding in biomolecular data is also used in evolutionary studies, in order to analyze relationships that exist between species and establish if two, or several, biological macromolecules are homologous and to reconstruct the phylogenetic tree that links them to their common biological ancestor. On the other hand, with the new sequencing technologies, the number of biological sequences in databases is increasing exponentially. In addition, the lengths of these sequences are large. Hence, the finding of patterns in such databases requires the development of fast, low memory requirement and highperformance techniques and approaches. This issue contains very interesting papers that deal with pattern finding in Computational Molecular Biology."
+},{
+  "_id": "53e99784b7602d9701f3f8d2",
+  "title": "Foreword.",
+  "authors": [
+    {
+      "_id": "53f43c87dabfaedf435b42c8",
+      "name": "McDonald Mark W"
+    },
+    {
+      "_id": "560175f745cedb3395e5a53c",
+      "name": "McMullen Kevin P"
+    }
+  ],
+  "venue": {
+    "_id": "53a7314420f7420be8d31c79",
+    "raw": "IEICE Transactions",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 11
+  },
+  "year": 1962,
+  "keywords": [],
+  "n_citation": 18,
+  "page_start": "69",
+  "page_end": "69",
+  "lang": "en",
+  "volume": "39",
+  "issue": "2",
+  "issn": "1535-6345",
+  "isbn": "",
+  "doi": "10.1016/j.currproblcancer.2015.04.001",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1016/j.currproblcancer.2015.04.001",
+    "http://www.ncbi.nlm.nih.gov/pubmed/20327322?report=xml&format=text",
+    "http://www.ncbi.nlm.nih.gov/pubmed/25937586?report=xml&format=text",
+    "http://dx.doi.org/10.1016/j.bpobgyn.2015.11.011",
+    "http://www.ncbi.nlm.nih.gov/pubmed/26725702?report=xml&format=text",
+    "http://dx.doi.org/10.1007/BF02890587",
+    "http://link.springer.com/article/10.1007/BF02890587",
+    "http://dx.doi.org/10.1007/s11664-007-0303-5",
+    "http://link.springer.com/article/10.1007/s11664-007-0303-5",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27227176?report=xml&format=text",
+    "http://search.ieice.org/bin/summary.php?id=e101-d_2_277",
+    "http://dx.doi.org/10.1667/RR0SNO.1",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28723275",
+    "http://dx.doi.org/10.1097/GRF.0000000000000289",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28426503"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f414",
+  "title": "90°",
+  "authors": [
+    {
+      "org": "Supinfocom Valenciennes, Paris, France",
+      "gid": "5b86a747e1cd8e14a3e2d100",
+      "_id": "53f463b3dabfaee4dc8430d5",
+      "name": "Annabel Sebag",
+      "orgid": "5f71b4391c455f439fe4876d"
+    }
+  ],
+  "venue": {
+    "_id": "5736ae3ad39c4f40a7976010",
+    "raw": "SIGGRAPH Computer Animation Festival",
+    "raw_zh": null,
+    "type": 10
+  },
+  "year": 2007,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "18",
+  "page_end": "18",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1145/1281740.1281750",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1145/1281740.1281750",
+    "http://doi.acm.org/10.1145/1281740.1281750"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f411",
+  "title": "Using XML to Integrate Existing Software Systems into the Web",
+  "authors": [
+    {
+      "_id": "548a2e3ddabfae9b40134fbc",
+      "name": "Harry M. Sneed"
+    }
+  ],
+  "venue": {
+    "_id": "53a72e9920f7420be8c93fac",
+    "name_d": "Computer Software and Applications Conference",
+    "type": 0,
+    "raw": "COMPSAC"
+  },
+  "year": 2002,
+  "keywords": [
+    "Internet",
+    "hypermedia markup languages",
+    "information resources",
+    "systems re-engineering",
+    "COBOL",
+    "PL/I",
+    "World Wide Web",
+    "XML",
+    "batch programs",
+    "data conversion",
+    "e-commerce",
+    "eXtensible Markup Language",
+    "enterprise application integration",
+    "interface reengineering",
+    "legacy programs",
+    "online programs",
+    "software reengineering",
+    "subprograms",
+    "systems integration"
+  ],
+  "fos": [
+    "XML Base",
+    "World Wide Web",
+    "XML framework",
+    "XML Encryption",
+    "Efficient XML Interchange",
+    "SGML",
+    "Programming language",
+    "Software engineering",
+    "XML",
+    "XML validation",
+    "Computer science",
+    "cXML"
+  ],
+  "n_citation": 28,
+  "page_start": "167",
+  "page_end": "172",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "0-7695-1727-7",
+  "doi": "10.1109/CMPSAC.2002.1044548",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1109/CMPSAC.2002.1044548",
+    "http://doi.ieeecomputersociety.org/10.1109/CMPSAC.2002.1044548",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=1044548"
+  ],
+  "abstract": "The eXtensible Markup Language 驴 XML 驴 is not only a language for communication between humans and the web, it is also a language for communication between programs. Rather than passing parameters, programs can pass documents from one to another, containing not only pure data, but control information as well. Even legacy programs written in ancient languages such as COBOL and PL/I can be adapted by means ofinterface reengineering to process and to generate XML documents.",
+  "references": [
+    "53e9adbdb7602d97037be8a2",
+    "53e9bb53b7602d9704792f33",
+    "558aa425e4b0b32fcb37fff4",
+    "558abd44e4b031bae1f9653a",
+    "53e9a326b7602d9702c32229",
+    "53e9b1d7b7602d9703c6ce7c",
+    "558a7de784ae84d265bdee99",
+    "53e9ae17b7602d9703828d13",
+    "53e9aa4fb7602d97033bf9ad"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f8c1",
+  "title": "Foreword",
+  "authors": [
+    {
+      "email": "harimsri@math.uvic.ca",
+      "gid": "5b869a4fe1cd8e14a38d67b5",
+      "_id": "53f49508dabfaeb4c677b4a4",
+      "name": "Hiromasa Habuchi",
+      "org": "Department of Mathematics and Statistics, University of Victoria, Victoria, BC, V8W 3R4, Canada",
+      "orgid": "5f71b2841c455f439fe3c6c9"
+    },
+    {
+      "_id": "53f43522dabfaee4dc7780b2"
+    },
+    {
+      "_id": "560175f745cedb3395e5a530"
+    }
+  ],
+  "venue": {
+    "_id": "53a7314420f7420be8d31c79",
+    "raw": "IEICE Transactions",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 1966,
+  "keywords": [
+    "Particle Image Velocimetry",
+    "Particle Image Velocimetry Technique",
+    "Total Analysis System",
+    "Microchannel Flow",
+    "Velocity Profile Measurement"
+  ],
+  "n_citation": 93,
+  "page_start": "303",
+  "page_end": "303",
+  "lang": "en",
+  "volume": "111",
+  "issue": "3",
+  "issn": "The American Journal of Surgery",
+  "isbn": "0-7803-8633-7",
+  "doi": "10.1016/S0002-9610(66)80001-6",
+  "pdf": "https://static.aminer.cn/upload/pdf/program/53e99784b7602d9701f3f8c1_0.pdf",
+  "url": [
+    "http://dx.doi.org/10.1016/S0002-9610(66)80001-6",
+    "http://dx.doi.org/10.1016/S0065-2423(08)60409-6",
+    "http://dx.doi.org/10.1016/S0076-695X(08)60627-4",
+    "http://dx.doi.org/10.1098/rspa.1965.0083",
+    "http://dx.doi.org/10.1016/0079-6565(66)80001-8",
+    "http://dx.doi.org/10.1097/00003081-196503000-00012",
+    "http://dx.doi.org/10.1097/00003081-196512000-00001",
+    "http://dx.doi.org/10.1097/00003081-196609000-00001",
+    "http://dx.doi.org/10.1097/00003081-196703000-00001",
+    "http://dx.doi.org/10.1097/00003081-196709000-00011",
+    "http://dx.doi.org/10.1097/00004311-196604440-00001",
+    "http://dx.doi.org/10.1109/CCA.2004.1387171",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=1387171",
+    "http://dx.doi.org/10.1109/ISIC.2004.1387642",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=1387642",
+    "http://dl.acm.org/citation.cfm?id=593145.593180&coll=DL&dl=GUIDE&CFID=522412922&CFTOKEN=25818063&preflayout=flat",
+    "http://dx.doi.org/10.1186/1687-1847-2013-366",
+    "http://link.springer.com/article/10.1186/1687-1847-2013-366",
+    "http://dx.doi.org/10.1097/AOG.0000000000001386",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27176178?report=xml&format=text",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27212869?report=xml&format=text",
+    "http://dx.doi.org/10.1177/1591019916648038",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27231103?report=xml&format=text",
+    "http://dx.doi.org/10.7748/ns.20.40.4.s63",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27758346?report=xml&format=text",
+    "http://search.ieice.org/bin/summary.php?id=e100-a_1_184",
+    "http://search.ieice.org/bin/summary.php?id=e100-a_2_345",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.05.004",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28764840",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.06.003",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28818325",
+    "http://www.math.md/publications/csjm/issues/v12-n2/8478/",
+    "https://doi.org/10.1007/s10287-005-0022-4",
+    "http://dx.doi.org/10.1109/T4E.2015.34",
+    "http://dl.acm.org/citation.cfm?id=2924687&preflayout=flat",
+    "http://dx.doi.org/10.1109/UNESST.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2925024&preflayout=flat",
+    "http://dx.doi.org/10.1109/SIP.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2924497&preflayout=flat",
+    "http://dx.doi.org/10.1109/DRBC.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2918049&preflayout=flat",
+    "http://dx.doi.org/10.1109/GDC.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2918310&preflayout=flat",
+    "http://dx.doi.org/10.1109/DTA.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2918135&preflayout=flat",
+    "http://dx.doi.org/10.1109/ASEA.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2916151&preflayout=flat",
+    "http://dx.doi.org/10.1109/BSBT.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2916504&preflayout=flat",
+    "http://dx.doi.org/10.1109/SecTech.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2924429&preflayout=flat",
+    "http://dx.doi.org/10.1109/FGCN.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2918292&preflayout=flat",
+    "http://dx.doi.org/10.1109/SITIS.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2924220&preflayout=flat",
+    "http://dx.doi.org/10.1109/HotWeb.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2919223&preflayout=flat",
+    "http://dx.doi.org/10.1145/3052720",
+    "http://dl.acm.org/citation.cfm?id=3052720&preflayout=flat",
+    "http://dx.doi.org/10.1109/BLOCKS.2015.7368986",
+    "http://dl.acm.org/citation.cfm?id=2878691&preflayout=flat",
+    "http://dx.doi.org/10.1109/3DV.2015.5",
+    "http://dl.acm.org/citation.cfm?id=2848904&preflayout=flat",
+    "http://dx.doi.org/10.1109/CSITechnol.2015.7358237",
+    "http://dl.acm.org/citation.cfm?id=2879115&preflayout=flat",
+    "http://dx.doi.org/10.1109/SIOT.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2867411&preflayout=flat",
+    "http://dx.doi.org/10.1109/SBES.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2867030&preflayout=flat",
+    "http://dx.doi.org/10.1109/ECBS-EERC.2015.5",
+    "http://dl.acm.org/citation.cfm?id=2860551&preflayout=flat",
+    "http://dx.doi.org/10.1109/AITS.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2916323&preflayout=flat",
+    "http://dx.doi.org/10.1109/IRI.2015.5",
+    "http://dl.acm.org/citation.cfm?id=2864453&preflayout=flat",
+    "http://dx.doi.org/10.1109/STAST.2015.5",
+    "http://dl.acm.org/citation.cfm?id=2867906&preflayout=flat",
+    "http://dx.doi.org/10.1109/LICS.2015.5",
+    "http://dl.acm.org/citation.cfm?id=2876586&preflayout=flat",
+    "http://dx.doi.org/10.1109/CIA.2015.4",
+    "http://dl.acm.org/citation.cfm?id=2916712&preflayout=flat",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.08.001",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29032851",
+    "http://dx.doi.org/10.1016/j.jbior.2017.11.002",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29137882",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.10.001",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29153385",
+    "http://search.ieice.org/bin/summary.php?id=e100-d_8_1555",
+    "http://search.ieice.org/bin/summary.php?id=e100-c_9_694",
+    "http://search.ieice.org/bin/summary.php?id=e100-a_9_1763",
+    "http://search.ieice.org/bin/summary.php?id=e100-c_10_749",
+    "https://doi.org/10.1016/S0165-0114(96)90103-7",
+    "http://dx.doi.org/10.1097/CNQ.0000000000000180",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29210761",
+    "http://dx.doi.org/10.1016/j.wjorl.2015.10.001",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29204532",
+    "http://search.ieice.org/bin/summary.php?id=e100-b_11_1977",
+    "http://search.ieice.org/bin/summary.php?id=e100-a_11_2219",
+    "http://search.ieice.org/bin/summary.php?id=e101-b_1_1",
+    "http://search.ieice.org/bin/summary.php?id=e101-b_3_603",
+    "http://search.ieice.org/bin/summary.php?id=e101-b_2_261",
+    "http://search.ieice.org/bin/summary.php?id=e101-c_4_186",
+    "http://dx.doi.org/https://doi.org/10.1080/08870440903126371",
+    "http://www.tandfonline.com/doi/full/10.1080/08870440903126371",
+    "http://dx.doi.org/10.1029/RS004i009p00735",
+    "https://ieeexplore.ieee.org/document/7772804/",
+    "http://dx.doi.org/https://doi.org/10.1023/A:1022533725313",
+    "https://link.springer.com/article/10.1023/A%3A1022533725313",
+    "http://dx.doi.org/https://doi.org/10.1007/s00477-004-0182-8",
+    "https://link.springer.com/article/10.1007/s00477-004-0182-8",
+    "https://doi.org/10.1016/j.tcs.2018.06.032",
+    "http://search.ieice.org/bin/summary.php?id=e101-b_8_1752",
+    "http://search.ieice.org/bin/summary.php?id=e101-c_8_611",
+    "https://doi.org/10.1007/978-3-319-93870-7_1",
+    "https://doi.org/10.1007/s10485-018-9540-4",
+    "http://search.ieice.org/bin/summary.php?id=e101-a_11_1735",
+    "http://search.ieice.org/bin/summary.php?id=e101-c_11_845",
+    "http://dx.doi.org/10.1097/GRF.0000000000000347",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29351150",
+    "http://dx.doi.org/10.1248/cpb.c17-ctf6504",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28381668",
+    "http://dx.doi.org/10.1248/bpb.b18-ctf4103",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29491203",
+    "http://dx.doi.org/10.1902/jop.1993.64.8s.743",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29539757",
+    "http://dx.doi.org/10.2217/fon-2018-0094",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29611756",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.01.003",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28325352",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.01.005",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28363583",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.02.001",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28454638",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2017.05.003",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28709474",
+    "http://dx.doi.org/10.1097/GRF.0000000000000284",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28426505",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2016.10.005",
+    "https://www.ncbi.nlm.nih.gov/pubmed/27899168",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2016.10.002",
+    "https://www.ncbi.nlm.nih.gov/pubmed/27908387",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2016.10.006",
+    "https://www.ncbi.nlm.nih.gov/pubmed/27914521",
+    "http://dx.doi.org/10.1016/j.cpcardiol.2016.11.002",
+    "https://www.ncbi.nlm.nih.gov/pubmed/27989310",
+    "db/journals/ieicet/ieicet101a.html#Hamaguchi18a",
+    "http://search.ieice.org/bin/summary.php?id=e101-a_12_2221",
+    "http://dx.doi.org/10.1007/s40571-018-00220-1",
+    "https://link.springer.com/10.1007/s40571-018-00220-1",
+    "http://dx.doi.org/10.1023/A:1018836612382",
+    "https://link.springer.com/10.1023/A:1018836612382",
+    "http://dx.doi.org/10.1007/BF00188824",
+    "https://link.springer.com/10.1007/BF00188824",
+    "http://dx.doi.org/10.1023/A:1017384510269",
+    "https://link.springer.com/10.1023/A:1017384510269",
+    "http://dx.doi.org/10.1023/A:1017901203028",
+    "https://link.springer.com/10.1023/A:1017901203028",
+    "http://dx.doi.org/10.1007/s10287-005-0022-4",
+    "https://link.springer.com/10.1007/s10287-005-0022-4",
+    "http://dx.doi.org/10.1007/s10107-004-0534-7",
+    "https://link.springer.com/10.1007/s10107-004-0534-7",
+    "http://dx.doi.org/10.1007/s12039-014-0736-3",
+    "https://link.springer.com/10.1007/s12039-014-0736-3",
+    "http://dx.doi.org/10.1007/s10404-004-0017-4",
+    "https://link.springer.com/10.1007/s10404-004-0017-4"
+  ],
+  "abstract": "Presents the welcome message from the conference proceedings."
+},{
+  "_id": "53e99784b7602d9701f3f909",
+  "title": "Foreword]",
+  "authors": [
+    {
+      "name": "P WEILLER"
+    }
+  ],
+  "venue": {
+    "_id": "53a732c820f7420be8db5cda",
+    "type": 11,
+    "raw": "J. Philosophical Logic"
+  },
+  "year": 1957,
+  "keywords": [
+    "schools",
+    "medical"
+  ],
+  "n_citation": 43,
+  "page_start": "409",
+  "page_end": "414",
+  "lang": "en",
+  "volume": "13",
+  "issue": "5",
+  "issn": "0032-5821",
+  "isbn": "",
+  "doi": "10.1016/S0300-595X(86)80069-X",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1016/S0300-595X(86)80069-X",
+    "http://www.ncbi.nlm.nih.gov/pubmed/13453059?report=xml&format=text",
+    "http://dx.doi.org/10.1007/BF00247220",
+    "http://dx.doi.org/10.1007/s10287-009-0114-7",
+    "https://link.springer.com/10.1007/s10287-009-0114-7",
+    "http://dx.doi.org/10.1007/s10967-017-5393-9",
+    "https://link.springer.com/10.1007/s10967-017-5393-9",
+    "http://www.webofknowledge.com/"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f908",
+  "title": "Foreword.",
+  "authors": [
+    {
+      "_id": "54328b5ddabfaeb4c6a8b965",
+      "name": "W.R. Butt"
+    },
+    {
+      "name": "D.R. London",
+      "_id": "53f4d12fdabfaef00ef80dde"
+    }
+  ],
+  "venue": {
+    "_id": "53a72ab320f7420be8c0a98a",
+    "raw": "FG",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 10
+  },
+  "year": 2003,
+  "keywords": [],
+  "n_citation": 10,
+  "page_start": "i1",
+  "page_end": "2",
+  "lang": "en",
+  "volume": "18 Suppl 1",
+  "issue": "3",
+  "issn": "0931-0509",
+  "isbn": "",
+  "doi": "10.1159/000340024",
+  "pdf": "//static.aminer.org/pdf/PDF/003/119/141/foreword.pdf",
+  "url": [
+    "http://dx.doi.org/10.1159/000340024",
+    "http://www.ncbi.nlm.nih.gov/pubmed/22965287?report=xml&format=text",
+    "http://www.ncbi.nlm.nih.gov/pubmed/12738755?report=xml&format=text",
+    "https://doi.org/10.1109/FG.2017.114",
+    "http://doi.ieeecomputersociety.org/10.1109/FG.2017.114",
+    "http://dx.doi.org/10.1007/s00542-015-2651-z",
+    "http://dl.acm.org/citation.cfm?id=2843801&preflayout=flat",
+    "http://dx.doi.org/10.1007/s00542-016-2954-8",
+    "http://dl.acm.org/citation.cfm?id=2944446&preflayout=flat",
+    "https://doi.org/10.1142/S0218488515020018",
+    "https://static.aminer.org/pdf/20170130/aclanthology/index.txt",
+    "http://dx.doi.org/https://doi.org/10.1080/09602010903021261",
+    "http://www.tandfonline.com/doi/full/10.1080/09602010903021261",
+    "http://dx.doi.org/10.1023/A:1016079805767",
+    "https://link.springer.com/10.1023/A:1016079805767"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f913",
+  "title": "Foreword",
+  "authors": [
+    {
+      "_id": "53f56155dabfae5bb7f8045d",
+      "name": "Bird, Christian",
+      "org": "Microsoft Research, USA|c|",
+      "gid": "5b869413e1cd8e14a363772c",
+      "orgid": "5f71b2831c455f439fe3c634"
+    },
+    {
+      "_id": "53f56b5bdabfae6e20f805cd",
+      "name": "Menzies, Tim"
+    },
+    {
+      "_id": "560175f845cedb3395e5a548",
+      "name": "Zimmermann, Thomas"
+    },
+    null
+  ],
+  "venue": {
+    "_id": "57d08a8a0a3ac5db4992107c",
+    "type": 10,
+    "raw": "DAPSE@ICSE"
+  },
+  "year": 2002,
+  "keywords": [
+    "design",
+    "signal processing",
+    "miscellaneous",
+    "documentation",
+    "general",
+    "theory",
+    "author/editor",
+    "general literary works"
+  ],
+  "n_citation": 2,
+  "page_start": "5",
+  "page_end": "5",
+  "lang": "en",
+  "volume": "32",
+  "issue": "1",
+  "issn": "Progress in Metal Physics",
+  "isbn": "978-1-4244-4727-5",
+  "doi": "10.1023/A:1016079805767",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1023/A:1016079805767",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=6603796",
+    "http://dl.acm.org/citation.cfm?id=590017.590070&coll=DL&dl=GUIDE&CFID=522253881&CFTOKEN=95257943&preflayout=flat",
+    "http://dl.acm.org/citation.cfm?id=1402716.1402729&coll=DL&dl=GUIDE&CFID=686462225&CFTOKEN=52819685&preflayout=flat",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=5156169",
+    "http://dl.acm.org/citation.cfm?id=861096.861110&coll=DL&dl=GUIDE&CFID=522281382&CFTOKEN=28899776&preflayout=flat",
+    "http://dx.doi.org/10.1007/BF02087870",
+    "http://link.springer.com/article/10.1007/BF02087870",
+    "http://dx.doi.org/10.1109/DAPSE.2013.6603796",
+    "https://doi.org/10.1109/SpeD.2013.6682643",
+    "https://doi.org/10.1109/SPED.2015.7343085",
+    "http://dx.doi.org/10.3917/jib.282.0013",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29561105",
+    "http://dx.doi.org/10.3917/jib.273.0010",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29561122",
+    "http://www.webofknowledge.com/"
+  ],
+  "abstract": "We would like to take this opportunity to welcome you to the First International Workshop on Data Analysis Patterns in Software Engineering (DAPSE 2013)."
+},{
+  "_id": "53e99784b7602d9701f3f5fe",
+  "title": "Research on resource allocation for multi-tier web applications in a virtualization environment",
+  "authors": [
+    {
+      "_id": "53f46a22dabfaee0d9c3d5e5",
+      "name": "Shuguo Yang",
+      "org": "School of Mathematics and Physics, Qingdao University of Science and Technology, Qingdao, China 266061",
+      "email": "ysg_2005@hotmail.com",
+      "gid": "5b8698cce1cd8e14a3826671",
+      "orgid": "5f71b2e91c455f439fe3f23f"
+    }
+  ],
+  "venue": {
+    "_id": "572de199d39c4f49934b3d5c",
+    "type": 0,
+    "raw": "Frontiers of Computer Science in China"
+  },
+  "year": 2011,
+  "keywords": [
+    "resource allocation",
+    "cpu utilization",
+    "quality of service"
+  ],
+  "fos": [
+    "Virtualization",
+    "Service level objective",
+    "Virtual machine",
+    "Computer science",
+    "Testbed",
+    "Quality of service",
+    "Provisioning",
+    "Resource allocation",
+    "Web application",
+    "Operating system",
+    "Distributed computing"
+  ],
+  "n_citation": 2,
+  "page_start": "506",
+  "page_end": "512",
+  "lang": "en",
+  "volume": "5",
+  "issue": "4",
+  "issn": "1673-7350",
+  "isbn": "",
+  "doi": "10.1007/s11704-011-0127-6",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1007/s11704-011-0127-6",
+    "http://link.springer.com/article/10.1007/s11704-011-0127-6",
+    "http://www.webofknowledge.com/"
+  ],
+  "abstract": "Resource allocation for multi-tier web applications in virtualization environments is one of the most important problems in autonomous computing. On one hand, the more resources that are provisioned to a multitier web application, the easier it is to meet service level objectives (SLO). On the other hand, the virtual machine which hosts the multi-tier web application needs to be consolidated as much as possible in order to maintain high resource utilization. This paper presents an adaptive resource controller which consists of a feedback utilization controller and an auto-regressive and moving average model (ARMA)-based model estimator. It can meet application-level quality of service (QoS) goals while achieving high resource utilization. To evaluate the proposed controllers, simulations are performed on a testbed simulating a virtual data center using Xen virtual machines. Experimental results indicate that the controllers can improve CPU utilization and make the best tradeoff between resource utilization and performance for multi-tier web applications.",
+  "references": [
+    "53e9a073b7602d9702957efa",
+    "53e9ad87b7602d970377bfb5",
+    "53e9be51b7602d9704b11381",
+    "53e9be04b7602d9704abb31d",
+    "53e9992bb7602d9702169236",
+    "53e998cdb7602d97021044db",
+    "53e9afa6b7602d97039f6054",
+    "53e99822b7602d9702044e60"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f60c",
+  "title": "Fairness",
+  "authors": [
+    {
+      "org": "Technion-Israel Institute of Technology, Haifa, Israel",
+      "gid": "5b86b6c8e1cd8e14a34cd443",
+      "oid": "544bda0145ce266baf53da76",
+      "_id": "53f6339bdabfae2722c7163e",
+      "name": "Nissim Francez",
+      "orgid": "5f71b28d1c455f439fe3ca3c"
+    }
+  ],
+  "venue": {
+    "raw": "Fairness",
+    "_id": "539078f220f770854f5a87ec"
+  },
+  "year": 1986,
+  "keywords": [
+    "Fairness review",
+    "Curriculum",
+    "Test development standards",
+    "Fairness",
+    "Legal challenge",
+    "Classroom assessment",
+    "Bias",
+    "Educational assessment",
+    "Equity"
+  ],
+  "n_citation": 2,
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "International Encyclopedia of Education",
+  "isbn": "0-387-96235-2",
+  "doi": "",
+  "pdf": "",
+  "abstract": "This article examines the concept and definitions of fairness in relation to a broad understanding of assessment: tests, examinations, and classroom evaluation of student performance (teacher assessment in the United Kingdom). The argument made is that equal outcomes are not the Holy Grail of fairness, or equity, since different groups may have genuinely different levels of achievement. Access to schooling and issues of curriculum (which is taught) are as important in this analysis as are mode and quality of assessment. The conclusion is that the best defense against inequitable assessment is openness. Openness about design, constructs, and scoring will bring out into the open the values and biases of the test design process and allow debate about cultural and social influences."
+},{
+  "_id": "53e99784b7602d9701f3f600",
+  "title": "BUSTRAP – an efficient travel planner for metropolitans",
+  "authors": [
+    {
+      "gid": "5b868bb4e1cd8e14a32ddb28",
+      "_id": "560175ed45cedb3395e5a3a0",
+      "name": "Sandeep Gupta",
+      "org": "Alcatel Development Center, Udyog Vihar, Gurgaon, India",
+      "orgid": "5f71b3b51c455f439fe44c34"
+    },
+    {
+      "gid": "5b86b0bfe1cd8e14a32127bb",
+      "_id": "53f42d8bdabfaec22ba1a1e3",
+      "name": "M. M. Gore",
+      "org": "Department of Computer Science and Engineering, Motilal Nehru National Institute of Technology, Allahabad, India",
+      "orgid": "5f71b3271c455f439fe40d90"
+    }
+  ],
+  "venue": {
+    "_id": "53a72aff20f7420be8c14f79",
+    "raw": "IWDC",
+    "raw_zh": null,
+    "type": 0
+  },
+  "year": 2004,
+  "keywords": [
+    "city road",
+    "local bus service",
+    "exact bus route",
+    "efficient travel planner",
+    "bus travel",
+    "particular destination",
+    "city bus",
+    "bus movement",
+    "proposed system",
+    "large metropolitan city",
+    "current location",
+    "real time",
+    "public transport"
+  ],
+  "fos": [
+    "Changeover",
+    "Transport engineering",
+    "Planner",
+    "New delhi",
+    "Public transport",
+    "Schedule",
+    "Local bus",
+    "Engineering",
+    "Metropolitan area"
+  ],
+  "n_citation": 0,
+  "page_start": "537",
+  "page_end": "537",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "3-540-24076-4",
+  "doi": "10.1007/978-3-540-30536-1_64",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1007/978-3-540-30536-1_64"
+  ],
+  "abstract": "In this paper, we are providing a solution for an efficient and up-to-date commuting planner for a public transport system used by masses. Here, we present design and implementation features of a proposed system to be used for planning a bus travel. This problem is relevant to a large metropolitan city, like New Delhi, where local bus service forms the life-line of the city. There are about 10,000 city buses running on 814 routes on Delhi’s roads. Often, there are many ways to reach a destination and often, commuters, even locals, do not possess knowledge about most of these alternate routes. Also, buses do not adhere to their schedules due to heavy traffic.Thus it becomes very difficult to remember every possible way to reach a destination (considering that one may have to break one’s journey and take another route to reach the destination). Proposed BUSTRAP [1] solution aims at providing fairly accurate information about optimal way to reach a particular destination. Though we have implemented BUSTRAP as an SMS service, it can easily beadapted for other services like IVRS, WAP etc. stating one’s current location and desired destination. The system will provide optimal ways to reach that place by bus – telling exact bus routes and numbers to board/change according to the bus movement on the city roads at that time. We record location of buses at a few instances on the roads through sensors. Our system finds their current location and speculates future locations based on these real time records. We identify changeover points on a route according to which a route plan would be formed."
+},{
+  "_id": "53e99784b7602d9701f3f92a",
+  "title": "Foreword.",
+  "authors": [
+    {
+      "name": "Taleisnik Julio"
+    }
+  ],
+  "venue": {
+    "_id": "53a7314420f7420be8d31c79",
+    "raw": "IEICE Transactions",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 11
+  },
+  "year": 2012,
+  "keywords": [
+    "Support Vector Regression",
+    "Load Forecast",
+    "Gradient Projection Method",
+    "Renyi Entropy",
+    "Stock Market Volatility"
+  ],
+  "n_citation": 48,
+  "page_start": "3",
+  "page_end": "4",
+  "lang": "en",
+  "volume": "1",
+  "issue": "1",
+  "issn": "2163-3916",
+  "isbn": "",
+  "doi": "10.1055/s-0032-1318521",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1055/s-0032-1318521",
+    "http://www.ncbi.nlm.nih.gov/pubmed/23904972?report=xml&format=text",
+    "http://search.ieice.org/bin/summary.php?id=e99-c_3_332",
+    "http://dx.doi.org/10.1016/j.matcom.2016.04.008",
+    "http://dx.doi.org/10.1109/VLSI-SoC.2016.7753411",
+    "http://dx.doi.org/10.1097/GRF.0000000000000308",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28742588",
+    "http://dx.doi.org/10.1016/j.ccep.2010.02.008",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28770774",
+    "http://dl.acm.org/citation.cfm?id=2949305&preflayout=flat",
+    "http://search.ieice.org/bin/summary.php?id=e101-b_4_946",
+    "http://search.ieice.org/bin/summary.php?id=e101-d_6_1466",
+    "http://dx.doi.org/https://doi.org/10.1002/dac.4510030102",
+    "https://onlinelibrary.wiley.com/doi/abs/10.1002/dac.4510030102",
+    "http://dx.doi.org/10.1029/RS005i010p01221",
+    "https://ieeexplore.ieee.org/document/7772955/",
+    "http://dx.doi.org/10.1029/96RS02554",
+    "https://ieeexplore.ieee.org/document/7770013/",
+    "http://dx.doi.org/10.1029/96RS01938",
+    "https://ieeexplore.ieee.org/document/7769939/",
+    "http://dx.doi.org/https://doi.org/10.1023/A:1005349530773",
+    "https://link.springer.com/article/10.1023/A%3A1005349530773",
+    "http://dx.doi.org/10.1002/hec.3473",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28139091",
+    "http://dx.doi.org/10.1007/s12262-015-1392-7",
+    "https://www.ncbi.nlm.nih.gov/pubmed/26722195",
+    "http://dx.doi.org/10.5702/massspectrometry.K0008",
+    "https://www.ncbi.nlm.nih.gov/pubmed/26819883",
+    "http://dx.doi.org/10.1093/ckj/sfy110",
+    "https://www.ncbi.nlm.nih.gov/pubmed/30581560",
+    "http://dx.doi.org/10.1007/s10998-006-0014-3",
+    "https://link.springer.com/10.1007/s10998-006-0014-3",
+    "http://dx.doi.org/10.1007/s004539910001",
+    "https://link.springer.com/10.1007/s004539910001",
+    "http://dx.doi.org/10.1007/s10287-005-0001-9",
+    "https://link.springer.com/10.1007/s10287-005-0001-9",
+    "http://dx.doi.org/10.1007/s10967-018-5817-1",
+    "https://link.springer.com/10.1007/s10967-018-5817-1",
+    "http://dx.doi.org/10.1007/s10686-005-4194-2",
+    "https://link.springer.com/10.1007/s10686-005-4194-2",
+    "http://dx.doi.org/10.1007/s10867-018-9495-6",
+    "https://link.springer.com/10.1007/s10867-018-9495-6"
+  ],
+  "abstract": "No abstract is available."
+},{
+  "_id": "53e99784b7602d9701f3f955",
+  "title": "FIRST",
+  "authors": [
+    {
+      "_id": "53f4395ddabfaee2a1d02a9e",
+      "name": "Michael D. Kelly",
+      "sid": "12176650"
+    },
+    {
+      "_id": "53f3aaabdabfae4b34af5123",
+      "name": "Sean J. Geoghegan",
+      "sid": "11495041"
+    }
+  ],
+  "venue": {
+    "_id": "555037397cea80f95417ad69",
+    "type": 0,
+    "raw": "NCA"
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "270",
+  "page_end": "273",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "doi": "10.1109/NCA.2009.44",
+  "url": [
+    "http://doi.ieeecomputersociety.org/10.1109/NCA.2009.44"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f956",
+  "title": "Formatics.",
+  "authors": [
+    {
+      "_id": "548999a7dabfae9b40134ba3",
+      "name": "Paul Beynon-Davies"
+    }
+  ],
+  "venue": {
+    "_id": "555037037cea80f95416df2e",
+    "raw": "AMCIS",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2012,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en",
+  "url": [
+    "http://aisel.aisnet.org/amcis2012/proceedings/PerspectivesIS/10"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f957",
+  "title": "Fault",
+  "authors": [
+    {
+      "name": "S. V. Sandhya",
+      "sid": "10289502",
+      "_id": "53f3a30fdabfae4b34ac6874"
+    },
+    {
+      "_id": "53f42ce6dabfaec09f10dd58",
+      "name": "H. A. Sanjay",
+      "sid": "3549913"
+    },
+    {
+      "_id": "53f45018dabfaee43eca4008",
+      "name": "S. J. Netravathi",
+      "sid": "6318094"
+    },
+    {
+      "_id": "53f454a2dabfaeee22a2db26",
+      "name": "M. V. Sowmyashree",
+      "sid": "6318095"
+    },
+    {
+      "_id": "53f42cecdabfaeb1a7b84856",
+      "name": "R. N. Yogeshwari",
+      "sid": "6318096"
+    }
+  ],
+  "venue": {
+    "_id": "53a7292120f7420be8bc52b9",
+    "raw": "ARTCom"
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "931",
+  "page_end": "933",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "doi": "10.1109/ARTCom.2009.127",
+  "pdf": "",
+  "url": [
+    "http://doi.ieeecomputersociety.org/10.1109/ARTCom.2009.127"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f958",
+  "title": "Flexonics.",
+  "authors": [
+    {
+      "_id": "560175f845cedb3395e5a54e",
+      "name": "John Canny"
+    },
+    {
+      "_id": "53f42ef2dabfaee1c0a47ad5",
+      "name": "Jeremy Risner"
+    },
+    {
+      "_id": "540548eddabfae92b41be5a4",
+      "name": "Vivek Subramanian"
+    }
+  ],
+  "venue": {
+    "_id": "5550371a7cea80f95417399c",
+    "raw": "WAFR",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2002,
+  "keywords": [],
+  "n_citation": 3,
+  "page_start": "203",
+  "page_end": "220",
+  "lang": "en",
+  "url": [
+    "http://dx.doi.org/10.1007/978-3-540-45058-0_13"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f959",
+  "title": "Frontmatter",
+  "authors": [
+    {
+      "_id": "53f42cf5dabfaeb2acfe425e",
+      "name": "C. J. Gross"
+    },
+    {
+      "_id": "53f458aadabfaec09f20ed3a",
+      "name": "W. Nazarewicz"
+    },
+    {
+      "name": "K. P. Rykaczewski",
+      "_id": "53f45a48dabfaee2a1d82ade"
+    }
+  ],
+  "venue": {
+    "_id": "53a72e9b20f7420be8c94b6a",
+    "raw": "Advances in Computer Entertainment Technology",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2004,
+  "keywords": [],
+  "n_citation": 5,
+  "page_start": "1",
+  "page_end": "34",
+  "lang": "en",
+  "volume": "25",
+  "issue": "S1",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1140/epjad/i2005-06-215-9",
+  "pdf": "//static.aminer.org/pdf/PDF/000/005/111/frontmatter.pdf",
+  "url": [
+    "http://dx.doi.org/10.1140/epjad/i2005-06-215-9",
+    "http://portalparts.acm.org/1070000/1067343/fm/frontmatter.pdf",
+    "http://dx.doi.org/10.1109/CVPR.1992.223236",
+    "https://www.cambridge.org/core/books/big-data-over-networks/6A03C54EDF48E14F2D07708D74F2D44A",
+    "https://www.cambridge.org/core/books/surveys-in-combinatorics-2013/F24C7A31A012BD9B6064471C46B41E5E",
+    "http://dx.doi.org/10.1111/cgf.12773",
+    "http://dl.acm.org/citation.cfm?id=2851380&preflayout=flat",
+    "http://dx.doi.org/10.1111/cgf.12691",
+    "http://dl.acm.org/citation.cfm?id=2858811&preflayout=flat",
+    "http://dx.doi.org/10.1111/cgf.12663",
+    "http://dl.acm.org/citation.cfm?id=2858878&preflayout=flat",
+    "http://dx.doi.org/10.1111/cgf.12601",
+    "http://dl.acm.org/citation.cfm?id=2816724&preflayout=flat",
+    "https://seer.lcc.ufmg.br/index.php/jidm/article/view/9269/7155",
+    "https://seer.lcc.ufmg.br/index.php/jidm/article/view/9824/7609",
+    "https://doi.org/10.1109/ICPR.1994.576864",
+    "https://doi.org/10.1109/ICPR.1994.576213",
+    "https://www.cambridge.org/core/books/social-signal-processing/frontmatter/1CB939BE72A7ECE6CAFDCD2A327E3244",
+    "https://aclanthology.info/papers/W18-5600/w18-5600",
+    "https://aclanthology.info/papers/D18-1000/d18-1000",
+    "https://aclanthology.info/papers/K18-1000/k18-1000",
+    "https://aclanthology.info/papers/K18-2000/k18-2000",
+    "https://aclanthology.info/papers/K18-3000/k18-3000"
+  ],
+  "abstract": "Preface, Table of Contents, Sponsors, Reviewers, IPC, Invited Speakers, Awards"
+},{
+  "_id": "53e99784b7602d9701f3f95b",
+  "title": "Fisherfaces",
+  "authors": [
+    {
+      "_id": "53f46eefdabfaee02adb698d",
+      "name": "Aleix Martinez",
+      "sid": "29205725"
+    }
+  ],
+  "venue": {
+    "_id": "555036c97cea80f954155dd5",
+    "raw": "Scholarpedia",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [],
+  "n_citation": 9,
+  "lang": "en",
+  "volume": "6",
+  "issue": "2",
+  "doi": "10.4249/scholarpedia.4282",
+  "pdf": "",
+  "url": [
+    "http://dx.doi.org/10.4249/scholarpedia.4282"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f95c",
+  "title": "Fluctuations",
+  "authors": [
+    {
+      "sid": "1919288",
+      "_id": "548a317bdabfae9b40134ffb",
+      "name": "Giovanni Gallavotti"
+    }
+  ],
+  "venue": {
+    "_id": "555036c97cea80f954155dd5",
+    "raw": "Scholarpedia",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 7,
+  "page_start": "3574",
+  "page_end": "3597",
+  "lang": "en",
+  "volume": "3",
+  "issue": "6",
+  "doi": "10.4249/scholarpedia.5893",
+  "url": [
+    "http://www.scholarpedia.org/article/Fluctuations"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f95a",
+  "title": "FACETS",
+  "authors": [
+    {
+      "_id": "53f4671fdabfaee43ecf9787",
+      "name": "John R. Cary",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "48041865"
+    },
+    {
+      "_id": "53f36fd8dabfae4b349bd343",
+      "name": "Ammar Hakim",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "19095584"
+    },
+    {
+      "_id": "53f432c5dabfaedf4355a7ff",
+      "name": "Mahmood Miah",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "24057289"
+    },
+    {
+      "_id": "53f428b2dabfaec22b9e0df5",
+      "name": "Scott Kruger",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "18212191"
+    },
+    {
+      "_id": "53f4375ddabfaee1c0aa5fd8",
+      "name": "Alexander Pletzer",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "17991263"
+    },
+    {
+      "_id": "53f4693bdabfaedd74e7532c",
+      "name": "Svetlana G. Shasharina",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "950582"
+    },
+    {
+      "_id": "53f431f3dabfaeb2ac023e95",
+      "name": "Srinath Vadlamani",
+      "org": "Tech X Corp, Boulder, CO 80303 USA",
+      "orgs": [
+        "Tech X Corp, Boulder, CO 80303 USA"
+      ],
+      "sid": "3686827"
+    },
+    {
+      "_id": "53f4669fdabfaeee22a54505",
+      "name": "Ronald Cohen",
+      "org": "Lehigh Univ, Bethlehem, PA 18015 USA",
+      "orgs": [
+        "Lehigh Univ, Bethlehem, PA 18015 USA"
+      ],
+      "sid": "42195329"
+    },
+    {
+      "_id": "53f47432dabfaeecd6a41d75",
+      "name": "Thomas Epperly",
+      "org": "Lawrence Livermore Natl Lab, Livermore, CA USA",
+      "orgs": [
+        "Lawrence Livermore Natl Lab, Livermore, CA USA"
+      ],
+      "sid": "145129"
+    },
+    {
+      "_id": "53f456d3dabfaee02ad5a9ac",
+      "name": "Tom Rognlien",
+      "org": "Lawrence Livermore Natl Lab, Livermore, CA USA",
+      "orgs": [
+        "Lawrence Livermore Natl Lab, Livermore, CA USA"
+      ],
+      "sid": "11558333"
+    },
+    {
+      "_id": "53f356f2dabfae4b3495fbcb",
+      "name": "Alexei Pankin",
+      "org": "Lawrence Livermore Natl Lab, Livermore, CA USA",
+      "orgs": [
+        "Lawrence Livermore Natl Lab, Livermore, CA USA"
+      ],
+      "sid": "18193435"
+    },
+    {
+      "_id": "53f45ab1dabfaeb22f511541",
+      "name": "Richard Groebner",
+      "org": "Gen Atom, San Diego, CA USA",
+      "orgs": [
+        "Gen Atom, San Diego, CA USA"
+      ],
+      "sid": "18488127"
+    },
+    {
+      "_id": "53f4359fdabfaeee229a4700",
+      "name": "Satish Balay",
+      "org": "Argonne Natl Lab, Argonne, IL 60439 USA",
+      "orgs": [
+        "Argonne Natl Lab, Argonne, IL 60439 USA"
+      ],
+      "sid": "24992"
+    },
+    {
+      "_id": "53f44990dabfaee4dc7ddf84",
+      "name": "Lois C. McInnes",
+      "org": "Argonne Natl Lab, Argonne, IL 60439 USA",
+      "orgs": [
+        "Argonne Natl Lab, Argonne, IL 60439 USA"
+      ],
+      "sid": "1688919"
+    },
+    {
+      "_id": "562cb37445cedb3398c9befe",
+      "name": "Hong Zhang",
+      "org": "Argonne Natl Lab, Argonne, IL 60439 USA",
+      "orgs": [
+        "Argonne Natl Lab, Argonne, IL 60439 USA"
+      ],
+      "sid": "167421"
+    }
+  ],
+  "venue": {
+    "sid": "Euromicro Conference on Parallel Distributed and Network-Based Processing",
+    "issn": "1066-6192",
+    "t": "J",
+    "raw": "Euromicro Conference on Parallel Distributed and Network-Based Processing"
+  },
+  "year": 2010,
+  "keywords": [
+    "integrated fusion modeling",
+    "components",
+    "framework",
+    "coupling"
+  ],
+  "n_citation": 0,
+  "page_start": "435",
+  "page_end": "442",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "1066-6192",
+  "doi": "10.1109/PDP.2010.83",
+  "pdf": "",
+  "url": [
+    "http://doi.ieeecomputersociety.org/10.1109/PDP.2010.83",
+    "http://www.webofknowledge.com/"
+  ],
+  "abstract": "Coupling separately developed codes offers an attractive method for increasing the accuracy and fidelity of the computational models. Examples include the earth sciences and fusion integrated modeling. This paper describes the Framework Application for Core-Edge Transport Simulations (FACETS)."
+},{
+  "_id": "53e99784b7602d9701f3f95d",
+  "title": "FCLOS",
+  "authors": [
+    {
+      "_id": "53f43b64dabfaefedbaf97e4",
+      "name": "Ilias Michalarias",
+      "org": "Corresponding author. Tel.: +49 30 838 75132; fax: +49 30 838 75196.",
+      "orgs": [
+        "Corresponding author. Tel.: +49 30 838 75132; fax: +49 30 838 75196.",
+        "Freie Universität Berlin, Garystr. 21, 14195 Berlin, Germany"
+      ],
+      "email": "ilmich@wiwiss.fu-berlin.de",
+      "sid": "3528692"
+    },
+    {
+      "_id": "53f43354dabfaedd74d80e7b",
+      "name": "Arkadiy Omelchenko",
+      "org": "Freie Universität Berlin, Garystr. 21, 14195 Berlin, Germany",
+      "orgs": [
+        "Freie Universität Berlin, Garystr. 21, 14195 Berlin, Germany"
+      ],
+      "sid": "3134003",
+      "orgid": "5f71b29a1c455f439fe3d008"
+    },
+    {
+      "_id": "53f443b6dabfaeecd69a25b7",
+      "name": "Hans-Joachim Lenz",
+      "org": "Freie Universität Berlin, Garystr. 21, 14195 Berlin, Germany",
+      "orgs": [
+        "Freie Universität Berlin, Garystr. 21, 14195 Berlin, Germany"
+      ],
+      "sid": "28138",
+      "orgid": "5f71b29a1c455f439fe3d008"
+    }
+  ],
+  "venue": {
+    "sid": "data-and-knowledge-engineering",
+    "issn": "0169-023X",
+    "t": "J",
+    "raw": "Data & Knowledge Engineering",
+    "publisher": "North-Holland"
+  },
+  "year": 2009,
+  "keywords": [
+    "mOLAP",
+    "Subsumption",
+    "Broadcast"
+  ],
+  "fos": [
+    "Information system",
+    "Computer science",
+    "Mobile device",
+    "MOLAP",
+    "Online analytical processing",
+    "Data access",
+    "Data cube",
+    "Scalability",
+    "Distributed computing",
+    "Client–server model"
+  ],
+  "n_citation": 0,
+  "page_start": "192",
+  "page_end": "220",
+  "lang": "en",
+  "volume": "68",
+  "issue": "2",
+  "issn": "0169-023X",
+  "doi": "10.1016/j.datak.2008.09.003",
+  "url": [
+    "http://dx.doi.org/10.1016/j.datak.2008.09.003",
+    "https://www.sciencedirect.com/science/article/pii/S0169023X08001316",
+    "http://www.webofknowledge.com/"
+  ],
+  "abstract": "Mobile online analytical processing (mOLAP) encompasses all necessary technologies for information systems that enable OLAP data access to users carrying a mobile device. This paper presents FCLOS, a complete client–server architecture explicitly designed for mOLAP. FCLOS founds on intelligent scheduling and compressed transmissions in order to become a query efficient, self-adaptive and scalable mOLAP information system. Scheduling exploits derivability between data cubes in order to group related queries and eventually reduce the necessary transmissions (broadcasts). Compression is achieved by the m-Dwarf, a novel, compressed data cube physical structure, which has no loss of semantic information and is explicitly designed for mobile applications. The superiority of FCLOS against state of the art systems is shown both experimentally and analytically.",
+  "references": [
+    "53e99ee0b7602d97027ae130",
+    "53e9aca7b7602d9703681f1f",
+    "53e9b9c0b7602d97045b36b4",
+    "53e9b856b7602d970441929a",
+    "53e9af75b7602d97039bbc74",
+    "53e9bb23b7602d970475dcba",
+    "53e9be50b7602d9704b0d16a",
+    "53e9aa73b7602d97033eaa4f",
+    "5c75065ef56def9798571484",
+    "53e9b5ceb7602d9704116fc0",
+    "5c778b5c4895d9cbc6207427",
+    "53e9a1b6b7602d9702aabd1a",
+    "53e99938b7602d9702177541",
+    "53e9ac8fb7602d9703665d27",
+    "53e9adf6b7602d97037fe3be",
+    "53e99aacb7602d97023282d0",
+    "53e9b083b7602d9703aef34d",
+    "53e9ab49b7602d97034ddabd",
+    "53e9af1fb7602d970395c460",
+    "53e9b627b7602d9704180664",
+    "53e9a8b7b7602d9703204a2f",
+    "53e99a2bb7602d9702284a25",
+    "53e9a52cb7602d9702e502fe",
+    "53e9ae05b7602d970381159d",
+    "53e9a7c0b7602d97030fc0bf",
+    "53e9baadb7602d97046dd52d",
+    "53e9aa48b7602d97033b7a3c",
+    "53e9a59bb7602d9702ec4247",
+    "53e99fafb7602d9702886829",
+    "53e9ae17b7602d9703825532",
+    "53e9bd11b7602d9704996cd3",
+    "53e9b732b7602d97042c7a86",
+    "53e9a3c1b7602d9702cd3a50",
+    "53e999c3b7602d9702204e50",
+    "53e99a98b7602d9702312bda",
+    "53e9a9a2b7602d9703300778",
+    "53e9ad26b7602d970370942b",
+    "53e9bddbb7602d9704a8dc8f"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f962",
+  "title": "Farewell.",
+  "authors": [
+    {
+      "_id": "560175f845cedb3395e5a557",
+      "name": "Eugene Santos"
+    }
+  ],
+  "venue": {
+    "_id": "555036f27cea80f954168674",
+    "raw": "IEEE T. Cybernetics",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2013,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en",
+  "volume": "43",
+  "issue": "6",
+  "url": [
+    "http://dx.doi.org/10.1109/TCYB.2013.2287062"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f960",
+  "title": "Foreword",
+  "authors": [
+    {
+      "name": "Athans, M."
+    },
+    {
+      "_id": "560175f845cedb3395e5a551",
+      "name": "Barnes, E.R."
+    },
+    {
+      "_id": "562fd77045cedb3399819a0d",
+      "name": "Sandell, N.R."
+    }
+  ],
+  "venue": {
+    "_id": "53a7314420f7420be8d31c79",
+    "raw": "IEICE Transactions",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [
+    "miscellaneous"
+  ],
+  "n_citation": 9,
+  "page_start": "viii",
+  "page_end": "xv",
+  "lang": "en",
+  "volume": "23",
+  "issue": "2",
+  "issn": "0018-9383",
+  "isbn": "",
+  "doi": "10.1109/ICSM.2011.6080763",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1109/ICSM.2011.6080763",
+    "http://dl.acm.org/citation.cfm?id=1077961.1077962&coll=DL&dl=GUIDE&CFID=687179868&CFTOKEN=84896754&preflayout=flat",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=4045553",
+    "http://dl.acm.org/citation.cfm?id=2117694.2119688&coll=DL&dl=GUIDE&CFID=686453364&CFTOKEN=98838411&preflayout=flat",
+    "http://search.ieice.org/bin/summary.php?id=e97-d_4_633",
+    "http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&arnumber=1484878",
+    "http://search.ieice.org/bin/summary.php?id=e99-b_8_1628",
+    "http://dx.doi.org/10.1016/B978-0-444-63432-0.09992-8",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27112696?report=xml&format=text",
+    "http://dx.doi.org/10.1016/B978-0-444-63437-5.09988-X",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27638088?report=xml&format=text",
+    "http://dx.doi.org/10.1016/B978-0-12-802973-2.09989-4",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27637968?report=xml&format=text",
+    "http://dx.doi.org/10.1016/B978-0-12-801772-2.09989-6",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27719883?report=xml&format=text",
+    "http://dx.doi.org/10.1080/00365599.1984.11783706",
+    "http://www.ncbi.nlm.nih.gov/pubmed/27786015?report=xml&format=text",
+    "http://dx.doi.org/10.1002/imhj.20042",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28682518",
+    "http://doi.acm.org/10.1145/3052720",
+    "http://dx.doi.org/10.1097/FCH.0000000000000207",
+    "https://www.ncbi.nlm.nih.gov/pubmed/30134333",
+    "db/journals/ieicet/ieicet102a.html#Abe19",
+    "http://search.ieice.org/bin/summary.php?id=e102-a_1_1"
+  ],
+  "abstract": "Welcome to the 27"
+},{
+  "_id": "53e99784b7602d9701f3f965",
+  "title": "Flocoder",
+  "authors": [
+    {
+      "_id": "54067b13dabfae44f08370e4",
+      "name": "D. Morris",
+      "sid": "41959052"
+    },
+    {
+      "_id": "53f42e89dabfaee0d9b0be6b",
+      "name": "T. G. Kennedy",
+      "sid": "11073695"
+    },
+    {
+      "_id": "53f43aa2dabfaee1c0ac5f7f",
+      "name": "L. Last",
+      "sid": "23178031"
+    }
+  ],
+  "venue": {
+    "_id": "555036f17cea80f954167a87",
+    "raw": "Comput. J.",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 1971,
+  "keywords": [],
+  "n_citation": 7,
+  "page_start": "221",
+  "page_end": "223",
+  "lang": "en",
+  "volume": "14",
+  "issue": "3",
+  "doi": "10.1093/comjnl/14.3.221",
+  "url": [
+    "http://dx.doi.org/10.1093/comjnl/14.3.221"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f967",
+  "title": "Forum98",
+  "authors": [
+    {
+      "_id": "53f398b4dabfae4b34a8429e",
+      "name": "William Sugar",
+      "sid": "276218"
+    }
+  ],
+  "venue": {
+    "_id": "555036f67cea80f95416a9ef",
+    "raw": "Educational Technology & Society",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2000,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en",
+  "volume": "3",
+  "issue": "1",
+  "doi": "",
+  "pdf": "//static.aminer.org/pdf/PDF/000/873/989/forum.pdf",
+  "url": [
+    "http://ifets.ieee.org/periodical/vol_1_2000/forum98_sugar.html"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f961",
+  "title": "Foreword.",
+  "authors": [
+    {
+      "name": "Harsh K Trivedi",
+      "org": "EP Bradley Hosp, E Providence, RI 02915 USA",
+      "orgs": [
+        "EP Bradley Hosp, E Providence, RI 02915 USA",
+        "Brown Med Sch, E Providence, RI 02915 USA",
+        "Rhode Isl Council Child & Adolescent Psychiat, E Providence, RI 02915 USA"
+      ],
+      "email": "harsh-trivedi@brown.edu"
+    }
+  ],
+  "venue": {
+    "_id": "53a7314420f7420be8d31c79",
+    "type": 0,
+    "raw": "IEICE Transactions"
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 2,
+  "page_start": "xiii",
+  "page_end": "xiv",
+  "lang": "en",
+  "volume": "18",
+  "issue": "2",
+  "issn": "1558-0490",
+  "isbn": "",
+  "doi": "10.1016/j.chc.2009.01.002",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1016/j.chc.2009.01.002",
+    "http://search.ieice.org/bin/summary.php?id=e96-c_2_137",
+    "http://www.ncbi.nlm.nih.gov/pubmed/23302629?report=xml&format=text",
+    "http://www.ncbi.nlm.nih.gov/pubmed/19264261?report=xml&format=text",
+    "http://dx.doi.org/10.1007/BF01095140",
+    "http://link.springer.com/article/10.1007/BF01095140",
+    "http://dx.doi.org/10.1023/A:1021901530950",
+    "http://link.springer.com/article/10.1023/A%3A1021901530950",
+    "http://dx.doi.org/10.1023/B:JOCL.0000011060.45363.04",
+    "http://link.springer.com/article/10.1023/B%3AJOCL.0000011060.45363.04",
+    "http://dx.doi.org/10.1007/s10876-006-0090-9",
+    "http://link.springer.com/article/10.1007/s10876-006-0090-9",
+    "http://search.ieice.org/bin/summary.php?id=e99-a_6_1011",
+    "http://search.ieice.org/bin/summary.php?id=e100-c_2_112",
+    "http://dx.doi.org/10.1016/j.ccep.2009.08.017",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28770792",
+    "http://dx.doi.org/10.1016/j.ccep.2009.11.015",
+    "https://www.ncbi.nlm.nih.gov/pubmed/28770741",
+    "http://search.ieice.org/bin/summary.php?id=e100-d_3_413",
+    "http://search.ieice.org/bin/summary.php?id=e100-c_5_416",
+    "http://search.ieice.org/bin/summary.php?id=e100-c_3_268",
+    "http://search.ieice.org/bin/summary.php?id=e100-c_10_789",
+    "http://search.ieice.org/bin/summary.php?id=e100-a_4_920",
+    "http://dx.doi.org/10.1248/bpb.b17-ctf4012",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29199227",
+    "http://search.ieice.org/bin/summary.php?id=e101-d_1_72",
+    "http://search.ieice.org/bin/summary.php?id=e101-c_5_303",
+    "http://dx.doi.org/10.1248/cpb.c18-ctf6605",
+    "https://www.ncbi.nlm.nih.gov/pubmed/29710043",
+    "http://dx.doi.org/10.1007/BF01577276",
+    "https://link.springer.com/10.1007/BF01577276",
+    "http://dx.doi.org/10.1057/ip.2015.33",
+    "https://link.springer.com/10.1057/ip.2015.33",
+    "http://dx.doi.org/10.1007/s10474-018-0832-9",
+    "https://link.springer.com/10.1007/s10474-018-0832-9",
+    "http://www.webofknowledge.com/"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f964",
+  "title": "Fractalmania",
+  "authors": [
+    {
+      "_id": "5485e336dabfae8a11fb2d2a",
+      "name": "John L. Casti",
+      "sid": "10511817"
+    }
+  ],
+  "venue": {
+    "_id": "555036c97cea80f954156992",
+    "raw": "Complexity",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2004,
+  "keywords": [],
+  "n_citation": 1,
+  "page_start": "3",
+  "page_end": "7",
+  "lang": "en",
+  "volume": "9",
+  "issue": "5",
+  "doi": "10.1002/cplx.20035",
+  "url": [
+    "http://dx.doi.org/10.1002/cplx.20035"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f966",
+  "title": "Feldbustechnik",
+  "authors": [
+    {
+      "_id": "5433c60cdabfaeb4c6ace2ce",
+      "name": "Dietmar Dietrich",
+      "sid": "10219802"
+    }
+  ],
+  "venue": {
+    "_id": "53a731f120f7420be8d6d308",
+    "raw": "it+ti - Informationstechnik und Technische Informatik"
+  },
+  "year": 2000,
+  "keywords": [],
+  "n_citation": 1,
+  "page_start": "5",
+  "page_end": "6",
+  "lang": "en",
+  "volume": "42",
+  "issue": "4",
+  "doi": "10.1524/itit.2000.42.4.5",
+  "url": [
+    "http://dx.doi.org/10.1524/itit.2000.42.4.5"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f963",
+  "title": "Fernsehen",
+  "authors": [
+    {
+      "_id": "53f45477dabfaedce55ab3b2",
+      "name": "Rainer Winter",
+      "sid": "50492317"
+    }
+  ],
+  "venue": {
+    "_id": "53a731a120f7420be8d543e6",
+    "raw": "Zeitschrift für Medienpsychologie",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2006,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "135",
+  "page_end": "136",
+  "lang": "en",
+  "volume": "18",
+  "issue": "3",
+  "doi": "10.1026/1617-6383.18.3.135",
+  "url": [
+    "http://dx.doi.org/10.1026/1617-6383.18.3.135"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f95e",
+  "title": "Flußanalyse",
+  "authors": [
+    {
+      "_id": "53f7b8cbdabfae938c6d3ce0",
+      "name": "Hans P. Zima",
+      "sid": "2465251"
+    }
+  ],
+  "venue": {
+    "_id": "555036e27cea80f954163f18",
+    "raw": "Informatik Spektrum",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 1983,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "155",
+  "page_end": "164",
+  "lang": "en",
+  "volume": "6",
+  "issue": "3",
+  "doi": "",
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f96a",
+  "title": "Fachkunde",
+  "authors": [
+    {
+      "_id": "560175f845cedb3395e5a55d",
+      "name": "Dirk Fox",
+      "sid": "859432"
+    }
+  ],
+  "venue": {
+    "_id": "555036b57cea80f95414abd8",
+    "raw": "Datenschutz und Datensicherheit",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2007,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "372",
+  "page_end": "372",
+  "lang": "en",
+  "volume": "31",
+  "issue": "5",
+  "doi": "10.1007/s11623-007-0137-6",
+  "url": [
+    "http://dx.doi.org/10.1007/s11623-007-0137-6"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f968",
+  "title": "FairCite.",
+  "authors": [
+    {
+      "_id": "53f43a0edabfaec22baa2d20",
+      "name": "Adam Crymble"
+    },
+    {
+      "_id": "53f3a5a9dabfae4b34ad71b2",
+      "name": "Julia Flanders"
+    }
+  ],
+  "venue": {
+    "_id": "555036ce7cea80f954158d1f",
+    "raw": "Digital Humanities Quarterly",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2013,
+  "keywords": [],
+  "n_citation": 4,
+  "lang": "en",
+  "volume": "7",
+  "issue": "2",
+  "url": [
+    "http://www.digitalhumanities.org/dhq/vol/7/2/000164/000164.html"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f96f",
+  "title": "Futurology",
+  "authors": [
+    {
+      "name": "Jenny Weight",
+      "sid": "3133302",
+      "_id": "53f43a74dabfaec22baa7ff8"
+    }
+  ],
+  "venue": {
+    "_id": "53a732a120f7420be8da8999",
+    "raw": "J. Digit. Inf."
+  },
+  "year": 2003,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en",
+  "volume": "3",
+  "issue": "3",
+  "doi": "",
+  "url": [
+    "http://jodi.ecs.soton.ac.uk/Articles/v03/i03/Weight/futurology.html"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f48d",
+  "title": "9IM.",
+  "authors": [],
+  "venue": {
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": ""
+},{
+  "_id": "53e99784b7602d9701f3f96e",
+  "title": "FABEL",
+  "authors": [
+    {
+      "sid": "13437",
+      "_id": "5434c3a3dabfaebba5862fa7",
+      "name": "Angi Voß"
+    },
+    {
+      "_id": "53f442a4dabfaedd74de10a2",
+      "name": "Brigitte Bartsch-Spörl",
+      "sid": "586679"
+    },
+    {
+      "name": "Ludger Hovestadt",
+      "sid": "341613",
+      "_id": "53f3af72dabfae4b34b12e4e"
+    },
+    {
+      "_id": "5406e098dabfae92b4226e11",
+      "name": "Klaus P. Jantke",
+      "sid": "1682659"
+    },
+    {
+      "_id": "53f44d2bdabfaeb22f4dbc85",
+      "name": "Uwe Petersohn",
+      "sid": "654020"
+    },
+    {
+      "_id": "540905ecdabfae92b42544d4",
+      "name": "Gerhard Strube",
+      "sid": "157878"
+    }
+  ],
+  "venue": {
+    "_id": "5550371d7cea80f954174685",
+    "raw": "KI",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 1996,
+  "keywords": [],
+  "n_citation": 7,
+  "page_start": "70",
+  "page_end": "76",
+  "lang": "en",
+  "volume": "10",
+  "issue": "3",
+  "doi": "",
+  "pdf": "",
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f970",
+  "title": "Fairness",
+  "authors": [
+    {
+      "_id": "560175f845cedb3395e5a563",
+      "name": "Lutz Priese",
+      "sid": "1289809"
+    }
+  ],
+  "venue": {
+    "_id": "555036f77cea80f95416b5e5",
+    "raw": "Bulletin of the EATCS",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 1988,
+  "keywords": [],
+  "n_citation": 2,
+  "page_start": "171",
+  "page_end": "180",
+  "lang": "en",
+  "volume": "35",
+  "issue": "",
+  "doi": "",
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f971",
+  "title": "Futurescapes",
+  "authors": [
+    {
+      "_id": "53f43808dabfaeecd696df48",
+      "name": "Andrew Lovett",
+      "sid": "438075"
+    }
+  ],
+  "venue": {
+    "_id": "555036ca7cea80f954157560",
+    "raw": "Computers, Environment and Urban Systems",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2005,
+  "keywords": [],
+  "n_citation": 20,
+  "page_start": "249",
+  "page_end": "253",
+  "lang": "en",
+  "volume": "29",
+  "issue": "3",
+  "doi": "10.1016/j.compenvurbsys.2004.05.001",
+  "url": [
+    "http://dx.doi.org/10.1016/j.compenvurbsys.2004.05.001"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f613",
+  "title": "Fratricide",
+  "authors": [
+    {
+      "_id": "53f7e9bbdabfae90ec12c689",
+      "name": "Daniel E. Geer Jr.",
+      "org": "In-Q-Tel",
+      "gid": "5b86bf44e1cd8e14a38a4048",
+      "oid": "544bd9e345ce266baf374039",
+      "orgid": "5f71b2ca1c455f439fe3e492"
+    }
+  ],
+  "venue": {
+    "_id": "555036ee7cea80f9541662de",
+    "raw": "IEEE Security & Privacy",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2010,
+  "keywords": [
+    "collateral damage",
+    "security tool",
+    "new security tool",
+    "mean time",
+    "availability failure"
+  ],
+  "page_start": "88",
+  "page_end": "88",
+  "lang": "en",
+  "volume": "8",
+  "issue": "3",
+  "issn": "",
+  "isbn": "",
+  "doi": "10.1109/MSP.2010.97",
+  "url": [
+    "http://doi.ieeecomputersociety.org/10.1109/MSP.2010.97"
+  ],
+  "abstract": "When you deploy a new security tool, throw one away. If the new one is particularly invasive, then throw two away. Do what you can to drive your mean time to repair toward zero—the more powerful your security tools, the more collateral damage when they collide and the faster your recovery must be to avoid availability failures."
+},{
+  "_id": "53e99784b7602d9701f3f973",
+  "title": "Futures.",
+  "authors": [
+    {
+      "_id": "53f439d1dabfaedce554e7f2",
+      "name": "Cormac Flanagan"
+    }
+  ],
+  "venue": {
+    "_id": "53a732cf20f7420be8db745d",
+    "raw": "Encyclopedia of Parallel Computing",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [],
+  "n_citation": 5,
+  "page_start": "749",
+  "page_end": "753",
+  "lang": "en",
+  "url": [
+    "http://dx.doi.org/10.1007/978-0-387-09766-4_482"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f96b",
+  "title": "Föderation",
+  "authors": [
+    {
+      "_id": "53f434b0dabfaee02acba3e9",
+      "name": "Armin Barnitzke",
+      "sid": "34264896"
+    }
+  ],
+  "venue": {
+    "_id": "555036b57cea80f95414abd8",
+    "raw": "Datenschutz und Datensicherheit",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2003,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en",
+  "volume": "7",
+  "issue": "9",
+  "doi": "",
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f96c",
+  "title": "Familie.",
+  "authors": [
+    {
+      "name": "Karl Rihaczek",
+      "_id": "53f7d8a1dabfae9060aef56c"
+    }
+  ],
+  "venue": {
+    "_id": "555036b57cea80f95414abd8",
+    "raw": "Datenschutz und Datensicherheit",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2014,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en",
+  "volume": "38",
+  "issue": "1",
+  "url": [
+    "http://dx.doi.org/10.1007/s11623-014-0002-3"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f615",
+  "title": "Foreword.",
+  "authors": [
+    {
+      "_id": "5405df6bdabfae450f3dc31d",
+      "name": "Yoshinao Wada"
+    }
+  ],
+  "venue": {
+    "_id": "539078ef20f770854f5a84a4",
+    "type": 0,
+    "raw": "Mathematics and Computers in Simulation"
+  },
+  "year": 2013,
+  "keywords": [
+    "equity and social cohesion.",
+    "justice"
+  ],
+  "n_citation": 4,
+  "page_start": "K0005",
+  "page_end": "K0005",
+  "lang": "en",
+  "volume": "2",
+  "issue": "Spec Iss",
+  "issn": "2187-137X",
+  "isbn": "1-59140-106-2",
+  "doi": "10.5702/massspectrometry.K0005",
+  "pdf": "https://static.aminer.cn/upload/pdf/program/53e99784b7602d9701f3f615_0.pdf",
+  "url": [
+    "http://dx.doi.org/10.5702/massspectrometry.K0005",
+    "http://dx.doi.org/10.1023/B:ISFI.0000015952.18790.2d",
+    "http://www.ncbi.nlm.nih.gov/pubmed/24349919?report=xml&format=text",
+    "http://dx.doi.org/10.1134/S0031918X10130016",
+    "http://link.springer.com/article/10.1134/S0031918X10130016",
+    "http://dx.doi.org/10.1007/s00574-011-0039-y",
+    "http://link.springer.com/article/10.1007/s00574-011-0039-y",
+    "http://dx.doi.org/10.1007/s12572-011-0042-y",
+    "http://link.springer.com/article/10.1007/s12572-011-0042-y",
+    "http://dx.doi.org/10.1007/s00032-012-0193-8",
+    "http://link.springer.com/article/10.1007/s00032-012-0193-8",
+    "http://dx.doi.org/10.1007/s10533-013-9937-y",
+    "http://link.springer.com/article/10.1007/s10533-013-9937-y",
+    "http://dx.doi.org/10.1007/s00574-013-0037-3",
+    "http://link.springer.com/article/10.1007/s00574-013-0037-3",
+    "http://dx.doi.org/10.1007/BF01201905",
+    "https://link.springer.com/10.1007/BF01201905"
+  ],
+  "abstract": "There is something seriously missing in a field of mental illness that does not attend closely and broadly to patients' subjective experiences and sense of self. And, yet, much of the contemporary scene in disciplines that focus on mental illness reflects this neglect. Driven by various theoretical models or the quest for being scientific only in a narrow sense, clinicians neglect many aspects of patient reports, their implications for understanding illness and healing processes, and the need to develop improved methods for studying subjective experience and sense of self. This issue of the Schizophrenia Bulletin brings together a group of reports originating from diverse sources that focuses on these topics."
+},{
+  "_id": "53e99784b7602d9701f3f97a",
+  "title": "Format.",
+  "authors": [],
+  "venue": {
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 8,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": "",
+  "pdf": "//static.aminer.org/pdf/PDF/001/198/031/format.pdf"
+},{
+  "_id": "53e99784b7602d9701f3f97c",
+  "title": "Filtering.",
+  "authors": [],
+  "venue": {
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 12,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": ""
+},{
+  "_id": "53e99784b7602d9701f3f975",
+  "title": "FORGE.",
+  "authors": [
+    {
+      "_id": "53f46985dabfaeecd6a18f3f",
+      "name": "John M. Levesque"
+    },
+    {
+      "name": "Gene Wagenbreth",
+      "_id": "53f322b4dabfae9a8445f601"
+    }
+  ],
+  "venue": {
+    "_id": "53a732cf20f7420be8db745d",
+    "raw": "Encyclopedia of Parallel Computing",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "697",
+  "page_end": "703",
+  "lang": "en",
+  "pdf": "",
+  "url": [
+    "http://dx.doi.org/10.1007/978-0-387-09766-4_55"
+  ]
+},{
+  "_id": "53e99784b7602d9701f3f96d",
+  "title": "Flickwerk",
+  "authors": [
+    {
+      "name": "Gunter Bitz",
+      "sid": "18870563",
+      "_id": "53f42fa8dabfaeb2ac006ae8"
+    },
+    {
+      "_id": "560175f845cedb3395e5a560",
+      "name": "Dirk Fox",
+      "sid": "859432"
+    }
+  ],
+  "venue": {
+    "_id": "555036b57cea80f95414abd8",
+    "raw": "Datenschutz und Datensicherheit",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2006,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "596",
+  "page_end": "596",
+  "lang": "en",
+  "volume": "30",
+  "issue": "10",
+  "doi": "10.1007/s11623-006-0153-y",
+  "url": [
+    "http://dx.doi.org/10.1007/s11623-006-0153-y"
+  ],
+  "abstract": ""
+},{
+  "_id": "53e99784b7602d9701f3f97d",
+  "title": "FGDC.",
+  "authors": [],
+  "venue": {
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": ""
+},{
+  "_id": "53e99784b7602d9701f3f97f",
+  "title": "Flocking.",
+  "authors": [],
+  "venue": {
+    "type": 0
+  },
+  "year": 2008,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "",
+  "page_end": "",
+  "lang": "en",
+  "volume": "",
+  "issue": "",
+  "issn": "",
+  "isbn": "",
+  "doi": ""
+},{
+  "_id": "53e99784b7602d9701f3f980",
+  "title": "Fovea.",
+  "venue": {
+    "type": 0
+  },
+  "year": 2009,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en"
+},{
+  "_id": "53e99784b7602d9701f3f976",
+  "title": "Forwarding.",
+  "venue": {
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [],
+  "n_citation": 0,
+  "lang": "en"
+},{
+  "_id": "53e99784b7602d9701f3f969",
+  "title": "Fuzzing",
+  "authors": [
+    {
+      "_id": "560175f845cedb3395e5a55a",
+      "name": "Dirk Fox"
+    }
+  ],
+  "venue": {
+    "_id": "555036b57cea80f95414abd8",
+    "raw": "Datenschutz und Datensicherheit",
+    "raw_zh": null,
+    "type": 0
+  },
+  "year": 2006,
+  "keywords": [],
+  "n_citation": 0,
+  "page_start": "798",
+  "page_end": "798",
+  "lang": "en",
+  "volume": "30",
+  "issue": "12",
+  "issn": "1862-2607",
+  "isbn": "",
+  "doi": "10.1007/s11623-006-0243-x",
+  "pdf": null,
+  "url": [
+    "http://dx.doi.org/10.1007/s11623-006-0243-x",
+    "http://link.springer.com/article/10.1007/s11623-006-0243-x"
+  ],
+  "abstract": "Ohne Zusammenfassung"
+},{
+  "_id": "53e99784b7602d9701f3f977",
+  "title": "FFTW.",
+  "authors": [
+    {
+      "_id": "53f7e205dabfae9060af3f63",
+      "name": "David A. Padua"
+    }
+  ],
+  "venue": {
+    "_id": "53a732cf20f7420be8db745d",
+    "raw": "Encyclopedia of Parallel Computing",
+    "raw_zh": null,
+    "publisher": null,
+    "type": 0
+  },
+  "year": 2011,
+  "keywords": [],
+  "n_citation": 70,
+  "lang": "en",
+  "pdf": "",
+  "url": [
+    "http://dx.doi.org/10.1007/978-0-387-09766-4_397"
+  ]
+}]
