@@ -222,7 +222,7 @@ class App implements AutoCloseable {
         }
         long endTime = System.currentTimeMillis();
 
-        System.out.format("%s,%d", dblpXmlFilename, dblp.numberOfPublications());
-        System.out.format(",%.4f\n", (endTime - startTime) / 1000.0);
+        System.out.format("%s\t%d\t", dblpXmlFilename, dblp.numberOfPublications());
+        System.out.format("%.4f\n", (endTime - startTime) / 1000.0);
     }
 }
