@@ -18,7 +18,7 @@ COPY poetry.lock pyproject.toml config/jupyter_lab_config.py \
 
 # Project initialization:
 RUN poetry config virtualenvs.create false \
-  && poetry install --no-interaction --no-ansi
+  && poetry install --no-dev --no-interaction --no-ansi
 
 # Creating folders, and files for a project:
 COPY ./frontend /code
