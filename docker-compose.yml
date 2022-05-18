@@ -24,8 +24,8 @@ services:
       NEO4J_dbms_memory_pagecache_size: 8G
       NEO4J_dbms_memory_heap_max__size: 8G
       NEO4J_dbms_default__listen__address: 0.0.0.0
+      NEO4JLABS_PLUGINS: '["apoc", "graph-data-science"]'
     ports:
-      - "54015:7474"
       - "54010:7687"
     volumes:
       - db-data-neo4j:/data
