@@ -200,8 +200,7 @@ class App implements AutoCloseable {
         Mmdb dblp = new Mmdb(dblpXmlFilename, dblpDtdFilename, false);
         System.setErr(originalErr);
 
-        System.out.format("XML filename: %s (%d publications)\n", dblpXmlFilename, dblp.numberOfPublications());
-        System.out.format("DTD schema: %s\n", dblpDtdFilename);
+        // System.out.format("DTD schema: %s\n", dblpDtdFilename);
 
         long startTime = System.currentTimeMillis();
         try (App app = new App(hosturi, username, password)) {
@@ -210,6 +209,8 @@ class App implements AutoCloseable {
             dblp.publications().forEach(p -> app.addPublicationToNeo4j(p));
         }
         long endTime = System.currentTimeMillis();
-        System.out.format("Complete: %.2f seconds\n\n", (endTime - startTime) / 1000.0);
+
+        System.out.format("%s,%d", dblpXmlFilename, dblp.numberOfPublications());
+        System.out.format(",%.4f\n", (endTime - startTime) / 1000.0);
     }
 }
