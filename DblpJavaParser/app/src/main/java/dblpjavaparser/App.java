@@ -58,7 +58,7 @@ class App implements AutoCloseable {
         }
     }
 
-    private Result createPublResult(Transaction tx, Publication publ, Collection<String> citedKeys) {
+    private Result createPublResult(Transaction tx, Publication publ, String streamKey, Collection<String> citedKeys) {
         Map<String, Object> params;
         if (flag_store_all) {
             params = publ.fields()
@@ -71,6 +71,10 @@ class App implements AutoCloseable {
 
         StringBuilder query = new StringBuilder();
         query.append("MERGE (p: Publication {key: $key})\n");
+        if (streamKey != "") {
+            query.append("MERGE (s: Stream {key: $streamKey})\n");
+            query.append("MERGE (p)-[:GROUPED_BY]->(s)\n");
+        }
 
         if (flag_store_all) {
             query.append("SET ");
@@ -89,6 +93,9 @@ class App implements AutoCloseable {
             query.append("\n");
         }
         params.put("key", publ.getKey());
+        if (streamKey != "") {
+            params.put("streamKey", streamKey);
+        }
 
         if (citedKeys.size() > 0) {
             query.append("FOREACH (key_cited IN $citedKeys |\n");
@@ -131,6 +138,10 @@ class App implements AutoCloseable {
 
     public void addPublicationToNeo4j(Publication publ) {
         String publKey = publ.getKey();
+        String[] publKeyStrings = publKey.split("/");
+        String streamKey = (publKeyStrings.length > 2)
+                ? String.join("/", Arrays.copyOf(publKeyStrings, publKeyStrings.length - 1))
+                : "";
         Collection<Field> authorFields = publ.getFields("author");
         Collection<String> citedKeys = publ.fields("cite")
                 .filter(f -> !f.value().equals("..."))
@@ -138,12 +149,13 @@ class App implements AutoCloseable {
         int numAuthors = authorFields.size();
 
         try (Session session = driver.session()) {
-            session.writeTransaction(tx -> createPublResult(tx, publ, citedKeys));
+            session.writeTransaction(tx -> createPublResult(tx, publ, streamKey, citedKeys));
 
             AtomicInteger index = new AtomicInteger();
             authorFields.stream().forEach(authorField -> {
                 int i = index.incrementAndGet();
-                session.writeTransaction(tx -> createAuthorResult(tx, publKey, authorField, i, numAuthors));
+                session.writeTransaction(tx -> createAuthorResult(tx, publKey, authorField,
+                        i, numAuthors));
             });
         }
     }
@@ -156,13 +168,13 @@ class App implements AutoCloseable {
                 .description("Parse the DBLP XML file and upload to Neo4j");
 
         parser.addArgument("--host")
-                .setDefault("bolt://localhost:7687")
+                .setDefault("bolt://ccsl1.snu.ac.kr:54010")
                 .help("Host URI for the Neo4J database to upload.");
         parser.addArgument("--user")
                 .setDefault("neo4j")
                 .help("Username of the Neo4J database");
         parser.addArgument("--password")
-                .setDefault("password")
+                .setDefault("bkmsneo4j")
                 .help("Password of the Neo4J database");
         parser.addArgument("--store-all")
                 .dest("store_all")
