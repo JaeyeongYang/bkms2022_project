@@ -30,31 +30,15 @@ class App implements AutoCloseable {
         driver.close();
     }
 
-    public void createConstraints() {
-        try (Session session = driver.session()) {
-            session.writeTransaction(tx -> tx.run("""
-                    CREATE CONSTRAINT UniquePublication IF NOT EXISTS
-                    ON (p: Publication) ASSERT p.key IS UNIQUE;
-                    """));
-
-            session.writeTransaction(tx -> tx.run("""
-                    CREATE CONSTRAINT UniqueAuthor IF NOT EXISTS
-                    ON (a: Author) ASSERT a.name IS UNIQUE;
-                    """));
-        }
-    }
-
     public void createIndexes() {
         try (Session session = driver.session()) {
-            session.writeTransaction(tx -> tx.run("""
-                    CREATE INDEX PublicationIndex IF NOT EXISTS
-                    FOR (p:Publication) ON (p.key)
-                    """));
+            session.writeTransaction(tx -> tx.run(
+                    "CREATE INDEX PublicationIndex IF NOT EXISTS " +
+                            "FOR (p:Publication) ON (p.key)"));
 
-            session.writeTransaction(tx -> tx.run("""
-                    CREATE INDEX AuthorIndex IF NOT EXISTS
-                    FOR (a:Author) ON (a.name)
-                    """));
+            session.writeTransaction(tx -> tx.run(
+                    "CREATE INDEX AuthorIndex IF NOT EXISTS " +
+                            "FOR (a:Author) ON (a.name)"));
         }
     }
 
@@ -211,8 +195,6 @@ class App implements AutoCloseable {
         System.setErr(filterStream);
         Mmdb dblp = new Mmdb(dblpXmlFilename, dblpDtdFilename, false);
         System.setErr(originalErr);
-
-        // System.out.format("DTD schema: %s\n", dblpDtdFilename);
 
         long startTime = System.currentTimeMillis();
         try (App app = new App(hosturi, username, password)) {
