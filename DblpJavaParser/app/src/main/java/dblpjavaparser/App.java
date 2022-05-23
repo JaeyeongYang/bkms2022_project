@@ -29,6 +29,22 @@ class App implements AutoCloseable {
     public void close() throws Exception {
         driver.close();
     }
+    
+    public void createConstraints() {
+        try (Session session = driver.session()) {
+            session.writeTransaction(tx -> tx.run(
+                    "CREATE CONSTRAINT UniquePublicationConstraint IF NOT EXISTS " +
+                            "FOR (p:Publication) REQUIRE p.key IS UNIQUE"));
+
+            session.writeTransaction(tx -> tx.run(
+                    "CREATE CONSTRAINT UniqueAuthorConstraint IF NOT EXISTS " +
+                            "FOR (a:Author) REQUIRE a.name IS UNIQUE"));
+
+            session.writeTransaction(tx -> tx.run(
+                    "CREATE CONSTRAINT UniqueStreamConstraint IF NOT EXISTS " +
+                            "FOR (s:Stream) REQUIRE s.key IS UNIQUE"));
+        }
+    }
 
     public void createIndexes() {
         try (Session session = driver.session()) {
@@ -39,6 +55,10 @@ class App implements AutoCloseable {
             session.writeTransaction(tx -> tx.run(
                     "CREATE INDEX AuthorIndex IF NOT EXISTS " +
                             "FOR (a:Author) ON (a.name)"));
+
+            session.writeTransaction(tx -> tx.run(
+                    "CREATE INDEX StreamIndex IF NOT EXISTS " +
+                            "FOR (s:Stream) ON (s.key)"));
         }
     }
 
@@ -198,7 +218,7 @@ class App implements AutoCloseable {
 
         long startTime = System.currentTimeMillis();
         try (App app = new App(hosturi, username, password)) {
-            // app.createConstraints();
+            app.createConstraints();
             app.createIndexes();
             dblp.publications().forEach(p -> app.addPublicationToNeo4j(p));
         }
