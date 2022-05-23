@@ -13,8 +13,9 @@ RUN pip install "poetry==$POETRY_VERSION"
 
 # Copy only requirements to cache them in docker layer
 WORKDIR /code
-COPY poetry.lock pyproject.toml config/jupyter_lab_config.py \
-         DblpJavaParser/app/build/libs/app.jar /code/
+COPY poetry.lock pyproject.toml \
+  .env config/jupyter_lab_config.py \
+  DblpJavaParser/app/build/libs/app.jar /code/
 
 # Project initialization:
 RUN poetry config virtualenvs.create false \
