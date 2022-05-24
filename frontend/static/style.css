@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
+* {
+  font-family: "Roboto", "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+main {
+  max-width: 800px;
+  padding: 15px;
+}
+
+h1.logo {
+  font-weight: bold !important;
+}
+
+h1.logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1.logo small {
+  color: #666666;
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+.form-search .form-floating:focus-within {
+  z-index: 2;
+}
+
+/* .card-container {
+  display: inline-flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  column-gap: 10px;
+  row-gap: 10px;
+} */
+
+/* .card-container .card {
+  flex-basis: calc(50% - 10px);
+} */
+
+.pagination-container {
+  display: flex;
+  justify-self: center;
+}

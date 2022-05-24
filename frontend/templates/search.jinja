@@ -1,0 +1,84 @@
+{% extends 'base.jinja' %}
+
+{% block title %}
+  Searching for "{{ query }}"" | BKMS: Bibliography Knows Meaningful Suggestions
+{% endblock title %}
+
+{% block description %}
+  Search results for "{{ query }}" (total {{ count if count else 0 | numberFormat}} results)
+{% endblock description %}
+
+{% block content %}
+{% set lastpage = (count // limit + 1) %}
+<form class="form-search" action="/search" method="get">
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      name="q"
+      class="form-control"
+      placeholder="Search for publications"
+      value="{{ query }}"
+    />
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+</form>
+<div class="row">
+  {% for record in data %}
+  {% set publ = record['p'] %}
+  <div class="col-sm-6 mb-3">
+    <div class="card">
+      <div class="card-header">
+        Result {{ (page - 1) * limit + loop.index }}:
+        <mark>{{publ['key'] }}</mark>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ publ['title'] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ record['authors'] }}</h6>
+        {% if 'year' in publ %}
+        <h6 class="card-subtitle mb-2 text-muted">({{ publ['year'] }})</h6>
+        {% endif %}
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="row">
+  <nav aria-label="pagenation">
+    <ul class="pagination justify-content-center">
+      {% if page > 1 %}
+      <li class="page-item">
+      {% else %}
+      <li class="page-item disabled">
+      {% endif %}
+        <a class="page-link" href="/search?q={{ query }}&page=1" aria-label="First">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% if page - 2 >= 1 %}
+      <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page - 2 }}">{{ page - 2 }}</a></li>
+      {% endif %}
+      {% if page - 1 >= 1 %}
+      <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page - 1 }}">{{ page - 1 }}</a></li>
+      {% endif %}
+      <li class="page-item active"><a class="page-link" href="#">{{ page }}</a></li>
+      {% if page + 1 <= lastpage%}
+      <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page + 1 }}">{{ page + 1 }}</a></li>
+      {% endif %}
+      {% if page + 2 <= lastpage%}
+      <li class="page-item"><a class="page-link" href="/search?q={{ query }}&page={{ page + 2 }}">{{ page + 2 }}</a></li>
+      {% endif %}
+      {% if page < lastpage %}
+      <li class="page-item">
+      {% else %}
+      <li class="page-item disabled">
+      {% endif %}
+        <a class="page-link" href="/search?q={{ query }}&page={{ lastpage }}" aria-label="Last">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+{% endblock content %}

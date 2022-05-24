@@ -1,0 +1,23 @@
+{% extends 'base.jinja' %}
+
+{% block title %}
+BKMS: Bibliography Knows Meaningful Suggestions
+{% endblock title %}
+
+{% block description %}
+Total {{ n_publs | numberFormat }} publications, &nbsp; {{ n_authors | numberFormat }} authors, &nbsp; {{ n_streams | numberFormat }} streams
+{% endblock description %}
+
+{% block content %}
+<form class="form-search" action="/search" method="get">
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      name="q"
+      class="form-control"
+      placeholder="Search for publications"
+    />
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+</form>
+{% endblock content %}
