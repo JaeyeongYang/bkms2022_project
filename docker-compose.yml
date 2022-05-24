@@ -6,9 +6,13 @@ services:
     image: postgres:14.2
     restart: unless-stopped
     environment:
-      POSTGRES_USER: "${RDBMS_AUTH_USER}"
-      POSTGRES_PASSWORD: "${RDBMS_AUTH_PASS}"
-      POSTGRES_DB: "${RDBMS_DATABASE}"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASS}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    expose:
+      - "5432"
     volumes:
       - db-data-postgres:/var/lib/postgresql/data
     networks:
@@ -18,7 +22,7 @@ services:
     image: neo4j:4.4.6-community
     restart: unless-stopped
     environment:
-      NEO4J_AUTH: "${GRAPH_DB_AUTH_USER}/${GRAPH_DB_AUTH_PASSWORD}"
+      NEO4J_AUTH: "${NEO4J_USER}/${NEO4J_PASS}"
       NEO4J_dbms_memory_pagecache_size: 8G
       NEO4J_dbms_memory_heap_max__size: 8G
       NEO4J_dbms_default__listen__address: 0.0.0.0
@@ -26,26 +30,38 @@ services:
     expose:
       - "7687"
     ports:
-      - "${GRAPH_DB_PORT}:7687"
+      - "${NEO4J_PORT}:7687"
     volumes:
       - db-data-neo4j:/data
       - db-logs-neo4j:/logs
     networks:
       - backend
 
-  frontend:
-    restart: always
+  # flask:
+  #   restart: always
+  #   ports:
+  #     - "${FLASK_PORT}:8080"
+  #   depends_on:
+  #     - db_postgres
+  #     - db_neo4j
+  #   networks:
+  #     - backend
+  #     - frontend
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+
+  tensorflow:
+    restart: unless-stopped
+    image: tensorflow/tensorflow:2.9.0-jupyter
     ports:
-      - "${FRONTEND_PORT}:8080"
+      - "${FLASK_PORT}:8888"
     depends_on:
       - db_postgres
       - db_neo4j
     networks:
       - backend
       - frontend
-    build:
-      context: .
-      dockerfile: ./Dockerfile
 
 networks:
   backend:
