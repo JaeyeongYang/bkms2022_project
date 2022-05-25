@@ -29,7 +29,7 @@ class App implements AutoCloseable {
     public void close() throws Exception {
         driver.close();
     }
-    
+
     public void createConstraints() {
         try (Session session = driver.session()) {
             session.writeTransaction(tx -> tx.run(
@@ -216,15 +216,18 @@ class App implements AutoCloseable {
         Mmdb dblp = new Mmdb(dblpXmlFilename, dblpDtdFilename, false);
         System.setErr(originalErr);
 
-        long startTime = System.currentTimeMillis();
+        // long startTime = System.currentTimeMillis();
         try (App app = new App(hosturi, username, password)) {
             app.createConstraints();
             app.createIndexes();
-            dblp.publications().forEach(p -> app.addPublicationToNeo4j(p));
+            dblp.publications().forEach(p -> {
+                app.addPublicationToNeo4j(p);
+                System.out.format("%s\n", p.getKey());
+            });
         }
-        long endTime = System.currentTimeMillis();
+        // long endTime = System.currentTimeMillis();
 
-        System.out.format("%s\t%d\t", dblpXmlFilename, dblp.numberOfPublications());
-        System.out.format("%.4f\n", (endTime - startTime) / 1000.0);
+        // System.out.format("%s\t%d\t", dblpXmlFilename, dblp.numberOfPublications());
+        // System.out.format("%.4f\n", (endTime - startTime) / 1000.0);
     }
 }
