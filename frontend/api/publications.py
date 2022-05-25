@@ -36,3 +36,13 @@ def register_publication_endpoints(app, stores):
         data = store.get_related_publications(pkey)
         # return jsonify(serialize_related_publications(data))
         return jsonify(data)
+
+    def is_file_allowed(filename):
+        return "." in filename and filename.rsplit(".", 1)[1].lower() in (".xml",)
+
+    @app.route("/upload", methods=["GET", "POST"])
+    def upload_data():
+        if request.method == "POST":
+            pass
+        else:
+            return flask.render_template("upload.jinja")

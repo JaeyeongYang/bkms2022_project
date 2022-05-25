@@ -13,8 +13,9 @@ if __name__ == "__main__":
     }
 
     app = flask.Flask(__name__, template_folder="templates")
+    app.config["UPLOAD_FOLDER"] = config["FLASK_UPLOAD_FOLDER"]
 
     register_interface_endpoints(app, stores)
     register_publication_endpoints(app, stores)
 
-    app.run(host="0.0.0.0", port=int(config["FLASK_PORT"]))
+    app.run(host="0.0.0.0")

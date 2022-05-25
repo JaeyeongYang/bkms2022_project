@@ -34,7 +34,13 @@
       </h1>
       <p class="text-center mb-4">{% block description %}{% endblock description %}</p>
       {% block content %}{% endblock content %}
-      <p class="mt-5 mb-3 text-center text-muted">Developed by <strong>BDKMS Team 6</strong>, 2022.</p>
+      <div class="mt-5 mb-3 text-center">
+        <div class="btn-group">
+          <a href="/upload" class="btn btn-sm btn-link">Data upload</a>
+          <a href="/upload" class="btn btn-sm btn-link">Github</a>
+        </div>
+      </div>
+      <p class="mb-3 text-center text-muted">Developed by <strong>BDKMS Team 6</strong>, 2022.</p>
     </main>
   </body>
 </html>

@@ -1,0 +1,22 @@
+{% extends 'base.jinja' %}
+
+{% block title %}
+Data upload | BKMS: Bibliography Knows Meaningful Suggestions
+{% endblock title %}
+
+{% block description %}
+Upload data as an XML file:
+{% endblock description %}
+
+{% block content %}
+<form class="form-search" action="/upload" method="POST">
+  <div class="input-group mb-3">
+    <input
+      type="file"
+      name="file"
+      class="form-control"
+    />
+    <button class="btn btn-primary" type="submit">Upload</button>
+  </div>
+</form>
+{% endblock content %}
