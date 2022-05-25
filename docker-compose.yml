@@ -37,31 +37,31 @@ services:
     networks:
       - backend
 
-  # flask:
-  #   restart: always
-  #   ports:
-  #     - "${FLASK_PORT}:8080"
-  #   depends_on:
-  #     - db_postgres
-  #     - db_neo4j
-  #   networks:
-  #     - backend
-  #     - frontend
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile
-
-  tensorflow:
-    restart: unless-stopped
-    image: tensorflow/tensorflow:2.9.0-jupyter
+  flask:
+    restart: always
     ports:
-      - "${FLASK_PORT}:8888"
+      - "${FLASK_PORT}:8080"
     depends_on:
       - db_postgres
       - db_neo4j
     networks:
       - backend
       - frontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+  # tensorflow:
+  #   restart: unless-stopped
+  #   image: tensorflow/tensorflow:2.9.0-jupyter
+  #   ports:
+  #     - "${FLASK_PORT}:8888"
+  #   depends_on:
+  #     - db_postgres
+  #     - db_neo4j
+  #   networks:
+  #     - backend
+  #     - frontend
 
 networks:
   backend:
