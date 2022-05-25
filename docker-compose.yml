@@ -44,6 +44,8 @@ services:
     depends_on:
       - db_postgres
       - db_neo4j
+    volumes:
+      - ./frontend:/code
     networks:
       - backend
       - frontend
