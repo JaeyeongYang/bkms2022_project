@@ -28,21 +28,30 @@ class Neo4jStore:
             result = session.run(f"MATCH (s:Stream) RETURN COUNT(s)")
             return result.single()[0]
 
-    def search_by_title(self, query=None, page=None, limit=24):
-        conds_where = []
-        conds_where.append("p.title IS NOT NULL")
-        if query is not None:
-            conds_where.append("p.title CONTAINS $title")
-        query_where = " AND ".join(conds_where)
+    def search_by_title(self, search=None, page=1, limit=24):
+        query_with = r"""
+        WITH REDUCE(res = [], w IN SPLIT($search, " ") |
+            CASE WHEN w <> '' THEN res + (".*" + w + ".*")
+            ELSE res END) AS res
+        """
+        query_where = "ALL(regexp IN res WHERE p.title =~ regexp)"
 
-        if page is None:
-            page = 1
+        if not isinstance(page, int):
+            raise RuntimeError('"page" is not an integer.')
+        elif page <= 0:
+            raise RuntimeError('"page" should be a positive integer.')
+
         query_skip = f"SKIP {(page - 1) * limit}" if page > 1 else ""
 
         with self.driver.session() as session:
             result = session.run(
-                f"MATCH (p:Publication) WHERE {query_where} RETURN COUNT(p)",
-                title=query,
+                f"""
+                {query_with}
+                MATCH (p:Publication)
+                WHERE {query_where}
+                RETURN COUNT(p)
+                """,
+                search=search,
             )
             count = result.single()[0]
             if count == 0:
@@ -51,6 +60,7 @@ class Neo4jStore:
         with self.driver.session() as session:
             result = session.run(
                 f"""
+                {query_with}
                 MATCH (p:Publication)
                 WHERE {query_where}
                 WITH p
@@ -61,7 +71,7 @@ class Neo4jStore:
                 {query_skip}
                 LIMIT $limit
                 """,
-                title=query,
+                search=search,
                 limit=limit,
             )
             return {"count": count, "data": [record.data() for record in result]}
