@@ -5,23 +5,24 @@
 {% endblock title %}
 
 {% block description %}
-  Search results for "{{ query }}" (total {{ count if count else 0 | numberFormat}} results)
+  Search results for <mark>{{ query }}</mark> (total {{ count if count else 0 | numberFormat}} results)
 {% endblock description %}
 
 {% block content %}
 {% set lastpage = (count // limit + 1) %}
 <form class="form-search" action="/search" method="get">
-  <div class="input-group mb-3">
+  <div class="input-group mb-4">
     <input
       type="text"
       name="q"
       class="form-control"
-      placeholder="Search for publications"
+      placeholder="Search bibliography by title"
       value="{{ query }}"
     />
     <button class="btn btn-primary" type="submit">Search</button>
   </div>
 </form>
+
 <div class="row">
   {% for record in data %}
   {% set publ = record['p'] %}
@@ -29,21 +30,55 @@
     <div class="card">
       <div class="card-header">
         Result {{ (page - 1) * limit + loop.index }}:
-        <mark>{{publ['key'] }}</mark>
+        <code>{{publ['key'] }}</code>
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ publ['title'] }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ record['authors'] }}</h6>
-        {% if 'year' in publ %}
-        <h6 class="card-subtitle mb-2 text-muted">({{ publ['year'] }})</h6>
-        {% endif %}
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ record['authors'] }}{% if 'year' in publ %}&nbsp;({{ publ['year'] }}).{% endif %}
+        </h6>
+        <div class="text-end">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-{{ loop.index }}">
+            Details
+          </button>
+          <button type="button" class="btn btn-sm btn-primary">
+            Find recommendations
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-lg" id="cardDetail-{{ loop.index }}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Publication details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for k, v in publ.items() %}
+              <tr>
+                <th scope="row">{{ k }}</th>
+                <td>{{ v }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
+
 <div class="row">
   <nav aria-label="pagenation">
     <ul class="pagination justify-content-center">

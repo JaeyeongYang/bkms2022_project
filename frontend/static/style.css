@@ -40,6 +40,12 @@ h1.logo a {
   text-decoration: none;
 }
 
+h1.logo span {
+  background-color: #333333;
+  color: #f5f5f5;
+  padding: 5px 10px;
+}
+
 h1.logo small {
   color: #666666;
   font-size: 0.75em;
