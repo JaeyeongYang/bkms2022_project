@@ -1,18 +1,24 @@
 [tool.poetry]
-name = "bkms2022_project"
+name = "BKMS"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Bibliography Knows Meaningful Suggestions"
+authors = [
+  "Jaeyeong Yang <jaeyeong.yang1125@gmail.com>"
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.10"
 setuptools = "^62.3.2"
-pandas = "^1.4.2"
+
 Flask = "^2.1.2"
+python-dotenv = "^0.20.0"
+
 neo4j = "^4.4.3"
 psycopg2-binary = "^2.9.3"
+
 jupyterlab = "^3.4.1"
-python-dotenv = "^0.20.0"
+
+pandas = "^1.4.2"
 tensorflow = { version = "^2.9.0", markers = "sys_platform == 'linux'" }
 tensorflow-hub = { version = "^0.12.0", markers = "sys_platform == 'linux'" }
 scikit-learn = "^1.1.1"
