@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASS}"
       POSTGRES_DB: "${POSTGRES_DB}"
     ports:
-      - "${POSTGRES_PORT}:5432"
+      - "${POSTGRES_PORT_EXT}:${POSTGRES_PORT}"
     expose:
       - "5432"
     volumes:
@@ -23,8 +23,8 @@ services:
     restart: unless-stopped
     environment:
       NEO4J_AUTH: "${NEO4J_USER}/${NEO4J_PASS}"
-      NEO4J_dbms_memory_pagecache_size: 8G
-      NEO4J_dbms_memory_heap_max__size: 8G
+      NEO4J_dbms_memory_pagecache_size: 16G
+      NEO4J_dbms_memory_heap_max__size: 16G
       NEO4J_dbms_default__listen__address: 0.0.0.0
       NEO4JLABS_PLUGINS: '["apoc", "graph-data-science"]'
     expose:
@@ -40,7 +40,7 @@ services:
   flask:
     restart: always
     ports:
-      - "${FLASK_PORT}:8080"
+      - "${FLASK_PORT_EXT}:${FLASK_PORT}"
     depends_on:
       - db_postgres
       - db_neo4j
