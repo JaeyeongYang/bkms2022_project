@@ -1,7 +1,6 @@
 import json
 import flask
 from flask import jsonify, request
-from flask_restx import Resource
 
 
 def register_publication_endpoints(app, stores):
