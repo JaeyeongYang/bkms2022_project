@@ -9,14 +9,40 @@ Upload data as an XML file:
 {% endblock description %}
 
 {% block content %}
-<form class="form-search" action="/upload" method="POST">
+<form class="form-search" action="/upload" method="POST" enctype="multipart/form-data">
   <div class="input-group mb-3">
     <input
       type="file"
+      id="file"
       name="file"
+      accept="text/xml"
       class="form-control"
+      required
     />
     <button class="btn btn-primary" type="submit">Upload</button>
   </div>
+  {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+    <div class="invalid-feedback" style="display: block;">
+      <ul>
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  {% endwith %}
+  {% with infos = get_flashed_messages(category_filter=["info"]) %}
+    {% if infos %}
+    <div class="valid-feedback" style="display: block;">
+      <ul>
+        {% for info in infos %}
+        <li>{{ info }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  {% endwith %}
+
 </form>
 {% endblock content %}

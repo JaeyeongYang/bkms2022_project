@@ -1,9 +1,14 @@
-import json
+import os
+from pathlib import Path
+import subprocess
+import tempfile
+
 import flask
 from flask import jsonify, request
+from werkzeug.utils import secure_filename
 
 
-def register_publication_endpoints(app, stores):
+def register_publication_endpoints(app, stores, config):
     store = stores["neo4j"]
 
     @app.route("/api/publ", methods=["GET"])
@@ -38,11 +43,54 @@ def register_publication_endpoints(app, stores):
         return jsonify(data)
 
     def is_file_allowed(filename):
-        return "." in filename and filename.rsplit(".", 1)[1].lower() in (".xml",)
+        allowed_exts = [".xml"]
+        return any(filename.endswith(ext) for ext in allowed_exts)
+
+    def process_data_file(filepath):
+        args = [
+            "java",
+            "-jar",
+            "./bin/app.jar",
+            f"--host={config['NEO4J_HOST']}",
+            f"--user={config['NEO4J_USER']}",
+            f"--password={config['NEO4J_PASS']}",
+            "--store-all",
+            filepath,
+            "./data/dblp.dtd",
+        ]
+
+        app.logger.info(args)
+        res = subprocess.Popen(
+            args=" ".join(args),
+            shell=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
+        return bytes(res.stdout.read()).decode("utf-8")
 
     @app.route("/upload", methods=["GET", "POST"])
     def upload_data():
         if request.method == "POST":
-            pass
-        else:
-            return flask.render_template("upload.jinja")
+            app.logger.info(list(request.files.keys()))
+            if "file" not in request.files:
+                flask.flash("No file part", "error")
+                return flask.redirect(request.url)
+
+            file = request.files["file"]
+            if file.filename == "":
+                flask.flash("No selected file", "error")
+                return flask.redirect(request.url)
+
+            filename = secure_filename(file.filename)
+            app.logger.info(filename)
+            app.logger.info(is_file_allowed(filename))
+            if file and is_file_allowed(filename):
+                with tempfile.NamedTemporaryFile(suffix=".xml") as f:
+                    file.save(f)
+                    res = process_data_file(f.name)
+
+                # return flask.redirect(flask.url_for("download_file", name=filename))
+                # return flask.redirect(request.url)
+                return flask.render_template_string("<pre>\n{{ res }}\n</pre>", res=res)
+
+        return flask.render_template("upload.jinja")
