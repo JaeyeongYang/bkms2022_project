@@ -15,8 +15,6 @@ services:
       - "5432"
     volumes:
       - db-data-postgres:/var/lib/postgresql/data
-    networks:
-      - backend
 
   db_neo4j:
     image: neo4j:4.4.6-community
@@ -30,28 +28,23 @@ services:
     expose:
       - "7687"
     ports:
-      - "${NEO4J_PORT}:7687"
+      - "${NEO4J_PORT_EXT}:7687"
     volumes:
       - db-data-neo4j:/data
       - db-logs-neo4j:/logs
-    networks:
-      - backend
 
-  flask:
-    restart: always
-    ports:
-      - "${FLASK_PORT_EXT}:${FLASK_PORT}"
-    depends_on:
-      - db_postgres
-      - db_neo4j
-    volumes:
-      - ./frontend:/code
-    networks:
-      - backend
-      - frontend
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+  # flask:
+  #   restart: always
+  #   ports:
+  #     - "${FLASK_PORT_EXT}:${FLASK_PORT}"
+  #   depends_on:
+  #     - db_postgres
+  #     - db_neo4j
+  #   volumes:
+  #     - ./frontend:/code
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
 
   # tensorflow:
   #   restart: unless-stopped
@@ -64,12 +57,6 @@ services:
   #   networks:
   #     - backend
   #     - frontend
-
-networks:
-  backend:
-    driver: bridge
-  frontend:
-    driver: bridge
 
 volumes:
   db-data-postgres:
