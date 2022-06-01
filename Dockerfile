@@ -1,4 +1,4 @@
-FROM python:3.9.12-bullseye
+FROM python:3.9.12-bullseye AS builder
 
 ENV PYTHONFAULTHANDLER=1 \
   PYTHONUNBUFFERED=1 \
@@ -23,5 +23,11 @@ WORKDIR /code
 
 EXPOSE 8080
 
+FROM builder AS web
+
 ENTRYPOINT ["python", "app.py"]
+
+FROM web AS worker
+
+ENTRYPOINT ["celery"]
 

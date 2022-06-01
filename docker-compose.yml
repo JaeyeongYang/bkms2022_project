@@ -33,33 +33,42 @@ services:
       - db-data-neo4j:/data
       - db-logs-neo4j:/logs
 
-  # flask:
-  #   restart: always
-  #   ports:
-  #     - "${FLASK_PORT_EXT}:${FLASK_PORT}"
-  #   depends_on:
-  #     - db_postgres
-  #     - db_neo4j
-  #   volumes:
-  #     - ./frontend:/code
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile
+  db_redis:
+    image: redis:7.0-alpine
+    restart: unless-stopped
+    hostname: redis
+    expose:
+      - "6379"
+    volumes:
+      - db-data-redis:/data
 
-  # tensorflow:
-  #   restart: unless-stopped
-  #   image: tensorflow/tensorflow:2.9.0-jupyter
-  #   ports:
-  #     - "${FLASK_PORT}:8888"
-  #   depends_on:
-  #     - db_postgres
-  #     - db_neo4j
-  #   networks:
-  #     - backend
-  #     - frontend
+  web:
+    build:
+      target: web
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - "${FLASK_PORT_EXT}:${FLASK_PORT}"
+    depends_on:
+      - db_postgres
+      - db_neo4j
+    volumes:
+      - ./frontend:/code
+
+  worker:
+    build:
+      target: worker
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    depends_on:
+      - db_postgres
+      - db_neo4j
 
 volumes:
   db-data-postgres:
   db-data-neo4j:
   db-logs-neo4j:
+  db-data-redis:
 
