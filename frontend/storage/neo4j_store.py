@@ -5,9 +5,8 @@ class Neo4jStore:
     __slot__ = ("driver",)
 
     def __init__(self, config):
-        use_ext = config['USE_EXT']
         self.driver = GraphDatabase.driver(
-            config["NEO4J_HOST_EXT" if use_ext else "NEO4J_HOST"],
+            config["NEO4J_HOST"],
             auth=(config["NEO4J_USER"], config["NEO4J_PASS"]),
         )
 
