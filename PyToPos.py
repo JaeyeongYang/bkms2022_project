@@ -17,6 +17,9 @@ import pandas as pd
 from pandas import DataFrame
 
 # Postgresql 접근 
+con = psycopg2.connect(host='bkmspostgres@ccsl1.snu.ac.kr', dbname='postgres',user='bkms',
+                      password='bkmspostgres',port=54006)
+cur = con.cursor
 engine = create_engine("postgresql://bkms:bkmspostgres@ccsl1.snu.ac.kr:54006/postgres")
 conn = engine.connect()
 
@@ -28,6 +31,7 @@ embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4", tags=N
 import tarfile
 file=tarfile.open('./universal-sentence-encoder_4.tar.gz')
 file.extractall('./sent4')
+embed = hub.load('./sent4')
 '''
 
 # neo4j에서 데이터를 가져와 df로 정리했다고 가정(neo4j에서 데이터 가져오는 핸들러 필요), title과 pub2.key의 두가지 칼럼만 가짐
