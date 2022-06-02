@@ -1,11 +1,12 @@
-import os
 import asyncio
-from pathlib import Path
+import os
 import subprocess
 import tempfile
+from pathlib import Path
 
 import flask
 from flask import jsonify, request
+from tasks import parse_and_upload_to_neo4j
 from werkzeug.utils import secure_filename
 
 
@@ -47,38 +48,9 @@ def register_publication_endpoints(app, stores, config):
         allowed_exts = [".xml"]
         return any(filename.endswith(ext) for ext in allowed_exts)
 
-    async def parse_and_upload_to_neo4j(filepath):
-        args = [
-            "java",
-            "-jar",
-            "./bin/app.jar",
-            f"--host={config['NEO4J_HOST']}",
-            f"--user={config['NEO4J_USER']}",
-            f"--password={config['NEO4J_PASS']}",
-            "--store-all",
-            filepath,
-            "./data/dblp.dtd",
-        ]
-
-        app.logger.info(args)
-        res = subprocess.Popen(
-            args=" ".join(args),
-            shell=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-        )
-        return [s.strip() for s in bytes(res.stdout.read()).decode("utf-8").split()]
-
-    async def set_up_graph_recommendation():
-        pass
-
-    async def save_text_embeddings(pkeys):
-        pass
-
     @app.route("/upload", methods=["GET", "POST"])
-    async def upload_data():
+    def upload_data():
         if request.method == "POST":
-            app.logger.info(list(request.files.keys()))
             if "file" not in request.files:
                 flask.flash("No file part", "error")
                 return flask.redirect(request.url)
@@ -91,20 +63,37 @@ def register_publication_endpoints(app, stores, config):
             filename = secure_filename(file.filename)
             app.logger.info(filename)
             app.logger.info(is_file_allowed(filename))
+
             if file and is_file_allowed(filename):
                 with tempfile.NamedTemporaryFile(suffix=".xml") as f:
                     file.save(f)
-                    pkeys = await parse_and_upload_to_neo4j(f.name)
+                    task_id = parse_and_upload_to_neo4j.delay(f.name, config)
 
                 # return flask.redirect(flask.url_for("download_file", name=filename))
                 # return flask.redirect(request.url)
-                flask.flash(
-                    f"{len(pkeys)} publication{'s' if len(pkeys) > 1 else ''} uploaded.",
-                    "info",
-                )
-                return flask.redirect(request.url)
+                # flask.flash(
+                #     f"{len(pkeys)} publication{'s' if len(pkeys) > 1 else ''} uploaded.",
+                #     "info",
+                # )
+                # return flask.redirect(request.url, arg1='1')
+                return flask.redirect(flask.url_for('upload_data', task_id=task_id))
                 # return flask.render_template_string(
                 #     "<pre>\n{{ res }}\n</pre>", res=pkeys
                 # )
 
         return flask.render_template("upload.jinja")
+
+    @app.route("/upload/progress", methods=["GET"])
+    def upload_data_progress():
+        task_id = request.args.get('task_id', None)
+        if task_id is None:
+            return jsonify({'state': 'INVALID'})
+
+        task = parse_and_upload_to_neo4j.AsyncResult(task_id)
+        if task.state == 'PENDING':
+            resp = {'state': task.state}
+        # elif task.state == 'FAILURE':
+        else:
+            resp = {'state': task.state}
+
+        return jsonify(resp)
