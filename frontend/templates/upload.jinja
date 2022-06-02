@@ -43,6 +43,59 @@ Upload data as an XML file:
     </div>
     {% endif %}
   {% endwith %}
+  {% if task_id %}
+    <div id='progress-log' style="display: block;">
+      <p>
+      </p>
+    </div>
+    <script>
+
+    window.addEventListener('load', function() {
+      let progress_logs = []
+
+      var intervalId = setInterval(function () {
+        axios.get('upload/progress', {params: {task_id: "{{ task_id }}"}})
+          .then(function (response) {
+            const data = response.data;
+            const e = document.querySelector("#progress-log p");
+
+            // Remove all children elements
+            // var child = e.lastElementChild;
+            // while (child) {
+            //   e.removeChild(child);
+            //   child = e.lastElementChild;
+            // }
+            var text_state = data.state;
+            var text_info = (data.info.message !== undefined) ? data.info.message : '';
+
+            var text_icon = ''
+            switch (text_state) {
+              case 'SUCCESS':
+                text_icon = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
+                break;
+              case 'FAILURE':
+                text_icon = '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>';
+                break;
+              default:
+                text_icon = '<div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></div>';
+            }
+            var text = `${text_icon} ${text_info}`;
+
+            if (progress_logs.length == 0 || progress_logs.at(-1) != text) {
+              progress_logs.push(text);
+              e.innerHTML = text;
+            }
+
+            if (text_state == 'FAILURE' || text_state == 'SUCCESS') {
+              const spinner = document.querySelector('#progress-log .spinner-border');
+              spinner.remove();
+              clearInterval(intervalId);
+            }
+          })
+      }, 1000);
+    })
+    </script>
+  {% endif %}
 
 </form>
 {% endblock content %}

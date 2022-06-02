@@ -10,6 +10,9 @@ class Neo4jStore:
             auth=(config["NEO4J_USER"], config["NEO4J_PASS"]),
         )
 
+    def close(self):
+        self.driver.close()
+
     def get_num_publications(self):
         with self.driver.session() as session:
             result = session.run(f"MATCH (p:Publication) RETURN COUNT(p)")
@@ -84,3 +87,57 @@ class Neo4jStore:
                 pkey=pkey,
             )
             return [record.data() for record in result]
+
+    def has_community_graph(self):
+        with self.driver.session() as session:
+            result = session.run(
+                "CALL gds.graph.list() YIELD graphName "
+                "WHERE graphName = 'bib_community' "
+                "RETURN COUNT(*)"
+            )
+            return result.single()[0] == 1
+
+    def drop_graphs(self):
+        with self.driver.session() as session:
+            # Drop bib_community graph if exists
+            result = session.run("CALL gds.graph.list() YIELD graphName")
+
+            for (graph_name,) in result.values():
+                _ = session.run(
+                    "CALL gds.graph.drop($graph_name, False)", graph_name=graph_name
+                )
+
+    def create_community_graph(self):
+        with self.driver.session() as session:
+            # Create bib_community graph
+            result = session.run(
+                """
+                CALL gds.graph.project(
+                    'bib_community',
+                    ['Author', 'Publication', 'Stream'],
+                    {
+                        AUTHORED_BY: {
+                            orientation: 'UNDIRECTED'
+                        },
+                        CITED_BY: {
+                            orientation: 'NATURAL'
+                        },
+                        GROUPED_BY: {
+                            orientation: 'UNDIRECTED'
+                        }
+                    }
+                )
+                YIELD nodeCount, relationshipCount
+                """
+            )
+            node_count, rel_count = result.single()
+
+            # Run Louvain community detection algorithm
+            result = session.run(
+                "CALL gds.louvain.write('bib_community', {writeProperty: 'community_id'}) "
+                "YIELD communityCount"
+            )
+
+            community_count = result.single()[0]
+
+            return node_count, rel_count, community_count

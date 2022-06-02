@@ -3,6 +3,7 @@ import subprocess
 from celery import Celery
 
 from config import load_config
+from storage.neo4j_store import Neo4jStore
 
 
 config = load_config()
@@ -19,9 +20,8 @@ app = Celery(
     broker=celery_broker_url,
 )
 
-@app.task
-def parse_and_upload_to_neo4j(filepath, config):
 
+def _parse_and_upload_data(filepath, config):
     args = [
         "java",
         "-jar",
@@ -35,14 +35,44 @@ def parse_and_upload_to_neo4j(filepath, config):
     ]
 
     res = subprocess.Popen(
-        args=" ".join(args),
+        args=args,
         shell=True,
         stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
     )
-    pkeys = [
-        s.strip() for s in bytes(res.stdout.read()).decode("utf-8").split()
-    ]
+    stdout, _ = res.communicate()
 
-    return {'pkeys': pkeys}
+    pkeys = [s.strip() for s in bytes(stdout).decode("utf-8").split()]
+    return pkeys
 
+
+def _update_community_graph(config):
+    store = Neo4jStore(config)
+
+    store.drop_graphs()
+    node_count, rel_count, community_count = store.create_community_graph()
+
+    return node_count, rel_count, community_count
+
+
+@app.task(bind=True)
+def upload_data(self, filepath, config):
+    self.update_state(state="PROGRESS", meta={"message": "Parsing data"})
+    pkeys = _parse_and_upload_data(filepath, config)
+
+    self.update_state(state="PROGRESS", meta={"message": "Removing existing graphs"})
+    store = Neo4jStore(config)
+    store.drop_graphs()
+
+    self.update_state(state="PROGRESS", meta={"message": "Detecting communities"})
+    node_count, rel_count, community_count = store.create_community_graph()
+    store.close()
+
+    self.update_state(state="PROGRESS", meta={"message": "Generating text embedding"})
+
+    return {
+        "message": "Data upload complete ({})".format(pkeys),
+        "pkeys": pkeys,
+        "node_count": node_count,
+        "relationship_count": rel_count,
+        "community_count": community_count,
+    }

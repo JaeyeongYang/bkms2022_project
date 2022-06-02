@@ -4,9 +4,11 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from celery.result import AsyncResult
+
 import flask
 from flask import jsonify, request
-from tasks import parse_and_upload_to_neo4j
+from tasks import upload_data as task_upload_data
 from werkzeug.utils import secure_filename
 
 
@@ -67,33 +69,25 @@ def register_publication_endpoints(app, stores, config):
             if file and is_file_allowed(filename):
                 with tempfile.NamedTemporaryFile(suffix=".xml") as f:
                     file.save(f)
-                    task_id = parse_and_upload_to_neo4j.delay(f.name, config)
+                    task_id = task_upload_data.delay(f.name, config)
 
-                # return flask.redirect(flask.url_for("download_file", name=filename))
-                # return flask.redirect(request.url)
-                # flask.flash(
-                #     f"{len(pkeys)} publication{'s' if len(pkeys) > 1 else ''} uploaded.",
-                #     "info",
-                # )
-                # return flask.redirect(request.url, arg1='1')
-                return flask.redirect(flask.url_for('upload_data', task_id=task_id))
-                # return flask.render_template_string(
-                #     "<pre>\n{{ res }}\n</pre>", res=pkeys
-                # )
+                return flask.redirect(flask.url_for("upload_data", task_id=task_id))
 
-        return flask.render_template("upload.jinja")
+        task_id = request.args.get("task_id", None)
+        return flask.render_template("upload.jinja", task_id=task_id)
 
     @app.route("/upload/progress", methods=["GET"])
     def upload_data_progress():
-        task_id = request.args.get('task_id', None)
+        task_id = request.args.get("task_id", None)
         if task_id is None:
-            return jsonify({'state': 'INVALID'})
+            return jsonify({"state": "INVALID"})
 
-        task = parse_and_upload_to_neo4j.AsyncResult(task_id)
-        if task.state == 'PENDING':
-            resp = {'state': task.state}
-        # elif task.state == 'FAILURE':
+        task = task_upload_data.AsyncResult(task_id)
+        if task.state == "PENDING":
+            resp = {"state": task.state}
+        elif task.state == "FAILURE":
+            resp = {"state": task.state}
         else:
-            resp = {'state': task.state}
+            resp = {"state": task.state, "info": task.info}
 
         return jsonify(resp)
