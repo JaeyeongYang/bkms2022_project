@@ -1,4 +1,5 @@
 import os
+import asyncio
 from pathlib import Path
 import subprocess
 import tempfile
@@ -46,7 +47,7 @@ def register_publication_endpoints(app, stores, config):
         allowed_exts = [".xml"]
         return any(filename.endswith(ext) for ext in allowed_exts)
 
-    def process_data_file(filepath):
+    async def parse_and_upload_to_neo4j(filepath):
         args = [
             "java",
             "-jar",
@@ -66,10 +67,16 @@ def register_publication_endpoints(app, stores, config):
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
         )
-        return bytes(res.stdout.read()).decode("utf-8")
+        return [s.strip() for s in bytes(res.stdout.read()).decode("utf-8").split()]
+
+    async def set_up_graph_recommendation():
+        pass
+
+    async def save_text_embeddings(pkeys):
+        pass
 
     @app.route("/upload", methods=["GET", "POST"])
-    def upload_data():
+    async def upload_data():
         if request.method == "POST":
             app.logger.info(list(request.files.keys()))
             if "file" not in request.files:
@@ -87,10 +94,17 @@ def register_publication_endpoints(app, stores, config):
             if file and is_file_allowed(filename):
                 with tempfile.NamedTemporaryFile(suffix=".xml") as f:
                     file.save(f)
-                    res = process_data_file(f.name)
+                    pkeys = await parse_and_upload_to_neo4j(f.name)
 
                 # return flask.redirect(flask.url_for("download_file", name=filename))
                 # return flask.redirect(request.url)
-                return flask.render_template_string("<pre>\n{{ res }}\n</pre>", res=res)
+                flask.flash(
+                    f"{len(pkeys)} publication{'s' if len(pkeys) > 1 else ''} uploaded.",
+                    "info",
+                )
+                return flask.redirect(request.url)
+                # return flask.render_template_string(
+                #     "<pre>\n{{ res }}\n</pre>", res=pkeys
+                # )
 
         return flask.render_template("upload.jinja")
