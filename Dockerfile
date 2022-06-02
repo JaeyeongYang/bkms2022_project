@@ -29,5 +29,5 @@ ENTRYPOINT ["python", "app.py"]
 
 FROM web AS worker
 
-ENTRYPOINT ["celery"]
+ENTRYPOINT ["celery", "-A", "worker", "worker", "--loglevel=info"]
 
