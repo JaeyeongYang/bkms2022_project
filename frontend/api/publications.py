@@ -1,11 +1,15 @@
 import os
 import tempfile
+import subprocess
 
 import flask
 from flask import jsonify, request
 from werkzeug.utils import secure_filename
+import tensorflow as tf
+import tensorflow_hub as hub
 
-from celery_inst import upload_data as task_upload_data
+# from celery_inst import upload_data as task_upload_data
+# from celery_inst import upload_data_local
 
 
 def register_publication_endpoints(app, stores, config):
@@ -25,8 +29,47 @@ def register_publication_endpoints(app, stores, config):
         allowed_exts = [".xml"]
         return any(filename.endswith(ext) for ext in allowed_exts)
 
+    def _parse_and_upload_data(filepath, config):
+        args = [
+            "java",
+            "-jar",
+            "./bin/app.jar",
+            "--host",
+            config["NEO4J_HOST"],
+            "--user",
+            config["NEO4J_USER"],
+            "--password",
+            config["NEO4J_PASS"],
+            "--store-all",
+            filepath,
+            "./bin/dblp.dtd",
+        ]
+
+        res = subprocess.run(
+            " ".join(args), shell=True, check=True, capture_output=True
+        )
+        stdout = res.stdout.decode("UTF-8").strip()
+        pkeys = [s.strip() for s in stdout.split("\n")]
+        return pkeys
+
+    def upload_data(filepath, config):
+        pkeys = _parse_and_upload_data(filepath, config)
+
+        store.drop_graphs()
+        node_count, rel_count, community_count = store.create_community_graph()
+
+        res = store.get_titles(pkeys)
+
+        return {
+            "pkeys": pkeys,
+            "node_count": node_count,
+            "relationship_count": rel_count,
+            "community_count": community_count,
+            "res": res,
+        }
+
     @app.route("/upload", methods=["GET", "POST"])
-    def upload_data():
+    def upload_data_interface():
         if request.method == "POST":
             if "file" not in request.files:
                 flask.flash("No file part", "error")
@@ -46,25 +89,8 @@ def register_publication_endpoints(app, stores, config):
                     filepath = os.path.join(tmpdirname, filename)
                     file.save(filepath)
 
-                    task_id = task_upload_data.delay(filepath, config)
+                    res = upload_data(filepath, config)
 
-                return flask.redirect(flask.url_for("upload_data", task_id=task_id))
+                return jsonify({"result": res})
 
-        task_id = request.args.get("task_id", None)
-        return flask.render_template("upload.jinja", task_id=task_id)
-
-    @app.route("/upload/progress", methods=["GET"])
-    def upload_data_progress():
-        task_id = request.args.get("task_id", None)
-        if task_id is None:
-            return jsonify({"state": "INVALID"})
-
-        task = task_upload_data.AsyncResult(task_id)
-        if task.state == "PENDING":
-            resp = {"state": task.state}
-        elif task.state == "FAILURE":
-            resp = {"state": task.state}
-        else:
-            resp = {"state": task.state, "info": task.info}
-
-        return jsonify(resp)
+        return flask.render_template("upload.jinja")

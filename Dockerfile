@@ -17,7 +17,7 @@ RUN set -eux; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 	# utilities for keeping Debian and OpenJDK CA certificates in sync
-	ca-certificates p11-kit \
+	ca-certificates p11-kit ruby \
 	;
 
 # Install Java 18
@@ -84,6 +84,9 @@ RUN set -eux; \
 	fileEncoding="$(echo 'System.out.println(System.getProperty("file.encoding"))' | jshell -s -)"; [ "$fileEncoding" = 'UTF-8' ]; rm -rf ~/.java; \
 	javac --version; \
 	java --version
+
+# Install google-protobuf
+RUN gem install google-protobuf
 
 # System deps:
 RUN pip install "poetry==$POETRY_VERSION"

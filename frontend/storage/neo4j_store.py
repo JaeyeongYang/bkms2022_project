@@ -28,6 +28,19 @@ class Neo4jStore:
             result = session.run(f"MATCH (s:Stream) RETURN COUNT(s)")
             return result.single()[0]
 
+    def get_titles(self, pkeys):
+        with self.driver.session() as session:
+            result = session.run(
+                """
+                MATCH (p:Publication)
+                WHERE p.key IN $pkeys
+                RETURN p.key AS pkey, p.title as title
+                ORDER BY pkey
+                """,
+                pkeys=pkeys,
+            )
+            return [record.data() for record in result]
+
     def search_by_title(self, search=None, page=1, limit=24):
         query_with = r"""
         WITH REDUCE(res = [], w IN SPLIT($search, " ") |

@@ -31,39 +31,39 @@ services:
       - db-data-neo4j:/data
       - db-logs-neo4j:/logs
 
-  redis:
-    image: redis:7.0-alpine
-    restart: unless-stopped
-    hostname: redis
-    volumes:
-      - db-data-redis:/data
+  # redis:
+  #   image: redis:7.0-alpine
+  #   restart: unless-stopped
+  #   hostname: redis
+  #   volumes:
+  #     - db-data-redis:/data
 
-  worker:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    restart: unless-stopped
-    depends_on:
-      - postgres
-      - neo4j
-      - redis
-    volumes:
-      - ./frontend:/code
-    entrypoint:
-      [
-        "dockerize",
-        "-wait",
-        "tcp://redis:6379",
-        "-timeout",
-        "60s"
-      ]
-    command:
-      [
-        "celery",
-        "--app=celery_inst.app",
-        "worker",
-        "--loglevel=info"
-      ]
+  # worker:
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - postgres
+  #     - neo4j
+  #     - redis
+  #   volumes:
+  #     - ./frontend:/code
+  #   entrypoint:
+  #     [
+  #       "dockerize",
+  #       "-wait",
+  #       "tcp://redis:6379",
+  #       "-timeout",
+  #       "60s"
+  #     ]
+  #   command:
+  #     [
+  #       "celery",
+  #       "--app=celery_inst.app",
+  #       "worker",
+  #       "--loglevel=info"
+  #     ]
 
   web:
     build:
@@ -75,8 +75,8 @@ services:
     depends_on:
       - postgres
       - neo4j
-      - redis
-      - worker
+      # - redis
+      # - worker
     volumes:
       - ./frontend:/code
     entrypoint:
