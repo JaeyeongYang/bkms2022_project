@@ -15,18 +15,41 @@ class Neo4jStore:
 
     def get_num_publications(self):
         with self.driver.session() as session:
-            result = session.run(f"MATCH (p:Publication) RETURN COUNT(p)")
+            result = session.run("MATCH (p:Publication) RETURN COUNT(p)")
+            return result.single()[0]
+
+    def get_num_publications_with_title(self):
+        with self.driver.session() as session:
+            result = session.run(
+                "MATCH (p:Publication) WHERE p.title <> '' RETURN COUNT(p)"
+            )
             return result.single()[0]
 
     def get_num_authors(self):
         with self.driver.session() as session:
-            result = session.run(f"MATCH (a:Author) RETURN COUNT(a)")
+            result = session.run("MATCH (a:Author) RETURN COUNT(a)")
             return result.single()[0]
 
     def get_num_streams(self):
         with self.driver.session() as session:
-            result = session.run(f"MATCH (s:Stream) RETURN COUNT(s)")
+            result = session.run("MATCH (s:Stream) RETURN COUNT(s)")
             return result.single()[0]
+
+    def get_pkeys_and_titles_of(self, start, end):
+        with self.driver.session() as session:
+            result = session.run(
+                """
+                MATCH (p:Publication)
+                WHERE p.title <> ''
+                RETURN p.key AS pkey, p.title as title
+                ORDER BY pkey
+                SKIP $start
+                LIMIT $num
+                """,
+                start=start,
+                num=end - start,
+            )
+            return [record.data() for record in result]
 
     def get_titles(self, pkeys):
         with self.driver.session() as session:

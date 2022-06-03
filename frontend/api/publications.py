@@ -2,17 +2,16 @@ import os
 import tempfile
 import subprocess
 
+import numpy as np
 import flask
 from flask import jsonify, request
 from werkzeug.utils import secure_filename
-import tensorflow as tf
-import tensorflow_hub as hub
 
 # from celery_inst import upload_data as task_upload_data
 # from celery_inst import upload_data_local
 
 
-def register_publication_endpoints(app, stores, config):
+def register_publication_endpoints(app, stores, mod, config):
     store = stores["neo4j"]
 
     @app.route("/api/publ", methods=["GET"])
@@ -52,19 +51,26 @@ def register_publication_endpoints(app, stores, config):
         pkeys = [s.strip() for s in stdout.split("\n")]
         return pkeys
 
+    def make_embed(res):
+        pkeys = list(map(lambda x: x["pkey"], res))
+        titles = list(map(lambda x: x["title"], res))
+        embeds = np.array(mod(titles)).tolist()
+        return list(zip(pkeys, titles, embeds))
+
     def upload_data(filepath, config):
         pkeys = _parse_and_upload_data(filepath, config)
 
-        store.drop_graphs()
-        node_count, rel_count, community_count = store.create_community_graph()
+        # store.drop_graphs()
+        # node_count, rel_count, community_count = store.create_community_graph()
 
         res = store.get_titles(pkeys)
+        res = make_embed(res)
 
         return {
             "pkeys": pkeys,
-            "node_count": node_count,
-            "relationship_count": rel_count,
-            "community_count": community_count,
+            # "node_count": node_count,
+            # "relationship_count": rel_count,
+            # "community_count": community_count,
             "res": res,
         }
 
