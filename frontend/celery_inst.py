@@ -26,32 +26,21 @@ def _parse_and_upload_data(filepath, config):
         "java",
         "-jar",
         "./bin/app.jar",
-        f"--host={config['NEO4J_HOST']}",
-        f"--user={config['NEO4J_USER']}",
-        f"--password={config['NEO4J_PASS']}",
+        "--host",
+        config["NEO4J_HOST"],
+        "--user",
+        config["NEO4J_USER"],
+        "--password",
+        config["NEO4J_PASS"],
         "--store-all",
         filepath,
-        "./data/dblp.dtd",
+        "./bin/dblp.dtd",
     ]
 
-    res = subprocess.Popen(
-        args=args,
-        shell=True,
-        stdout=subprocess.PIPE,
-    )
-    stdout, _ = res.communicate()
-
-    pkeys = [s.strip() for s in bytes(stdout).decode("utf-8").split()]
+    res = subprocess.run(" ".join(args), shell=True, check=True, capture_output=True)
+    stdout = res.stdout.decode("UTF-8").strip()
+    pkeys = [s.strip() for s in stdout.split("\n")]
     return pkeys
-
-
-def _update_community_graph(config):
-    store = Neo4jStore(config)
-
-    store.drop_graphs()
-    node_count, rel_count, community_count = store.create_community_graph()
-
-    return node_count, rel_count, community_count
 
 
 @app.task(bind=True)
