@@ -41,9 +41,9 @@
           <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-{{ loop.index }}">
             Details
           </button>
-          <button type="button" class="btn btn-sm btn-primary">
+          <a href="/recommend?pkey={{ publ['key'] }}" class="btn btn-sm btn-primary">
             Find recommendations
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -65,10 +65,12 @@
             </thead>
             <tbody>
               {% for k, v in publ.items() %}
+              {% if k != 'community_id'%}
               <tr>
                 <th scope="row">{{ k }}</th>
                 <td>{{ v }}</td>
               </tr>
+              {% endif %}
               {% endfor %}
             </tbody>
           </table>

@@ -55,3 +55,33 @@ class PostgresStore:
 
         self.conn.commit()
         cur.close()
+
+    def retrieve_embeds(self, pkeys):
+        cur = self.conn.cursor()
+        if isinstance(pkeys, list):
+            cur.execute(
+                """
+                SELECT pkey, embed
+                FROM embeds
+                WHERE pkey IN %s
+                ORDER BY pkey
+                """,
+                (tuple(pkeys),),
+            )
+        else:
+            cur.execute(
+                """
+                SELECT pkey, embed
+                FROM embeds
+                WHERE pkey = %s
+                ORDER BY pkey
+                """,
+                (pkeys,),
+            )
+
+        rows = cur.fetchall()
+
+        self.conn.commit()
+        cur.close()
+
+        return rows

@@ -7,21 +7,19 @@ import flask
 from flask import jsonify, request
 from werkzeug.utils import secure_filename
 
-# from celery_inst import upload_data as task_upload_data
-# from celery_inst import upload_data_local
-
 
 def register_publication_endpoints(app, stores, mod, config):
-    store = stores["neo4j"]
+    store_neo4j = stores["neo4j"]
+    store_postgres = stores["postgres"]
 
     @app.route("/api/publ", methods=["GET"])
     def search_by_title():
         search = request.args.get("search", None)
-        return jsonify(store.search_by_title(search))
+        return jsonify(store_neo4j.search_by_title(search))
 
     @app.route("/api/publ/<string:pkey>", methods=["GET"])
     def get_related_publications(pkey):
-        data = store.get_related_publications(pkey)
+        data = store_neo4j.get_related_publications(pkey)
         return jsonify(data)
 
     def is_file_allowed(filename):
@@ -51,27 +49,26 @@ def register_publication_endpoints(app, stores, mod, config):
         pkeys = [s.strip() for s in stdout.split("\n")]
         return pkeys
 
-    def make_embed(res):
+    def _make_embed(res):
         pkeys = list(map(lambda x: x["pkey"], res))
         titles = list(map(lambda x: x["title"], res))
         embeds = np.array(mod(titles)).tolist()
-        return list(zip(pkeys, titles, embeds))
+        store_postgres.insert_pkeys_embeds(pkeys, embeds)
 
-    def upload_data(filepath, config):
+    def _upload_data(filepath, config):
         pkeys = _parse_and_upload_data(filepath, config)
 
-        # store.drop_graphs()
-        # node_count, rel_count, community_count = store.create_community_graph()
+        store_neo4j.drop_graphs()
+        node_count, rel_count, community_count = store_neo4j.create_community_graph()
 
-        res = store.get_titles(pkeys)
-        res = make_embed(res)
+        res = store_neo4j.get_titles(pkeys)
+        _make_embed(res)
 
         return {
             "pkeys": pkeys,
-            # "node_count": node_count,
-            # "relationship_count": rel_count,
-            # "community_count": community_count,
-            "res": res,
+            "node_count": node_count,
+            "relationship_count": rel_count,
+            "community_count": community_count,
         }
 
     @app.route("/upload", methods=["GET", "POST"])
@@ -95,7 +92,7 @@ def register_publication_endpoints(app, stores, mod, config):
                     filepath = os.path.join(tmpdirname, filename)
                     file.save(filepath)
 
-                    res = upload_data(filepath, config)
+                    res = _upload_data(filepath, config)
 
                 return jsonify({"result": res})
 

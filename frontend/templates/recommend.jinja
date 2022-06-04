@@ -1,0 +1,120 @@
+{% extends 'base.jinja' %}
+
+{% block title %}
+  Recommendations for "{{ pkey }}"" | BKMS: Bibliography Knows Meaningful Suggestions
+{% endblock title %}
+
+{% block description %}
+{% endblock description %}
+
+{% block content %}
+<div class="row">
+  {% with publ = data_origin['p'] %}
+  <div class="col-sm-12 mb-3">
+    <div class="card">
+      <div class="card-header">
+      Target paper
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ publ['title'] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ data_origin['authors'] }}{% if 'year' in publ %}&nbsp;({{ publ['year'] }}).{% endif %}
+        </h6>
+        <div class="text-end">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-0">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-lg" id="cardDetail-0" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Publication details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for k, v in publ.items() %}
+              {% if k != 'community_id' %}
+              <tr>
+                <th scope="row">{{ k }}</th>
+                <td>{{ v }}</td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endwith %}
+
+  {% for record in data %}
+  {% with publ = record['p'] %}
+  <div class="col-sm-6 mb-3">
+    <div class="card">
+      <div class="card-header">
+        Recommendation #{{ loop.index }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ publ['title'] }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ record['authors'] }}{% if 'year' in publ %}&nbsp;({{ publ['year'] }}).{% endif %}
+        </h6>
+        <ul>
+          <li>Content similarity: {{ record['content_similarity'] | simFormat }}</li>
+          <li>Node similarity: {{ record['node_similarity'] | simFormat }}</li>
+        </ul>
+        <div class="text-end">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-{{ loop.index }}">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-lg" id="cardDetail-{{ loop.index }}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Publication details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for k, v in publ.items() %}
+              {% if k != 'community_id'%}
+              <tr>
+                <th scope="row">{{ k }}</th>
+                <td>{{ v }}</td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endwith %}
+  {% endfor %}
+</div>
+{% endblock content %}
