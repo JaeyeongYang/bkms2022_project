@@ -69,45 +69,48 @@ def register_interface_endpoints(app, stores):
     def cosine_sim(x, y):
         return np.dot(x, y) / (np.linalg.norm(x) * np.linalg.norm(y))
 
-    def get_recommendations(pkey):
-        embed_origin = store_postgres.retrieve_embeds(pkey)[0][1]
-
-        k = request.args.get("k", 25)
-        res = store_neo4j.generate_candidates(pkey, k)
-        res.sort(key=lambda x: x["pkey"])
-
-        pkeys = list(map(lambda x: x["pkey"], res))
-        embeds = store_postgres.retrieve_embeds(pkeys)
-        embeds.sort(key=lambda x: x[0])
-
-        for i in range(len(res)):
-            res[i]["content_similarity"] = cosine_sim(embed_origin, embeds[i][1])
-
-        res.sort(key=lambda x: -x["content_similarity"])
-
-        return res
-
     @app.route("/recommend", methods=["GET"])
     def get_recommendations_interface():
         pkey = request.args.get("pkey", None)
         if pkey is None:
             return flask.redirect(flask.url_for("index"))
 
-        res_orig = store_neo4j.search_by_pkey([pkey])
-        data_orig = serialize_search_data(res_orig)
+        k = request.args.get("k", 25)
 
-        res_rec = get_recommendations(pkey)
-        dict_rec = {r["pkey"]: r for r in res_rec}
-        res = store_neo4j.search_by_pkey(list(map(lambda x: x["pkey"], res_rec)))
-        data = serialize_search_data(res)
-        for i in range(len(data)):
-            _pkey = data[i]["p"]["key"]
-            data[i]["node_similarity"] = dict_rec[_pkey]["node_similarity"]
-            data[i]["content_similarity"] = dict_rec[_pkey]["content_similarity"]
-        data.sort(key=lambda x: -x["content_similarity"])
+        # Retrieve data for the target publication
+        res_target = store_neo4j.search_by_pkey([pkey])
+        data_target = serialize_search_data(res_target)[0]
+        embed_target = store_postgres.retrieve_embeds(pkey)[0][1]
+
+        # Generate candidates
+        res_cand = store_neo4j.generate_candidates(pkey, k)
+        dict_cand = {x["pkey"]: x["node_similarity"] for x in res_cand}
+
+        # Retrieve sentence embeddings
+        pkeys = list(map(lambda x: x["pkey"], res_cand))
+        res_embeds = store_postgres.retrieve_embeds(pkeys)
+        dict_embeds = {x[0]: x[1] for x in res_embeds}
+
+        # Prepare paper information
+        res_recom = store_neo4j.search_by_pkey(pkeys)
+        data_recom = serialize_search_data(res_recom)
+
+        # Calculate content similarity
+        for i in range(len(data_recom)):
+            _pkey = data_recom[i]["p"]["key"]
+            _embed = dict_embeds.get(_pkey, None)
+
+            if _embed is not None:
+                data_recom[i]["content_similarity"] = cosine_sim(embed_target, _embed)
+                data_recom[i]["node_similarity"] = dict_cand[_pkey]
+
+        # Filter and re-sort data
+        data_recom = list(filter(lambda x: "content_similarity" in x, data_recom))
+        data_recom.sort(key=lambda x: -x["content_similarity"])
 
         return flask.render_template(
             "recommend.jinja",
-            data_origin=data_orig[0],
-            data=data,
+            pkey=pkey,
+            data_target=data_target,
+            data_recom=data_recom,
         )

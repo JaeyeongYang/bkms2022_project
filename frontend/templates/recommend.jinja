@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="row">
-  {% with publ = data_origin['p'] %}
+  {% with publ = data_target['p'] %}
   <div class="col-sm-12 mb-3">
     <div class="card">
       <div class="card-header">
@@ -18,9 +18,12 @@
       <div class="card-body">
         <h5 class="card-title">{{ publ['title'] }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">
-          {{ data_origin['authors'] }}{% if 'year' in publ %}&nbsp;({{ publ['year'] }}).{% endif %}
+          {{ data_target['authors'] }}{% if 'year' in publ %}&nbsp;({{ publ['year'] }}).{% endif %}
         </h6>
         <div class="text-end">
+          <a href="https://dblp.org/rec/{{ publ['key'] }}" class="btn btn-sm btn-secondary">
+            Link 
+          </a>
           <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-0">
             Details
           </button>
@@ -60,7 +63,7 @@
   </div>
   {% endwith %}
 
-  {% for record in data %}
+  {% for record in data_recom %}
   {% with publ = record['p'] %}
   <div class="col-sm-6 mb-3">
     <div class="card">
@@ -77,6 +80,9 @@
           <li>Node similarity: {{ record['node_similarity'] | simFormat }}</li>
         </ul>
         <div class="text-end">
+          <a href="https://dblp.org/rec/{{ publ['key'] }}" class="btn btn-sm btn-secondary">
+            Link 
+          </a>
           <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-{{ loop.index }}">
             Details
           </button>

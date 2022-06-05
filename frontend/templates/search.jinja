@@ -38,11 +38,14 @@
           {{ record['authors'] }}{% if 'year' in publ %}&nbsp;({{ publ['year'] }}).{% endif %}
         </h6>
         <div class="text-end">
+          <a href="https://dblp.org/rec/{{ publ['key'] }}" class="btn btn-sm btn-secondary">
+            Link 
+          </a>
           <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#cardDetail-{{ loop.index }}">
             Details
           </button>
           <a href="/recommend?pkey={{ publ['key'] }}" class="btn btn-sm btn-primary">
-            Find recommendations
+            Recommend me
           </a>
         </div>
       </div>
