@@ -59,6 +59,8 @@ def register_publication_endpoints(app, stores, mod, config):
         pkeys = _parse_and_upload_data(filepath, config)
 
         store_neo4j.drop_graphs()
+        store_neo4j.drop_similar_relationships()
+
         node_count, rel_count, community_count = store_neo4j.create_community_graph()
 
         res = store_neo4j.get_titles(pkeys)
@@ -66,6 +68,19 @@ def register_publication_endpoints(app, stores, mod, config):
 
         return {
             "pkeys": pkeys,
+            "node_count": node_count,
+            "relationship_count": rel_count,
+            "community_count": community_count,
+        }
+
+    @app.route("/db/init/reset_graph", methods=["GET"])
+    def reset_graph():
+        store_neo4j.drop_graphs()
+        store_neo4j.drop_similar_relationships()
+
+        node_count, rel_count, community_count = store_neo4j.create_community_graph()
+
+        return {
             "node_count": node_count,
             "relationship_count": rel_count,
             "community_count": community_count,
@@ -97,3 +112,36 @@ def register_publication_endpoints(app, stores, mod, config):
                 return jsonify({"result": res})
 
         return flask.render_template("upload.jinja")
+
+    def _upload_data_only(filepath, config):
+        pkeys = _parse_and_upload_data(filepath, config)
+        # res = store_neo4j.get_titles(pkeys)
+        # _make_embed(res)
+
+        return {
+            "pkeys": pkeys,
+        }
+
+    @app.route("/upload_data_only", methods=["POST"])
+    def upload_data_only_interface():
+        if "file" not in request.files:
+            flask.flash("No file part", "error")
+            return flask.redirect(request.url)
+
+        file = request.files["file"]
+        if file.filename == "":
+            flask.flash("No selected file", "error")
+            return flask.redirect(request.url)
+
+        filename = secure_filename(file.filename)
+        app.logger.info(filename)
+        app.logger.info(is_file_allowed(filename))
+
+        if file and is_file_allowed(filename):
+            with tempfile.TemporaryDirectory() as tmpdirname:
+                filepath = os.path.join(tmpdirname, filename)
+                file.save(filepath)
+
+                res = _upload_data_only(filepath, config)
+
+            return jsonify({"result": res})

@@ -13,6 +13,36 @@ class Neo4jStore:
     def close(self):
         self.driver.close()
 
+    def create_indexes(self):
+        with self.driver.session() as session:
+            _ = session.run(
+                """
+                CREATE TEXT INDEX PublicationKeyIndex IF NOT EXISTS
+                FOR (p:Publication) ON (p.key)
+                """
+            )
+
+            _ = session.run(
+                """
+                CREATE TEXT INDEX AuthorNameIndex IF NOT EXISTS
+                FOR (a:Author) ON (a.name)
+                """
+            )
+
+            _ = session.run(
+                """
+                CREATE TEXT INDEX StreamKeyIndex IF NOT EXISTS
+                FOR (s:Stream) ON (s.key)
+                """
+            )
+
+            _ = session.run(
+                """
+                CREATE FULLTEXT INDEX PublicationFulltextIndex IF NOT EXISTS 
+                FOR (p:Publication) ON EACH [p.title, p.booktitle, p.journal]
+                """
+            )
+
     def get_num_publications(self):
         with self.driver.session() as session:
             result = session.run("MATCH (p:Publication) RETURN COUNT(p)")
@@ -79,10 +109,11 @@ class Neo4jStore:
             )
             return [record.data() for record in result]
 
-    def search_by_title(self, search=None, page=1, limit=24):
+    def search_by_title(self, search, page=1, limit=24):
+        search = search.lower().replace("  ", " ")
         query_with = r"""
         WITH REDUCE(res = [], w IN SPLIT($search, " ") |
-            CASE WHEN w <> '' THEN res + (".*" + w + ".*")
+            CASE WHEN w <> '' THEN res + ("(?i).*" + w + ".*")
             ELSE res END) AS res
         """
         query_where = "ALL(regexp IN res WHERE p.title =~ regexp)"
@@ -127,6 +158,47 @@ class Neo4jStore:
             )
             return {"count": count, "data": [record.data() for record in result]}
 
+    def search_by_title_new(self, search, page=1, limit=24):
+        search = search.lower().replace("  ", " ")
+
+        if not isinstance(page, int):
+            raise RuntimeError('"page" is not an integer.')
+        elif page <= 0:
+            raise RuntimeError('"page" should be a positive integer.')
+
+        query_skip = f"SKIP {(page - 1) * limit}" if page > 1 else ""
+
+        with self.driver.session() as session:
+            result = session.run(
+                """
+                CALL db.index.fulltext.queryNodes("PublicationFulltextIndex", $search)
+                YIELD node
+                RETURN COUNT(node) as cnt
+                """,
+                search=search,
+            )
+            count = result.single()[0]
+            if count == 0:
+                return {"count": count, "data": []}
+
+        with self.driver.session() as session:
+            result = session.run(
+                f"""
+                CALL db.index.fulltext.queryNodes("PublicationFulltextIndex", $search)
+                YIELD node, score
+                RETURN node AS p, score
+                ORDER BY score DESC
+                {query_skip}
+                LIMIT $limit
+                MATCH (p)-[:AUTHORED_BY]->(a:Author)
+                WITH p, COLLECT(a) AS authors
+                RETURN p, authors
+                """,
+                search=search,
+                limit=limit,
+            )
+            return {"count": count, "data": [record.data() for record in result]}
+
     def get_related_publications(self, pkey):
         with self.driver.session() as session:
             result = session.run(
@@ -157,6 +229,12 @@ class Neo4jStore:
                 _ = session.run(
                     "CALL gds.graph.drop($graph_name, False)", graph_name=graph_name
                 )
+
+    def drop_similar_relationships(self):
+        with self.driver.session() as session:
+            # Drop bib_community graph if exists
+            result = session.run("MATCH ()-[r:SIMILAR]->() DETACH DELETE r")
+            return result.data()
 
     def create_community_graph(self):
         with self.driver.session() as session:

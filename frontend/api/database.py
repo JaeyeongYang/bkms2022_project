@@ -1,4 +1,5 @@
 import json
+import time
 
 import numpy as np
 import flask
@@ -21,16 +22,21 @@ def register_database_endpoints(app, stores, mod):
     def generate_all_embeds():
         num_publ = store_neo4j.get_num_publications_with_title()
         app.logger.info(f"Total {num_publ} publications with title")
-        batchsize = 500
+        batchsize = 10000
 
         for i in range(0, num_publ, batchsize):
-            app.logger.info((i, i + batchsize))
+            time_start = time.time()
             result = store_neo4j.get_pkeys_and_titles_of(i, i + batchsize)
 
             pkeys = list(map(lambda x: x["pkey"], result))
             titles = list(map(lambda x: x["title"], result))
             embeds = np.array(mod(titles)).tolist()
+            app.logger.info(f"({i}, {i + batchsize}): Done making embedding")
 
             store_postgres.insert_pkeys_embeds(pkeys, embeds)
+            time_end = time.time()
+            app.logger.info(
+                f"({i}, {i + batchsize}): Done {time_end - time_start:.3f}sec"
+            )
 
         return jsonify({"state": "SUCCESS"})

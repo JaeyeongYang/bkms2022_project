@@ -28,60 +28,71 @@ class PostgresStore:
 
     def create_embed_table(self):
         cur = self.conn.cursor()
-        cur.execute(
-            """
-            CREATE TABLE IF NOT EXISTS embeds (
-                pkey TEXT PRIMARY KEY UNIQUE,
-                embed FLOAT8[512]
-            );
-            """
-        )
-        self.conn.commit()
+        try:
+            cur.execute(
+                """
+                CREATE TABLE IF NOT EXISTS embeds (
+                    pkey TEXT PRIMARY KEY UNIQUE,
+                    embed FLOAT8[512]
+                );
+                """
+            )
+            self.conn.commit()
+        except Exception as e:
+            print(e)
+            cur.execute("ROLLBACK")
         cur.close()
 
     def insert_pkeys_embeds(self, pkeys, embeds):
         cur = self.conn.cursor()
         data = list(zip(pkeys, embeds))
 
-        cur.executemany(
-            """
-            INSERT INTO embeds
-            VALUES (%s, %s)
-            ON CONFLICT (pkey)
-            DO UPDATE SET embed = excluded.embed;
-            """,
-            data,
-        )
+        try:
+            cur.executemany(
+                """
+                INSERT INTO embeds
+                VALUES (%s, %s)
+                ON CONFLICT (pkey)
+                DO NOTHING
+                """,
+                data,
+            )
+            self.conn.commit()
+        except Exception as e:
+            print(e)
+            cur.execute("ROLLBACK")
 
-        self.conn.commit()
         cur.close()
 
     def retrieve_embeds(self, pkeys):
         cur = self.conn.cursor()
-        if isinstance(pkeys, list):
-            cur.execute(
-                """
-                SELECT pkey, embed
-                FROM embeds
-                WHERE pkey IN %s
-                ORDER BY pkey
-                """,
-                (tuple(pkeys),),
-            )
-        else:
-            cur.execute(
-                """
-                SELECT pkey, embed
-                FROM embeds
-                WHERE pkey = %s
-                ORDER BY pkey
-                """,
-                (pkeys,),
-            )
 
-        rows = cur.fetchall()
+        try:
+            if isinstance(pkeys, list):
+                cur.execute(
+                    """
+                    SELECT pkey, embed
+                    FROM embeds
+                    WHERE pkey IN %s
+                    ORDER BY pkey
+                    """,
+                    (tuple(pkeys),),
+                )
+            else:
+                cur.execute(
+                    """
+                    SELECT pkey, embed
+                    FROM embeds
+                    WHERE pkey = %s
+                    ORDER BY pkey
+                    """,
+                    (pkeys,),
+                )
+            rows = cur.fetchall()
+        except Exception as e:
+            print(e)
+            cur.execute("ROLLBACK")
+            return []
 
-        self.conn.commit()
         cur.close()
-
         return rows

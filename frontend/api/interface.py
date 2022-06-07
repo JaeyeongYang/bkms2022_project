@@ -54,6 +54,7 @@ def register_interface_endpoints(app, stores):
         limit = int(request.args.get("limit", 10))
 
         res = store_neo4j.search_by_title(query, page, limit)
+        print(res["data"])
         count = res["count"]
         data = serialize_search_data(res["data"])
 
