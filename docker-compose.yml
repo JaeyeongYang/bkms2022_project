@@ -21,10 +21,10 @@ services:
     hostname: neo4j
     environment:
       NEO4J_AUTH: "${NEO4J_USER}/${NEO4J_PASS}"
-      NEO4J_dbms_memory_pagecache_size: 16G
-      NEO4J_dbms_memory_heap_max__size: 16G
+      NEO4J_dbms_memory_pagecache_size: 8G
+      NEO4J_dbms_memory_heap_max__size: 32G
       NEO4J_dbms_default__listen__address: 0.0.0.0
-      NEO4JLABS_PLUGINS: '["apoc", "graph-data-science"]'
+      NEO4JLABS_PLUGINS: '["graph-data-science"]'
     ports:
       - "54010:7687"
     volumes:
