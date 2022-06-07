@@ -109,7 +109,7 @@ class Neo4jStore:
             )
             return [record.data() for record in result]
 
-    def search_by_title(self, search, page=1, limit=24):
+    def search_by_title_old(self, search, page=1, limit=24):
         search = search.lower().replace("  ", " ")
         query_with = r"""
         WITH REDUCE(res = [], w IN SPLIT($search, " ") |
@@ -158,7 +158,7 @@ class Neo4jStore:
             )
             return {"count": count, "data": [record.data() for record in result]}
 
-    def search_by_title_new(self, search, page=1, limit=24):
+    def search_by_title(self, search, page=1, limit=24):
         search = search.lower().replace("  ", " ")
 
         if not isinstance(page, int):
@@ -185,14 +185,15 @@ class Neo4jStore:
             result = session.run(
                 f"""
                 CALL db.index.fulltext.queryNodes("PublicationFulltextIndex", $search)
-                YIELD node, score
-                RETURN node AS p, score
-                ORDER BY score DESC
+                YIELD node AS p, score
+                MATCH (p)-[r:AUTHORED_BY]-(a:Author)
+                WITH p, r, a, score
+                ORDER BY r.`order`
+                WITH p, COLLECT(a) AS authors, score
+                RETURN p, authors, score
+                ORDER BY score desc
                 {query_skip}
                 LIMIT $limit
-                MATCH (p)-[:AUTHORED_BY]->(a:Author)
-                WITH p, COLLECT(a) AS authors
-                RETURN p, authors
                 """,
                 search=search,
                 limit=limit,
