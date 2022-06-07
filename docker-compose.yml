@@ -2,7 +2,7 @@
 version: "3"
 
 services:
-  db_postgres:
+  postgres:
     image: postgres:14.2
     restart: unless-stopped
     hostname: postgres
@@ -12,12 +12,10 @@ services:
       POSTGRES_DB: "${POSTGRES_DB}"
     ports:
       - "54006:${POSTGRES_PORT}"
-    expose:
-      - "5432"
     volumes:
       - db-data-postgres:/var/lib/postgresql/data
 
-  db_neo4j:
+  neo4j:
     image: neo4j:4.4.6-community
     restart: unless-stopped
     hostname: neo4j
@@ -27,36 +25,45 @@ services:
       NEO4J_dbms_memory_heap_max__size: 16G
       NEO4J_dbms_default__listen__address: 0.0.0.0
       NEO4JLABS_PLUGINS: '["apoc", "graph-data-science"]'
-    expose:
-      - "7687"
     ports:
       - "54010:7687"
     volumes:
       - db-data-neo4j:/data
       - db-logs-neo4j:/logs
 
-  db_redis:
-    image: redis:7.0-alpine
-    restart: unless-stopped
-    hostname: redis
-    expose:
-      - "6379"
-    volumes:
-      - db-data-redis:/data
+  # redis:
+  #   image: redis:7.0-alpine
+  #   restart: unless-stopped
+  #   hostname: redis
+  #   volumes:
+  #     - db-data-redis:/data
 
-  worker:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    restart: unless-stopped
-    depends_on:
-      - db_postgres
-      - db_neo4j
-      - db_redis
-    volumes:
-      - ./frontend:/code
-    entrypoint: ["dockerize", "-wait", "tcp://db_redis:6379", "-timeout", "60s"]
-    command: ["celery", "--app=tasks.app", "worker", "--loglevel=info"]
+  # worker:
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - postgres
+  #     - neo4j
+  #     - redis
+  #   volumes:
+  #     - ./frontend:/code
+  #   entrypoint:
+  #     [
+  #       "dockerize",
+  #       "-wait",
+  #       "tcp://redis:6379",
+  #       "-timeout",
+  #       "60s"
+  #     ]
+  #   command:
+  #     [
+  #       "celery",
+  #       "--app=celery_inst.app",
+  #       "worker",
+  #       "--loglevel=info"
+  #     ]
 
   web:
     build:
@@ -66,13 +73,20 @@ services:
     ports:
       - "54015:${FLASK_PORT}"
     depends_on:
-      - db_postgres
-      - db_neo4j
-      - db_redis
-      - worker
+      - postgres
+      - neo4j
+      # - redis
+      # - worker
     volumes:
       - ./frontend:/code
-    entrypoint: ["dockerize", "-wait", "tcp://db_neo4j:7687", "-timeout", "60s"]
+    entrypoint:
+      [
+        "dockerize",
+        "-wait",
+        "tcp://neo4j:7687",
+        "-timeout",
+        "60s"
+      ]
     command: "python app.py"
 
 networks:
@@ -84,4 +98,3 @@ volumes:
   db-data-neo4j:
   db-logs-neo4j:
   db-data-redis:
-

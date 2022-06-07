@@ -9,7 +9,7 @@ Upload data as an XML file:
 {% endblock description %}
 
 {% block content %}
-<form class="form-search" action="/upload" method="POST" enctype="multipart/form-data">
+<form id="form-upload" class="form-search" action="/upload" method="POST" enctype="multipart/form-data">
   <div class="input-group mb-3">
     <input
       type="file"
@@ -19,83 +19,43 @@ Upload data as an XML file:
       class="form-control"
       required
     />
-    <button class="btn btn-primary" type="submit">Upload</button>
+    <button class="btn btn-primary" type="button" onclick="uploadData();">Upload</button>
   </div>
-  {% with errors = get_flashed_messages(category_filter=["error"]) %}
-    {% if errors %}
-    <div class="invalid-feedback" style="display: block;">
-      <ul>
-        {% for error in errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  {% endwith %}
-  {% with infos = get_flashed_messages(category_filter=["info"]) %}
-    {% if infos %}
-    <div class="valid-feedback" style="display: block;">
-      <ul>
-        {% for info in infos %}
-        <li>{{ info }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  {% endwith %}
-  {% if task_id %}
-    <div id='progress-log' style="display: block;">
-      <p>
-      </p>
-    </div>
-    <script>
+  <div id='progress-log' style="display: block;"></div>
+  <script>
+  function uploadData(event) {
+    var formData = new FormData();
+    var dataFile = document.querySelector('#file');
 
-    window.addEventListener('load', function() {
-      let progress_logs = []
+    var eleButton = document.querySelector('#form-upload button');
+    var eleProgress = document.querySelector('#progress-log');
 
-      var intervalId = setInterval(function () {
-        axios.get('upload/progress', {params: {task_id: "{{ task_id }}"}})
-          .then(function (response) {
-            const data = response.data;
-            const e = document.querySelector("#progress-log p");
+    eleButton.disabled = true;
+    eleButton.innerHTML = `Uploading 
+    <div class="spinner-border spinner-border-sm" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>`;
 
-            // Remove all children elements
-            // var child = e.lastElementChild;
-            // while (child) {
-            //   e.removeChild(child);
-            //   child = e.lastElementChild;
-            // }
-            var text_state = data.state;
-            var text_info = (data.info.message !== undefined) ? data.info.message : '';
+    eleProgress.className = '';
+    eleProgress.textContent = '';
 
-            var text_icon = ''
-            switch (text_state) {
-              case 'SUCCESS':
-                text_icon = '<i class="fa fa-check-circle" aria-hidden="true"></i>';
-                break;
-              case 'FAILURE':
-                text_icon = '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>';
-                break;
-              default:
-                text_icon = '<div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></div>';
-            }
-            var text = `${text_icon} ${text_info}`;
+    formData.append("file", dataFile.files[0]);
 
-            if (progress_logs.length == 0 || progress_logs.at(-1) != text) {
-              progress_logs.push(text);
-              e.innerHTML = text;
-            }
-
-            if (text_state == 'FAILURE' || text_state == 'SUCCESS') {
-              const spinner = document.querySelector('#progress-log .spinner-border');
-              spinner.remove();
-              clearInterval(intervalId);
-            }
-          })
-      }, 1000);
+    axios.post('/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then(function (response) {
+      eleProgress.className = 'valid-feedback';
+      eleProgress.textContent = 'Success';
+    }).catch(function (error) {
+      eleProgress.className = 'invalid-feedback';
+      eleProgress.textContent = 'Failure';
+    }).then(function() {
+      eleButton.disabled = false;
+      eleButton.textContent = `Upload`;
     })
-    </script>
-  {% endif %}
-
+  }
+  </script>
 </form>
 {% endblock content %}
