@@ -104,7 +104,7 @@ class App implements AutoCloseable {
         if (citedKeys.size() > 0) {
             query.append("FOREACH (key_cited IN $citedKeys |\n");
             query.append("  MERGE (p_cited: Publication {key: key_cited})\n");
-            query.append("  CREATE (p_cited) -[:CITED_BY]-> (p))\n");
+            query.append("  MERGE (p_cited) -[:CITED_BY]-> (p))\n");
 
             params.put("citedKeys", citedKeys);
         }
@@ -130,7 +130,7 @@ class App implements AutoCloseable {
         }
         query.append("\n");
 
-        query.append("CREATE (p) -[:AUTHORED_BY {order: $authorshipOrder, num_authors: $numAuthors}]-> (a)");
+        query.append("MERGE (p) -[:AUTHORED_BY {order: $authorshipOrder, num_authors: $numAuthors}]-> (a)");
 
         params.put("name", authorField.value());
         params.put("publKey", publKey);
