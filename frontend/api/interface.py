@@ -36,12 +36,11 @@ def register_interface_endpoints(app, stores):
             if len(author_names) > 1:
                 author_names[-1] = "& " + author_names[-1]
 
-            ret.append(
-                {
-                    "p": record["p"],
-                    "authors": ", ".join(author_names),
-                }
-            )
+            authors = ", ".join(author_names)
+            if authors == "":
+                authors = "[NO AUTHOR INFO]"
+
+            ret.append({"p": record["p"], "authors": authors})
         return ret
 
     @app.route("/search", methods=["GET"])

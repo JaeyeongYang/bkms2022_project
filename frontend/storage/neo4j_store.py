@@ -109,64 +109,14 @@ class Neo4jStore:
             )
             return [record.data() for record in result]
 
-    def search_by_title_old(self, search, page=1, limit=24):
-        search = search.lower().replace("  ", " ")
-        query_with = r"""
-        WITH REDUCE(res = [], w IN SPLIT($search, " ") |
-            CASE WHEN w <> '' THEN res + ("(?i).*" + w + ".*")
-            ELSE res END) AS res
-        """
-        query_where = "ALL(regexp IN res WHERE p.title =~ regexp)"
-
-        if not isinstance(page, int):
-            raise RuntimeError('"page" is not an integer.')
-        elif page <= 0:
-            raise RuntimeError('"page" should be a positive integer.')
-
-        query_skip = f"SKIP {(page - 1) * limit}" if page > 1 else ""
-
-        with self.driver.session() as session:
-            result = session.run(
-                f"""
-                {query_with}
-                MATCH (p:Publication)
-                WHERE {query_where}
-                RETURN COUNT(p)
-                """,
-                search=search,
-            )
-            count = result.single()[0]
-            if count == 0:
-                return {"count": count, "data": []}
-
-        with self.driver.session() as session:
-            result = session.run(
-                f"""
-                {query_with}
-                MATCH (p:Publication)
-                WHERE {query_where}
-                WITH p
-                MATCH (p)-[:AUTHORED_BY]->(a:Author)
-                WITH p, COLLECT(a) AS authors
-                RETURN p, authors
-                ORDER BY p.year DESC
-                {query_skip}
-                LIMIT $limit
-                """,
-                search=search,
-                limit=limit,
-            )
-            return {"count": count, "data": [record.data() for record in result]}
-
     def search_by_title(self, search, page=1, limit=24):
         search = search.lower().replace("  ", " ")
+        skip = (page - 1) * limit if page > 1 else 0
 
         if not isinstance(page, int):
             raise RuntimeError('"page" is not an integer.')
         elif page <= 0:
             raise RuntimeError('"page" should be a positive integer.')
-
-        query_skip = f"SKIP {(page - 1) * limit}" if page > 1 else ""
 
         with self.driver.session() as session:
             result = session.run(
@@ -186,16 +136,17 @@ class Neo4jStore:
                 f"""
                 CALL db.index.fulltext.queryNodes("PublicationFulltextIndex", $search)
                 YIELD node AS p, score
-                MATCH (p)-[r:AUTHORED_BY]-(a:Author)
+                OPTIONAL MATCH (p)-[r:AUTHORED_BY]-(a:Author)
                 WITH p, r, a, score
                 ORDER BY r.`order`
                 WITH p, COLLECT(a) AS authors, score
                 RETURN p, authors, score
                 ORDER BY score desc
-                {query_skip}
+                SKIP $skip
                 LIMIT $limit
                 """,
                 search=search,
+                skip=skip,
                 limit=limit,
             )
             return {"count": count, "data": [record.data() for record in result]}
