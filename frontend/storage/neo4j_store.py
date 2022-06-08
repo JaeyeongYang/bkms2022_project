@@ -101,7 +101,7 @@ class Neo4jStore:
                 MATCH (p:Publication)
                 WHERE p.key IN $pkeys
                 WITH p
-                MATCH (p)-[:AUTHORED_BY]->(a:Author)
+                OPTIONAL MATCH (p)-[:AUTHORED_BY]->(a:Author)
                 WITH p, COLLECT(a) AS authors
                 RETURN p, authors
                 """,
